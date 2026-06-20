@@ -139,22 +139,14 @@ collections:
         file: _data/anime.json
         format: json
         fields:
-          - name: sections
-            label: セクション
+          - name: items
+            label: Favorite Anime
             widget: list
-            label_singular: セクション
+            label_singular: アニメ
             fields:
-              - {name: heading, label: 見出し, widget: string}
-              - name: items
-                label: アイテム
-                widget: list
-                label_singular: アイテム
-                fields:
-                  - {name: title,       label: タイトル,                 widget: string}
-                  - {name: youtube_id,  label: YouTube動画ID,          widget: string, required: false, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
-                  - {name: description, label: 説明文,                 widget: text, required: false}
-                  - {name: image,       label: 画像（YouTubeなしの場合）, widget: image, required: false}
-                  - {name: tags,        label: タグ,                   widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+              - {name: title,       label: タイトル,        widget: string}
+              - {name: youtube_id,  label: YouTube動画ID,   widget: string, required: false, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+              - {name: description, label: 説明文,          widget: text, required: false}
 
   - name: photo
     label: "📷 My Photo"

@@ -1,50 +1,9 @@
 {
-  "sections": [
+  "items": [
     {
-      "heading": "All Time Favorites",
-      "items": [
-        {
-          "title": "作品タイトル",
-          "description": "この作品の好きなポイント、推しキャラ、印象に残ったシーンや台詞などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
-          "tags": ["アクション", "神作"]
-        },
-        {
-          "title": "作品タイトル",
-          "description": "この作品の好きなポイント、推しキャラ、印象に残ったシーンや台詞などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80",
-          "tags": ["バトル", "ループ視聴"]
-        },
-        {
-          "title": "作品タイトル",
-          "description": "この作品の好きなポイント、推しキャラ、印象に残ったシーンや台詞などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1559181567-c3190ca9be23?auto=format&fit=crop&w=800&q=80",
-          "tags": ["日常", "癒し"]
-        }
-      ]
-    },
-    {
-      "heading": "最近見たアニメ",
-      "items": [
-        {
-          "title": "作品タイトル",
-          "description": "最近視聴した作品の感想。ストーリー、作画、キャラクター、音楽などについて。",
-          "image": "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&w=800&q=80",
-          "tags": ["2024", "視聴中"]
-        },
-        {
-          "title": "作品タイトル",
-          "description": "最近視聴した作品の感想。ストーリー、作画、キャラクター、音楽などについて。",
-          "image": "https://images.unsplash.com/photo-1614850715649-1d0106293bd1?auto=format&fit=crop&w=800&q=80",
-          "tags": ["2025", "完走"]
-        },
-        {
-          "title": "作品タイトル",
-          "description": "最近視聴した作品の感想。ストーリー、作画、キャラクター、音楽などについて。",
-          "image": "https://images.unsplash.com/photo-1584448097764-374f81551427?auto=format&fit=crop&w=800&q=80",
-          "tags": ["2026", "注目作"]
-        }
-      ]
+      "title": "作品タイトル",
+      "youtube_id": "",
+      "description": "好きなポイント、推しキャラ、印象に残ったシーンなど。"
     }
   ]
 }
