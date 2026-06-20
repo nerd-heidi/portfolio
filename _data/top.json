@@ -51,8 +51,8 @@
     },
     {
       "number": "07",
-      "title": "AI",
-      "description": "ChatGPT、AI音楽、AI時代の考え。",
+      "title": "AI 実験室",
+      "description": "AI 実験",
       "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
       "url": "ai.html",
       "size": "regular"
