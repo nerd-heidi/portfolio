@@ -103,7 +103,7 @@ async function renderMusicPage(dataFile) {
       </div>`;
     }).join('');
     html += `<section class="content-section">
-      <h2 class="section-heading">Favorite MV</h2>
+      <h2 class="section-heading">Favorite Music</h2>
       <div class="mv-grid">${mvsHTML}</div>
     </section>`;
   }
