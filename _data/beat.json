@@ -1,8 +1,20 @@
 {
   "beats": [
     {
-      "title": "ビートタイトル",
-      "audio": ""
+      "title": "まだ途中",
+      "audio": "/audio/10.まだ途中.wav"
+    },
+    {
+      "title": "No touch, no call",
+      "audio": "/audio/No touch, no call.wav"
+    },
+    {
+      "title": "体育館のすみ",
+      "audio": "/audio/08.体育館のすみ.wav"
+    },
+    {
+      "title": "Pop Sound",
+      "audio": "/audio/Pop Sound.wav"
     }
   ]
 }
