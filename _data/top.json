@@ -95,7 +95,7 @@
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
       "url": "youtube.html",
-      "size": "regular"
+      "size": "wide"
     },
     {
       "number": "13",
@@ -103,7 +103,7 @@
       "description": "好きなCM、映像表現、印象に残ったビ芸。",
       "image": "/images/cm.png",
       "url": "cm.html",
-      "size": "regular"
+      "size": "wide"
     }
   ]
 }
