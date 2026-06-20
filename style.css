@@ -96,10 +96,30 @@ footer {
 
 /* ===== TOP PAGE — HERO ===== */
 .hero {
-  min-height: 380px;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background-image: url('/images/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0 calc(-1 * var(--pad)) 0;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(5,5,5,0.88) 45%, rgba(5,5,5,0.3));
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
