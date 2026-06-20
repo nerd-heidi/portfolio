@@ -1,4 +1,4 @@
-﻿{
+{
   "hero_image": "/images/hero-bg.png",
   "cards": [
     {
@@ -31,7 +31,7 @@
       "description": "日常、街、ライブ、記録としての写真。",
       "image": "/images/Photo.png",
       "url": "/photo/",
-      "size": "regular"
+      "size": "wide"
     },
     {
       "number": "05",
@@ -71,7 +71,7 @@
       "description": "好きなゲーム、思い出、実績、プレイ記録。",
       "image": "/images/Game.png",
       "url": "/game/",
-      "size": "regular"
+      "size": "wide"
     },
     {
       "number": "10",
@@ -95,7 +95,7 @@
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
       "url": "/youtube/",
-      "size": "regular"
+      "size": "wide"
     },
     {
       "number": "13",
@@ -103,7 +103,7 @@
       "description": "好きなCM、映像表現、印象に残ったビ芸。",
       "image": "/images/cm.png",
       "url": "/commercial/",
-      "size": "wide"
+      "size": "regular"
     }
   ]
 }
