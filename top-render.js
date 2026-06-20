@@ -21,7 +21,6 @@ async function renderTopPage() {
         <div class="card-text">
           <span>${card.number}</span>
           <h2>${card.title}</h2>
-          <p>${card.description}</p>
         </div>
       </a>`;
   }).join('');
