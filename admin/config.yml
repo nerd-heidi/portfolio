@@ -46,21 +46,47 @@ collections:
         file: _data/music.json
         format: json
         fields:
-          - name: sections
-            label: セクション
+          - name: genres
+            label: ジャンル別
             widget: list
-            label_singular: セクション
+            label_singular: ジャンル
             fields:
-              - {name: heading, label: 見出し, widget: string}
+              - {name: name, label: ジャンル名, widget: string}
               - name: items
-                label: アイテム
+                label: アーティスト
                 widget: list
-                label_singular: アイテム
+                label_singular: アーティスト
                 fields:
                   - {name: title,       label: タイトル,   widget: string}
                   - {name: description, label: 説明文,     widget: text}
                   - {name: image,       label: 画像,       widget: image, required: false}
-                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+                  - {name: tags,        label: タグ,       widget: list, field: {name: tag, label: タグ, widget: string}}
+          - name: artists
+            label: Favorite Artists
+            widget: list
+            label_singular: アーティスト
+            fields:
+              - {name: title,       label: アーティスト名, widget: string}
+              - {name: description, label: 説明文,         widget: text}
+              - {name: image,       label: 画像,           widget: image, required: false}
+              - {name: tags,        label: タグ,           widget: list, field: {name: tag, label: タグ, widget: string}}
+          - name: mvs
+            label: Favorite MV
+            widget: list
+            label_singular: MV
+            fields:
+              - {name: title,      label: タイトル,        widget: string}
+              - {name: youtube_id, label: YouTube 動画ID,  widget: string, hint: "URLの ?v= 以降の文字列（例: dQw4w9WgXcQ）"}
+              - {name: description,label: 説明・感想,      widget: text, required: false}
+          - name: albums
+            label: Favorite Albums
+            widget: list
+            label_singular: アルバム
+            fields:
+              - {name: title,       label: アルバム名,     widget: string}
+              - {name: description, label: 説明・感想,     widget: text}
+              - {name: image,       label: 画像,           widget: image, required: false}
+              - {name: tags,        label: タグ,           widget: list, field: {name: tag, label: タグ, widget: string}}
 
   - name: beat
     label: "🎛 Beat"

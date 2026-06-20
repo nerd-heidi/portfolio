@@ -365,6 +365,76 @@ h1 {
   letter-spacing: 0.02em;
 }
 
+/* ===== MUSIC PAGE — GENRE / MV ===== */
+.genre-block {
+  margin-bottom: 48px;
+}
+
+.genre-heading {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a780ff;
+  border-left: 3px solid #a780ff;
+  padding-left: 12px;
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 90px;
+}
+
+.mv-card {
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+  border-color: rgba(167, 128, 255, 0.55);
+  box-shadow: 0 16px 60px rgba(120, 70, 255, 0.18);
+}
+
+.mv-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #111;
+}
+
+.mv-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mv-info {
+  padding: 18px 22px 22px;
+}
+
+.mv-info h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.mv-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
 /* ===== SKILL LIST (Work page) ===== */
 .skill-list {
   display: grid;
