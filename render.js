@@ -17,11 +17,31 @@ function createItemCard(item) {
     .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
     .join('');
 
+  const descHTML = escapeHtml(item.description || '').replace(/\n/g, '<br>');
+
+  // YouTube 埋め込みカード
+  if (item.youtube_id) {
+    return `
+      <div class="mv-card">
+        <div class="mv-embed">
+          <iframe
+            src="https://www.youtube.com/embed/${escapeHtml(item.youtube_id)}"
+            title="${escapeHtml(item.title)}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="mv-info">
+          <h3>${escapeHtml(item.title)}</h3>
+          ${item.description ? `<p>${descHTML}</p>` : ''}
+          ${tagsHTML ? `<div class="tags">${tagsHTML}</div>` : ''}
+        </div>
+      </div>`;
+  }
+
+  // 通常画像カード
   const imgSrc = item.image
     ? escapeHtml(item.image)
     : 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80';
-
-  const descHTML = escapeHtml(item.description || '').replace(/\n/g, '<br>');
 
   return `
     <div class="item-card">
@@ -33,17 +53,17 @@ function createItemCard(item) {
         <p>${descHTML}</p>
         ${tagsHTML ? `<div class="tags">${tagsHTML}</div>` : ''}
       </div>
-    </div>`;
-}
+    </div>`;}
 
 function createSection(section) {
+  const hasYoutube = (section.items || []).some(i => i.youtube_id);
+  const gridClass = hasYoutube ? 'mv-grid' : 'item-grid';
   const itemsHTML = (section.items || []).map(createItemCard).join('');
   return `
     <section class="content-section">
       <h2 class="section-heading">${escapeHtml(section.heading)}</h2>
-      <div class="item-grid">${itemsHTML}</div>
-    </section>`;
-}
+      <div class="${gridClass}">${itemsHTML}</div>
+    </section>`;}
 
 async function renderPage(dataFile) {
   const container = document.querySelector('.page-content');
