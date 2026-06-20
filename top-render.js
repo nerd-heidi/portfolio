@@ -1,5 +1,5 @@
 async function renderTopPage() {
-  const res = await fetch('/_data/top.json');
+  const res = await fetch('/_data/top.json?v=' + Date.now());
   if (!res.ok) return;
   const data = await res.json();
 
