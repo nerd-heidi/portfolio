@@ -215,10 +215,16 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   filter: brightness(0.62) saturate(1.08);
   transform: scale(1.02);
   transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* wide・large カードは上寄りにして顔が切れるのを防ぐ */
+.topic-card.wide img,
+.topic-card.large img {
+  object-position: center 20%;
 }
 
 .topic-card::after {
@@ -259,7 +265,7 @@ h1 {
   line-height: 1.6;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .topic-card:hover {
     transform: translateY(-8px);
     border-color: rgba(167, 128, 255, 0.75);
@@ -841,7 +847,6 @@ h1 {
 
   .topic-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 260px;
   }
 
   h1 {
@@ -859,14 +864,28 @@ h1 {
   }
 
   .topic-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 220px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .topic-card.large,
   .topic-card.wide {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .card-text {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+  }
+
+  .card-text h2 {
+    font-size: 18px;
+    margin: 4px 0 4px;
+  }
+
+  .card-text p {
+    font-size: 12px;
   }
 
   .lead {
