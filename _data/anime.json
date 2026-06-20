@@ -1,9 +1,49 @@
 {
   "items": [
     {
-      "title": "作品タイトル",
-      "youtube_id": "",
+      "title": "HUNTER×HUNTER",
+      "youtube_id": "trel5T03ajY",
       "description": "好きなポイント、推しキャラ、印象に残ったシーンなど。"
+    },
+    {
+      "title": "地獄楽",
+      "youtube_id": "RS94j08yIHs",
+      "description": ""
+    },
+    {
+      "title": "呪術廻戦",
+      "youtube_id": "gcgKUcJKxIs",
+      "description": ""
+    },
+    {
+      "title": "東のエデン",
+      "youtube_id": "NYuooRa9trI",
+      "description": ""
+    },
+    {
+      "title": "魔法少女まどか☆マギカ",
+      "youtube_id": "iJazbGwBh-E",
+      "description": ""
+    },
+    {
+      "title": "ぼっち・ざ・ろっく！",
+      "youtube_id": "fJh5UeiULZs",
+      "description": ""
+    },
+    {
+      "title": "輪るピングドラム",
+      "youtube_id": "BlEmAcDm8pY",
+      "description": ""
+    },
+    {
+      "title": "PSYCHO-PASS サイコパス",
+      "youtube_id": "6m_NwZYVefo",
+      "description": ""
+    },
+    {
+      "title": "東京喰種",
+      "youtube_id": "UhwHbSi4Z58",
+      "description": ""
     }
   ]
 }
