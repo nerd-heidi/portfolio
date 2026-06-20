@@ -35,17 +35,17 @@
     },
     {
       "number": "05",
-      "title": "Book",
-      "description": "好きな本、影響を受けた言葉、読書メモ。",
-      "image": "/images/book.png",
-      "url": "book.html",
+      "title": "Idol",
+      "description": "推し、楽曲、MV、ライブ感想。",
+      "image": "/images/idol.png",
+      "url": "idol.html",
       "size": "regular"
     },
     {
       "number": "06",
       "title": "Work",
       "description": "仕事、経験、スキル、プロジェクト。",
-      "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/work.png",
       "url": "work.html",
       "size": "regular"
     },
@@ -59,10 +59,10 @@
     },
     {
       "number": "08",
-      "title": "Idol",
-      "description": "推し、楽曲、MV、ライブ感想。",
-      "image": "/images/idol.png",
-      "url": "idol.html",
+      "title": "Book",
+      "description": "好きな本、影響を受けた言葉、読書メモ。",
+      "image": "/images/book.png",
+      "url": "book.html",
       "size": "regular"
     },
     {
