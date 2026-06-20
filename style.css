@@ -522,6 +522,44 @@ h1 {
   font-size: 16px;
 }
 
+/* ===== PHOTO GALLERY GRID ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 80px;
+}
+
+.photo-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #111;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.photo-item.visible {
+  opacity: 1;
+}
+
+.photo-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.06);
+}
+
 /* ===== MOVIE POSTER GRID ===== */
 .poster-grid {
   display: grid;
@@ -648,5 +686,9 @@ h1 {
 
   .lead {
     font-size: 16px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

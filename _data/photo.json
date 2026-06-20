@@ -1,50 +1,28 @@
 {
-  "sections": [
+  "photos": [
     {
-      "heading": "Street / 街撮り",
-      "items": [
-        {
-          "title": "タイトル / 場所",
-          "description": "この写真のシチュエーション、撮影した日時や場所、その時の気持ちなどを添えましょう。",
-          "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Street", "夜"]
-        },
-        {
-          "title": "タイトル / 場所",
-          "description": "この写真のシチュエーション、撮影した日時や場所、その時の気持ちなどを添えましょう。",
-          "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Portrait", "光"]
-        },
-        {
-          "title": "タイトル / 場所",
-          "description": "この写真のシチュエーション、撮影した日時や場所、その時の気持ちなどを添えましょう。",
-          "image": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Landscape", "朝"]
-        }
-      ]
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
     },
     {
-      "heading": "Live / ライブ",
-      "items": [
-        {
-          "title": "公演名 / アーティスト",
-          "description": "ライブの記録。どんな公演だったか、印象的なシーン、会場の雰囲気などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Live", "2025"]
-        },
-        {
-          "title": "公演名 / アーティスト",
-          "description": "ライブの記録。どんな公演だったか、印象的なシーン、会場の雰囲気などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Live", "2026"]
-        },
-        {
-          "title": "公演名 / アーティスト",
-          "description": "ライブの記録。どんな公演だったか、印象的なシーン、会場の雰囲気などを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
-          "tags": ["Festival", "夏"]
-        }
-      ]
+      "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
+      "caption": ""
     }
   ]
 }

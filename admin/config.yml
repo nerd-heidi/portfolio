@@ -133,21 +133,13 @@ collections:
         file: _data/photo.json
         format: json
         fields:
-          - name: sections
-            label: セクション
+          - name: photos
+            label: 写真
             widget: list
-            label_singular: セクション
+            label_singular: 写真
             fields:
-              - {name: heading, label: 見出し, widget: string}
-              - name: items
-                label: アイテム
-                widget: list
-                label_singular: アイテム
-                fields:
-                  - {name: title,       label: タイトル,   widget: string}
-                  - {name: description, label: 説明文,     widget: text}
-                  - {name: image,       label: 画像,       widget: image, required: false}
-                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+              - {name: image,   label: 画像,         widget: image}
+              - {name: caption, label: キャプション, widget: string, required: false}
 
   - name: idol
     label: "⭐ Favorite Idol"
