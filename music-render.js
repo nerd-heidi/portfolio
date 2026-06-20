@@ -58,7 +58,7 @@ async function renderMusicIndex() {
   container.innerHTML = `
     <div class="genre-grid">
       ${genres.map(g => `
-        <a class="topic-card" href="${escapeHtml(g.url)}">
+        <a class="topic-card" href="music-${escapeHtml(g.id)}.html">
           <img src="${escapeHtml(g.image)}" alt="${escapeHtml(g.name)}" loading="lazy">
           <div class="card-text">
             <h2>${escapeHtml(g.name)}</h2>

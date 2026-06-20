@@ -55,7 +55,6 @@ collections:
               - {name: name,        label: ジャンル名,     widget: string}
               - {name: description, label: 説明,           widget: string}
               - {name: image,       label: 画像,           widget: image}
-              - {name: url,         label: リンク先,       widget: string}
       - name: music_hiphop
         label: HIPHOP
         file: _data/music-hiphop.json
