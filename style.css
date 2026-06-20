@@ -131,7 +131,7 @@ footer {
 
 /* ===== TOP PAGE — HERO ===== */
 .hero {
-  min-height: 480px;
+  min-height: clamp(480px, 38vw, 720px);
   display: flex;
   flex-direction: column;
   justify-content: center;
