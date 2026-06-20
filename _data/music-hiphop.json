@@ -1,15 +1,10 @@
 {
-  "artists": [
-    {
-      "title": "PUNPEE",
-      "description": "ぱんぴー",
-      "image": "",
-      "tags": [
-        "HIPHOP"
-      ]
-    }
-  ],
   "mvs": [
+    {
+      "title": "YENTOWN / Asobo Feat. Awich, MonyHorse, PETZ, JNKMN & kZm (Prod. Chaki Zulu)",
+      "youtube_id": "3LElE3kqP0A",
+      "description": ""
+    },
     {
       "title": "lil soft tennis & swetty - 夜をぬけて",
       "youtube_id": "Zb74XQ5mNeo",
@@ -18,11 +13,6 @@
     {
       "title": "Who Can feat. Fla$HbackS - KID FRESINO",
       "youtube_id": "jQXinw76KHE",
-      "description": ""
-    },
-    {
-      "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
-      "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
       "description": ""
     },
     {
@@ -39,16 +29,31 @@
       "title": "Tokyo Young Vision - \"いつもどおり\" (feat. OSAMI, Charlu & AMO)",
       "youtube_id": "llcR8P9k8Gw&list=RDMMXLrfoZhx0e0&index=2",
       "description": ""
+    },
+    {
+      "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
+      "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
+      "description": ""
     }
   ],
   "albums": [
     {
-      "title": "アルバム名",
-      "description": "アルバムの説明や感想。",
-      "image": "",
       "tags": [
         "HIPHOP"
-      ]
+      ],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [
+        "HIPHOP"
+      ],
+      "image": "",
+      "description": "ぱんぴー",
+      "title": "PUNPEE"
     }
   ]
 }
