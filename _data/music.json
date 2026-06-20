@@ -1,0 +1,50 @@
+{
+  "sections": [
+    {
+      "heading": "Favorite Artists",
+      "items": [
+        {
+          "title": "アーティスト名",
+          "description": "お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。",
+          "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Hip-Hop", "J-Rap"]
+        },
+        {
+          "title": "アーティスト名",
+          "description": "お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。",
+          "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+          "tags": ["R&B", "Soul"]
+        },
+        {
+          "title": "アーティスト名",
+          "description": "お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。",
+          "image": "https://images.unsplash.com/photo-1571974599782-87624638275e?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Trap", "Lo-fi"]
+        }
+      ]
+    },
+    {
+      "heading": "Favorite Albums",
+      "items": [
+        {
+          "title": "アルバムタイトル",
+          "description": "アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=800&q=80",
+          "tags": ["2020", "必聴"]
+        },
+        {
+          "title": "アルバムタイトル",
+          "description": "アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1557787163-1635e2efb160?auto=format&fit=crop&w=800&q=80",
+          "tags": ["2022", "名盤"]
+        },
+        {
+          "title": "アルバムタイトル",
+          "description": "アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+          "tags": ["2024", "ループ中"]
+        }
+      ]
+    }
+  ]
+}

@@ -27,8 +27,8 @@
       <a href="index.html" class="back-link">← Back to Top</a>
     </section>
 
-    <section class="content-section">
-      <h2 class="section-heading">Skills</h2>
+    <div class="page-content"><div class="loading-state">読み込み中…</div></div>
+  </main>
       <div class="skill-list">
         <div class="skill-item">
           <h3>スキル名</h3>
@@ -119,6 +119,8 @@
     <p>© 2026 NERD is My Life. All Rights Reserved.</p>
   </footer>
 
+  <script src="render.js"></script>
   <script src="script.js"></script>
+  <script>renderPage('/_data/work.json');</script>
 </body>
 </html>

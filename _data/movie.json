@@ -1,0 +1,50 @@
+{
+  "sections": [
+    {
+      "heading": "All Time Favorites",
+      "items": [
+        {
+          "title": "映画タイトル",
+          "description": "この映画の好きなポイント、監督、俳優、印象的なシーン、何回観たかなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+          "tags": ["アクション", "何度でも観る"]
+        },
+        {
+          "title": "映画タイトル",
+          "description": "この映画の好きなポイント、監督、俳優、印象的なシーン、何回観たかなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+          "tags": ["SF", "名作"]
+        },
+        {
+          "title": "映画タイトル",
+          "description": "この映画の好きなポイント、監督、俳優、印象的なシーン、何回観たかなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80",
+          "tags": ["ドラマ", "泣ける"]
+        }
+      ]
+    },
+    {
+      "heading": "最近観た映画",
+      "items": [
+        {
+          "title": "映画タイトル",
+          "description": "最近観た映画のレビュー。ストーリー、演技、映像美、音楽など、気に入ったポイントを。",
+          "image": "https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=800&q=80",
+          "tags": ["2025", "映画館"]
+        },
+        {
+          "title": "映画タイトル",
+          "description": "最近観た映画のレビュー。ストーリー、演技、映像美、音楽など、気に入ったポイントを。",
+          "image": "https://images.unsplash.com/photo-1585647347483-22b66260dfff?auto=format&fit=crop&w=800&q=80",
+          "tags": ["2026", "Netflix"]
+        },
+        {
+          "title": "映画タイトル",
+          "description": "最近観た映画のレビュー。ストーリー、演技、映像美、音楽など、気に入ったポイントを。",
+          "image": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=800&q=80",
+          "tags": ["おすすめ", "★★★★★"]
+        }
+      ]
+    }
+  ]
+}

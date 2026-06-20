@@ -1,0 +1,277 @@
+backend:
+  name: github
+  repo: nerd-heidi/portfolio
+  branch: main
+  auth_type: pkce
+  app_id: Ov23lisAf8Al8BUzGEXJ
+
+locale: ja
+
+media_folder: images
+public_folder: /images
+
+collections:
+
+  - name: music
+    label: "🎵 Favorite Music"
+    files:
+      - name: music_data
+        label: コンテンツを編集
+        file: _data/music.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: beat
+    label: "🎛 Beat"
+    files:
+      - name: beat_data
+        label: コンテンツを編集
+        file: _data/beat.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: anime
+    label: "📺 Anime"
+    files:
+      - name: anime_data
+        label: コンテンツを編集
+        file: _data/anime.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: photo
+    label: "📷 My Photo"
+    files:
+      - name: photo_data
+        label: コンテンツを編集
+        file: _data/photo.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: idol
+    label: "⭐ Favorite Idol"
+    files:
+      - name: idol_data
+        label: コンテンツを編集
+        file: _data/idol.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: work
+    label: "💼 Work"
+    files:
+      - name: work_data
+        label: コンテンツを編集
+        file: _data/work.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: ai
+    label: "🤖 AI"
+    files:
+      - name: ai_data
+        label: コンテンツを編集
+        file: _data/ai.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: book
+    label: "📚 Favorite Book"
+    files:
+      - name: book_data
+        label: コンテンツを編集
+        file: _data/book.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: game
+    label: "🎮 Game"
+    files:
+      - name: game_data
+        label: コンテンツを編集
+        file: _data/game.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: movie
+    label: "🎬 Movie"
+    files:
+      - name: movie_data
+        label: コンテンツを編集
+        file: _data/movie.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: food
+    label: "🍜 Food"
+    files:
+      - name: food_data
+        label: コンテンツを編集
+        file: _data/food.json
+        format: json
+        fields:
+          - name: sections
+            label: セクション
+            widget: list
+            label_singular: セクション
+            fields:
+              - {name: heading, label: 見出し, widget: string}
+              - name: items
+                label: アイテム
+                widget: list
+                label_singular: アイテム
+                fields:
+                  - {name: title,       label: タイトル,   widget: string}
+                  - {name: description, label: 説明文,     widget: text}
+                  - {name: image,       label: 画像,       widget: image, required: false}
+                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}

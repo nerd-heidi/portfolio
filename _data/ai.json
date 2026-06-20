@@ -1,0 +1,50 @@
+{
+  "sections": [
+    {
+      "heading": "使っているAIツール",
+      "items": [
+        {
+          "title": "AIツール名",
+          "description": "このツールの使い方、活用シーン、便利な使い方のポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+          "tags": ["LLM", "毎日使う"]
+        },
+        {
+          "title": "AIツール名",
+          "description": "このツールの使い方、活用シーン、便利な使い方のポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+          "tags": ["画像生成", "クリエイティブ"]
+        },
+        {
+          "title": "AIツール名",
+          "description": "このツールの使い方、活用シーン、便利な使い方のポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+          "tags": ["AI音楽", "実験中"]
+        }
+      ]
+    },
+    {
+      "heading": "AIについての考察 / 気づき",
+      "items": [
+        {
+          "title": "テーマ / タイトル",
+          "description": "AIについて考えたこと、気づいたこと、実際に試してみた結果や感想などを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80",
+          "tags": ["考察", "2025"]
+        },
+        {
+          "title": "テーマ / タイトル",
+          "description": "AIについて考えたこと、気づいたこと、実際に試してみた結果や感想などを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+          "tags": ["AI時代", "未来"]
+        },
+        {
+          "title": "テーマ / タイトル",
+          "description": "AIについて考えたこと、気づいたこと、実際に試してみた結果や感想などを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+          "tags": ["音楽×AI", "実験"]
+        }
+      ]
+    }
+  ]
+}

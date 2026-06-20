@@ -1,0 +1,50 @@
+{
+  "sections": [
+    {
+      "heading": "My Beats",
+      "items": [
+        {
+          "title": "ビートタイトル",
+          "description": "このビートの制作背景、使用サンプル、BPM、こだわりポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Trap", "BPM 140"]
+        },
+        {
+          "title": "ビートタイトル",
+          "description": "このビートの制作背景、使用サンプル、BPM、こだわりポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Lo-fi", "BPM 90"]
+        },
+        {
+          "title": "ビートタイトル",
+          "description": "このビートの制作背景、使用サンプル、BPM、こだわりポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Boom Bap", "BPM 92"]
+        }
+      ]
+    },
+    {
+      "heading": "制作環境 / Setup",
+      "items": [
+        {
+          "title": "DAW / ソフト名",
+          "description": "使用しているDAWや音楽制作ソフトの紹介。どんな使い方をしているか、好きな機能など。",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+          "tags": ["DAW", "制作ツール"]
+        },
+        {
+          "title": "機材 / 周辺機器",
+          "description": "使用しているMIDIコントローラー、オーディオインターフェース、ヘッドフォンなどの機材紹介。",
+          "image": "https://images.unsplash.com/photo-1535406208535-1429839cfd13?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Hardware", "機材"]
+        },
+        {
+          "title": "プラグイン / サンプルパック",
+          "description": "よく使うVSTプラグインやサンプルパックの紹介。音作りのヒントも。",
+          "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+          "tags": ["VST", "Sample Pack"]
+        }
+      ]
+    }
+  ]
+}

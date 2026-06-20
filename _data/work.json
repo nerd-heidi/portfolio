@@ -1,0 +1,50 @@
+{
+  "sections": [
+    {
+      "heading": "Skills",
+      "items": [
+        {
+          "title": "スキル名",
+          "description": "このスキルの習熟度や経験年数、どんな場面で活かしているかを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+          "tags": ["上級", "3年+"]
+        },
+        {
+          "title": "Power Platform",
+          "description": "Power Apps、Power Automate、Power BIを活用した業務効率化や自動化の経験。",
+          "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+          "tags": ["Microsoft", "業務改善"]
+        },
+        {
+          "title": "スキル名",
+          "description": "このスキルの習熟度や経験年数、どんな場面で活かしているかを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+          "tags": ["勉強中"]
+        }
+      ]
+    },
+    {
+      "heading": "Projects",
+      "items": [
+        {
+          "title": "プロジェクト名",
+          "description": "このプロジェクトの概要、担当した役割、使用した技術、工夫したポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+          "tags": ["社内ツール", "2024"]
+        },
+        {
+          "title": "プロジェクト名",
+          "description": "このプロジェクトの概要、担当した役割、使用した技術、工夫したポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+          "tags": ["自動化", "Power Automate"]
+        },
+        {
+          "title": "プロジェクト名",
+          "description": "このプロジェクトの概要、担当した役割、使用した技術、工夫したポイントなどを書きましょう。",
+          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+          "tags": ["ITサポート", "2025"]
+        }
+      ]
+    }
+  ]
+}

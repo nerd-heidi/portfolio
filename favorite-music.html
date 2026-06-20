@@ -27,105 +27,15 @@
       <a href="index.html" class="back-link">← Back to Top</a>
     </section>
 
-    <section class="content-section">
-      <h2 class="section-heading">Favorite Artists</h2>
-      <div class="item-grid">
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80" alt="Artist" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アーティスト名</h3>
-            <p>お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。</p>
-            <div class="tags">
-              <span class="tag">Hip-Hop</span>
-              <span class="tag">J-Rap</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Artist" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アーティスト名</h3>
-            <p>お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。</p>
-            <div class="tags">
-              <span class="tag">R&B</span>
-              <span class="tag">Soul</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1571974599782-87624638275e?auto=format&fit=crop&w=800&q=80" alt="Artist" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アーティスト名</h3>
-            <p>お気に入りのアーティストの紹介文をここに書きましょう。どんな音楽性か、どこで知ったか、おすすめ曲など。</p>
-            <div class="tags">
-              <span class="tag">Trap</span>
-              <span class="tag">Lo-fi</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2 class="section-heading">Favorite Albums</h2>
-      <div class="item-grid">
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=800&q=80" alt="Album" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アルバムタイトル</h3>
-            <p>アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。</p>
-            <div class="tags">
-              <span class="tag">2020</span>
-              <span class="tag">必聴</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1557787163-1635e2efb160?auto=format&fit=crop&w=800&q=80" alt="Album" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アルバムタイトル</h3>
-            <p>アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。</p>
-            <div class="tags">
-              <span class="tag">2022</span>
-              <span class="tag">名盤</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="item-card-img">
-            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Album" loading="lazy">
-          </div>
-          <div class="item-card-body">
-            <h3>アルバムタイトル</h3>
-            <p>アルバムの感想や、特に好きな曲、聴いたときのエピソードなどを書きましょう。</p>
-            <div class="tags">
-              <span class="tag">2024</span>
-              <span class="tag">ループ中</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="page-content"><div class="loading-state">読み込み中…</div></div>
   </main>
 
   <footer>
     <p>© 2026 NERD is My Life. All Rights Reserved.</p>
   </footer>
 
+  <script src="render.js"></script>
   <script src="script.js"></script>
+  <script>renderPage('/_data/music.json');</script>
 </body>
 </html>
