@@ -1,50 +1,9 @@
-{
-  "sections": [
+﻿{
+  "items": [
     {
-      "heading": "推しグループ / アーティスト",
-      "items": [
-        {
-          "title": "グループ / アーティスト名",
-          "description": "推しの紹介。どこで知ったか、好きな楽曲、ライブの雰囲気、メンバーの魅力など。",
-          "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
-          "tags": ["推し", "一生担"]
-        },
-        {
-          "title": "グループ / アーティスト名",
-          "description": "推しの紹介。どこで知ったか、好きな楽曲、ライブの雰囲気、メンバーの魅力など。",
-          "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=80",
-          "tags": ["アイドル", "沼"]
-        },
-        {
-          "title": "グループ / アーティスト名",
-          "description": "推しの紹介。どこで知ったか、好きな楽曲、ライブの雰囲気、メンバーの魅力など。",
-          "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
-          "tags": ["ライブ最高", "神曲"]
-        }
-      ]
-    },
-    {
-      "heading": "Favorite Songs / 神曲リスト",
-      "items": [
-        {
-          "title": "楽曲タイトル",
-          "description": "この曲の好きなポイント。サビ、歌詞、MVの演出、ライブでの盛り上がりなど。",
-          "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
-          "tags": ["神曲", "ループ"]
-        },
-        {
-          "title": "楽曲タイトル",
-          "description": "この曲の好きなポイント。サビ、歌詞、MVの演出、ライブでの盛り上がりなど。",
-          "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
-          "tags": ["MV最高", "歌詞刺さる"]
-        },
-        {
-          "title": "楽曲タイトル",
-          "description": "この曲の好きなポイント。サビ、歌詞、MVの演出、ライブでの盛り上がりなど。",
-          "image": "https://images.unsplash.com/photo-1571974599782-87624638275e?auto=format&fit=crop&w=800&q=80",
-          "tags": ["ライブ映え", "テンション上がる"]
-        }
-      ]
+      "title": "グループ / アーティスト名",
+      "youtube_id": "",
+      "description": "好きな楽曲、ライブの雰囲気、メンバーの魅力など。"
     }
   ]
 }

@@ -13,12 +13,6 @@
       "image": "/images/rock.png"
     },
     {
-      "id": "idol",
-      "name": "IDOL",
-      "description": "地下アイドル・メジャーアイドル",
-      "image": "/images/idol.png"
-    },
-    {
       "id": "pops",
       "name": "POPS",
       "description": "J-POP・K-POP・歌もの",
