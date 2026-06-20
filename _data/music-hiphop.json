@@ -1,11 +1,29 @@
-﻿{
+{
   "artists": [
-    {"title": "アーティスト名", "description": "説明文をここに書いてください。", "image": "", "tags": []}
+    {
+      "title": "アーティスト名",
+      "description": "説明文をここに書いてください。",
+      "image": "",
+      "tags": [
+        "HIPHOP"
+      ]
+    }
   ],
   "mvs": [
-    {"title": "MV タイトル", "youtube_id": "dQw4w9WgXcQ", "description": "MVの説明や感想。"}
+    {
+      "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
+      "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
+      "description": "MVの説明や感想。"
+    }
   ],
   "albums": [
-    {"title": "アルバム名", "description": "アルバムの説明や感想。", "image": "", "tags": []}
+    {
+      "title": "アルバム名",
+      "description": "アルバムの説明や感想。",
+      "image": "",
+      "tags": [
+        "HIPHOP"
+      ]
+    }
   ]
 }
