@@ -215,6 +215,7 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   filter: brightness(0.62) saturate(1.08);
   transform: scale(1.02);
   transition: transform 0.5s ease, filter 0.5s ease;
@@ -258,15 +259,17 @@ h1 {
   line-height: 1.6;
 }
 
-.topic-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(167, 128, 255, 0.75);
-  box-shadow: 0 24px 80px rgba(120, 70, 255, 0.22);
-}
+@media (hover: hover) {
+  .topic-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(167, 128, 255, 0.75);
+    box-shadow: 0 24px 80px rgba(120, 70, 255, 0.22);
+  }
 
-.topic-card:hover img {
-  transform: scale(1.1);
-  filter: brightness(0.86) saturate(1.25);
+  .topic-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.86) saturate(1.25);
+  }
 }
 
 /* ===== CATEGORY PAGE — HERO ===== */
