@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Favorite Music | NERD is My Life</title>
-  <meta name="description" content="好きな音楽、アーティスト、アルバム、プレイリスト。" />
+  <title>Rock | Favorite Music | NERD is My Life</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,10 +20,9 @@
 
   <main>
     <section class="page-hero">
-      <p class="eyebrow">01 — Favorite Music</p>
-      <h1>Favorite<br>Music.</h1>
-      <p class="lead">好きな音楽、アーティスト、アルバム、プレイリスト。ここが私の音楽部屋。</p>
-      <a href="index.html" class="back-link">← Back to Top</a>
+      <p class="eyebrow">Favorite Music — Rock</p>
+      <h1>Rock.</h1>
+      <a href="favorite-music.html" class="back-link">← Back to Music</a>
     </section>
 
     <div class="page-content"><div class="loading-state">読み込み中…</div></div>
@@ -36,6 +34,6 @@
 
   <script src="music-render.js"></script>
   <script src="script.js"></script>
-  <script>renderMusicIndex();</script>
+  <script>renderMusicPage('/_data/music-rock.json');</script>
 </body>
 </html>

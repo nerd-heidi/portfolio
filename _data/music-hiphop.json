@@ -1,0 +1,11 @@
+﻿{
+  "artists": [
+    {"title": "アーティスト名", "description": "説明文をここに書いてください。", "image": "", "tags": []}
+  ],
+  "mvs": [
+    {"title": "MV タイトル", "youtube_id": "dQw4w9WgXcQ", "description": "MVの説明や感想。"}
+  ],
+  "albums": [
+    {"title": "アルバム名", "description": "アルバムの説明や感想。", "image": "", "tags": []}
+  ]
+}

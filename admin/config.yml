@@ -41,26 +41,26 @@ collections:
   - name: music
     label: "🎵 Favorite Music"
     files:
-      - name: music_data
-        label: コンテンツを編集
+      - name: music_index
+        label: ジャンル一覧（トップ）
         file: _data/music.json
         format: json
         fields:
           - name: genres
-            label: ジャンル別
+            label: ジャンル
             widget: list
             label_singular: ジャンル
             fields:
-              - {name: name, label: ジャンル名, widget: string}
-              - name: items
-                label: アーティスト
-                widget: list
-                label_singular: アーティスト
-                fields:
-                  - {name: title,       label: タイトル,   widget: string}
-                  - {name: description, label: 説明文,     widget: text}
-                  - {name: image,       label: 画像,       widget: image, required: false}
-                  - {name: tags,        label: タグ,       widget: list, field: {name: tag, label: タグ, widget: string}}
+              - {name: id,          label: ID（英小文字）, widget: string}
+              - {name: name,        label: ジャンル名,     widget: string}
+              - {name: description, label: 説明,           widget: string}
+              - {name: image,       label: 画像,           widget: image}
+              - {name: url,         label: リンク先,       widget: string}
+      - name: music_hiphop
+        label: HIPHOP
+        file: _data/music-hiphop.json
+        format: json
+        fields: &genre_fields
           - name: artists
             label: Favorite Artists
             widget: list
@@ -75,9 +75,9 @@ collections:
             widget: list
             label_singular: MV
             fields:
-              - {name: title,      label: タイトル,        widget: string}
-              - {name: youtube_id, label: YouTube 動画ID,  widget: string, hint: "URLの ?v= 以降の文字列（例: dQw4w9WgXcQ）"}
-              - {name: description,label: 説明・感想,      widget: text, required: false}
+              - {name: title,       label: タイトル,       widget: string}
+              - {name: youtube_id,  label: YouTube 動画ID, widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+              - {name: description, label: 説明・感想,     widget: text, required: false}
           - name: albums
             label: Favorite Albums
             widget: list
@@ -87,6 +87,26 @@ collections:
               - {name: description, label: 説明・感想,     widget: text}
               - {name: image,       label: 画像,           widget: image, required: false}
               - {name: tags,        label: タグ,           widget: list, field: {name: tag, label: タグ, widget: string}}
+      - name: music_rock
+        label: Rock
+        file: _data/music-rock.json
+        format: json
+        fields: *genre_fields
+      - name: music_idol
+        label: IDOL
+        file: _data/music-idol.json
+        format: json
+        fields: *genre_fields
+      - name: music_pops
+        label: POPS
+        file: _data/music-pops.json
+        format: json
+        fields: *genre_fields
+      - name: music_other
+        label: Other
+        file: _data/music-other.json
+        format: json
+        fields: *genre_fields
 
   - name: beat
     label: "🎛 Beat"
