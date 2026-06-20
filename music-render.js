@@ -96,11 +96,10 @@ async function renderMusicPage(dataFile) {
     const mvsHTML = data.mvs.map(mv => `
       <div class="mv-card">
         <div class="mv-embed">
-          <iframe
-            src="https://www.youtube.com/embed/${escapeHtml(mv.youtube_id)}"
-            title="${escapeHtml(mv.title)}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+          <div class="yt-facade" data-id="${escapeHtml(mv.youtube_id)}">
+            <img src="https://img.youtube.com/vi/${escapeHtml(mv.youtube_id)}/hqdefault.jpg" alt="${escapeHtml(mv.title)}" loading="lazy">
+            <button class="yt-play" aria-label="再生"></button>
+          </div>
         </div>
         <div class="mv-info">
           <h3>${escapeHtml(mv.title)}</h3>

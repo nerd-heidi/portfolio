@@ -24,11 +24,10 @@ function createItemCard(item) {
     return `
       <div class="mv-card">
         <div class="mv-embed">
-          <iframe
-            src="https://www.youtube.com/embed/${escapeHtml(item.youtube_id)}"
-            title="${escapeHtml(item.title)}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+          <div class="yt-facade" data-id="${escapeHtml(item.youtube_id)}">
+            <img src="https://img.youtube.com/vi/${escapeHtml(item.youtube_id)}/hqdefault.jpg" alt="${escapeHtml(item.title)}" loading="lazy">
+            <button class="yt-play" aria-label="再生"></button>
+          </div>
         </div>
         <div class="mv-info">
           <h3>${escapeHtml(item.title)}</h3>

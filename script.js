@@ -9,3 +9,17 @@ document.querySelectorAll(".topic-card").forEach((card) => {
   });
 });
 
+// YouTube ファサード: クリックでiframeに切り替え
+document.addEventListener('click', function(e) {
+  const facade = e.target.closest('.yt-facade');
+  if (!facade) return;
+  const id = facade.dataset.id;
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+  facade.innerHTML = '';
+  facade.appendChild(iframe);
+});
+
