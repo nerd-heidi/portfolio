@@ -51,10 +51,10 @@ collections:
             widget: list
             label_singular: ジャンル
             fields:
-              - {name: id,          label: ID（英小文字）, widget: string}
-              - {name: name,        label: ジャンル名,     widget: string}
-              - {name: description, label: 説明,           widget: string}
-              - {name: image,       label: 画像,           widget: image}
+              - {name: id,          label: ID,         widget: hidden}
+              - {name: name,        label: ジャンル名, widget: string}
+              - {name: description, label: 説明,       widget: string}
+              - {name: image,       label: 画像,       widget: image}
       - name: music_hiphop
         label: HIPHOP
         file: _data/music-hiphop.json
