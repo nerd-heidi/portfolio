@@ -21,13 +21,18 @@
       "description": ""
     },
     {
-      "title": "Pay money To my Pain - PICTURES",
-      "youtube_id": "FTtZHLsSHfI",
+      "title": "toe - グッドバイ",
+      "youtube_id": "e1pZIfretEs",
       "description": ""
     },
     {
       "title": "syrup16g - ex.人間",
       "youtube_id": "ZOb-FTdtYF0",
+      "description": ""
+    },
+    {
+      "title": "Pay money To my Pain - PICTURES",
+      "youtube_id": "FTtZHLsSHfI",
       "description": ""
     },
     {
@@ -56,24 +61,24 @@
       "description": ""
     }
   ],
-  "albums": [
-    {
-      "tags": [
-        "1"
-      ],
-      "image": "",
-      "description": "アルバムの説明や感想。",
-      "title": "アルバム名"
-    }
-  ],
   "artists": [
     {
+      "title": "1",
+      "description": "1",
+      "image": "",
       "tags": [
         "1"
-      ],
+      ]
+    }
+  ],
+  "albums": [
+    {
+      "title": "アルバム名",
+      "description": "アルバムの説明や感想。",
       "image": "",
-      "description": "1",
-      "title": "1"
+      "tags": [
+        "1"
+      ]
     }
   ]
 }
