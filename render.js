@@ -21,11 +21,12 @@ function createItemCard(item) {
 
   // YouTube 埋め込みカード
   if (item.youtube_id) {
+    const vid = escapeHtml(item.youtube_id.split('&')[0]);
     return `
       <div class="mv-card">
         <div class="mv-embed">
-          <div class="yt-facade" data-id="${escapeHtml(item.youtube_id)}">
-            <img src="https://img.youtube.com/vi/${escapeHtml(item.youtube_id)}/hqdefault.jpg" alt="${escapeHtml(item.title)}" loading="lazy">
+          <div class="yt-facade" data-id="${vid}">
+            <img src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt="${escapeHtml(item.title)}" loading="lazy">
             <button class="yt-play" aria-label="再生"></button>
           </div>
         </div>

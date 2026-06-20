@@ -85,19 +85,14 @@ async function renderMusicPage(dataFile) {
 
   let html = '';
 
-  if ((data.artists || []).length > 0) {
-    html += `<section class="content-section">
-      <h2 class="section-heading">Favorite Artists</h2>
-      <div class="item-grid">${data.artists.map(createItemCard).join('')}</div>
-    </section>`;
-  }
-
   if ((data.mvs || []).length > 0) {
-    const mvsHTML = data.mvs.map(mv => `
+    const mvsHTML = data.mvs.map(mv => {
+      const vid = escapeHtml(mv.youtube_id.split('&')[0]);
+      return `
       <div class="mv-card">
         <div class="mv-embed">
-          <div class="yt-facade" data-id="${escapeHtml(mv.youtube_id)}">
-            <img src="https://img.youtube.com/vi/${escapeHtml(mv.youtube_id)}/hqdefault.jpg" alt="${escapeHtml(mv.title)}" loading="lazy">
+          <div class="yt-facade" data-id="${vid}">
+            <img src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt="${escapeHtml(mv.title)}" loading="lazy">
             <button class="yt-play" aria-label="再生"></button>
           </div>
         </div>
@@ -105,7 +100,8 @@ async function renderMusicPage(dataFile) {
           <h3>${escapeHtml(mv.title)}</h3>
           ${mv.description ? `<p>${escapeHtml(mv.description)}</p>` : ''}
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     html += `<section class="content-section">
       <h2 class="section-heading">Favorite MV</h2>
       <div class="mv-grid">${mvsHTML}</div>
