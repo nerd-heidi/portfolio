@@ -36,6 +36,11 @@
       "description": ""
     },
     {
+      "title": "Kianna, HARKA, AOTO, Siero - STARLIGHT",
+      "youtube_id": "6ySDF5UFsgc",
+      "description": ""
+    },
+    {
       "title": "Yvng Patra - Hood star",
       "youtube_id": "R_mZRbHy2kI",
       "description": ""
@@ -111,24 +116,24 @@
       "description": ""
     }
   ],
-  "artists": [
-    {
-      "title": "PUNPEE",
-      "description": "ぱんぴー",
-      "image": "",
-      "tags": [
-        "HIPHOP"
-      ]
-    }
-  ],
   "albums": [
     {
-      "title": "アルバム名",
-      "description": "アルバムの説明や感想。",
-      "image": "",
       "tags": [
         "HIPHOP"
-      ]
+      ],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [
+        "HIPHOP"
+      ],
+      "image": "",
+      "description": "ぱんぴー",
+      "title": "PUNPEE"
     }
   ]
 }
