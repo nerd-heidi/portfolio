@@ -35,10 +35,10 @@
     },
     {
       "number": "05",
-      "title": "Favorite Idol",
-      "description": "推し、楽曲、MV、ライブ感想。",
-      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80",
-      "url": "idol.html",
+      "title": "Favorite Book",
+      "description": "好きな本、影響を受けた言葉、読書メモ。",
+      "image": "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=900&q=80",
+      "url": "book.html",
       "size": "regular"
     },
     {
@@ -59,10 +59,10 @@
     },
     {
       "number": "08",
-      "title": "Favorite Book",
-      "description": "好きな本、影響を受けた言葉、読書メモ。",
-      "image": "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=900&q=80",
-      "url": "book.html",
+      "title": "Favorite Idol",
+      "description": "推し、楽曲、MV、ライブ感想。",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80",
+      "url": "idol.html",
       "size": "regular"
     },
     {
