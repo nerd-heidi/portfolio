@@ -13,7 +13,7 @@
       "number": "02",
       "title": "My Beat",
       "description": "自作ビート、制作メモ、使用ツール。",
-      "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/My Beat.png",
       "url": "beat.html",
       "size": "regular"
     },
