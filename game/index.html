@@ -1,30 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YouTube | NERD Life</title>
-  <meta name="description" content="お気に入りの動画、チャンネル、ループ再生している映像。" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Game | NERD Life</title>
+  <meta name="description" content="好きなゲーム、思い出、実績、プレイ記録。" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="index.html">NERD Life</a>
+    <a class="logo" href="/">NERD Life</a>
     <nav>
-      <a href="favorite-music.html">Music</a>
-      <a href="beat.html">Beat</a>
-      <a href="anime.html">Anime</a>
-      <a href="work.html">Work</a>
-      <a href="ai.html">AI</a>
+      <a href="/favorite-music/">Music</a>
+      <a href="/beat/">Beat</a>
+      <a href="/anime/">Anime</a>
+      <a href="/work/">Work</a>
+      <a href="/ai/">AI</a>
     </nav>
   </header>
 
   <main>
     <section class="page-hero">
-      <p class="eyebrow">12 — YouTube</p>
-      <h1>YouTube.</h1>
-      <p class="lead">お気に入りの動画、チャンネル、ループ再生している映像。</p>
-      <a href="index.html" class="back-link">← Back to Top</a>
+      <p class="eyebrow">09 — Game</p>
+      <h1>Game.</h1>
+      <p class="lead">好きなゲーム、思い出、実績、プレイ記録。コントローラーを握っていた時間の話。</p>
+      <a href="/" class="back-link">← Back to Top</a>
     </section>
 
     <div class="page-content"><div class="loading-state">読み込み中…</div></div>
@@ -34,14 +34,15 @@
     <p>© 2026 NERD Life. All Rights Reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/anime-render.js"></script>
+  <script src="/script.js"></script>
   <script>
     (async function() {
       const container = document.querySelector('.page-content');
       if (!container) return;
       let data;
       try {
-        const res = await fetch('/_data/youtube.json');
+        const res = await fetch('/_data/game.json');
         if (!res.ok) throw new Error(res.statusText);
         data = await res.json();
       } catch {
@@ -59,7 +60,7 @@
         if (!vid) return '';
         return `<div class="mv-card"><div class="mv-embed"><div class="yt-facade" data-id="${vid}"><img src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt="${esc(item.title)}" loading="lazy"><button class="yt-play" aria-label="再生"></button></div></div><div class="mv-info"><h3>${esc(item.title)}</h3>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div></div>`;
       }).join('');
-      container.innerHTML = `<section class="content-section"><h2 class="section-heading">YouTube</h2><div class="mv-grid">${cardsHTML}</div></section>`;
+      container.innerHTML = `<section class="content-section"><h2 class="section-heading">Favorite Games</h2><div class="mv-grid">${cardsHTML}</div></section>`;
       container.querySelectorAll('.mv-card').forEach(c => {
         const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { c.classList.add('visible'); obs.unobserve(c); } }, { threshold: 0.1 });
         obs.observe(c);

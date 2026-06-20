@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_image": "/images/hero-bg.png",
   "cards": [
     {
@@ -6,7 +6,7 @@
       "title": "Music",
       "description": "好きな音楽、アーティスト、アルバム、プレイリスト。",
       "image": "/images/music.png",
-      "url": "favorite-music.html",
+      "url": "/favorite-music/",
       "size": "large"
     },
     {
@@ -14,7 +14,7 @@
       "title": "My Beat",
       "description": "自作ビート、制作メモ、使用ツール。",
       "image": "/images/My Beat.png",
-      "url": "beat.html",
+      "url": "/beat/",
       "size": "regular"
     },
     {
@@ -22,7 +22,7 @@
       "title": "Anime",
       "description": "好きなアニメ、キャラクター、感想。",
       "image": "/images/anime.png",
-      "url": "anime.html",
+      "url": "/anime/",
       "size": "regular"
     },
     {
@@ -30,7 +30,7 @@
       "title": "My Photo",
       "description": "日常、街、ライブ、記録としての写真。",
       "image": "/images/Photo.png",
-      "url": "photo.html",
+      "url": "/photo/",
       "size": "wide"
     },
     {
@@ -38,7 +38,7 @@
       "title": "Book",
       "description": "好きな本、影響を受けた言葉、読書メモ。",
       "image": "/images/book.png",
-      "url": "book.html",
+      "url": "/book/",
       "size": "regular"
     },
     {
@@ -46,7 +46,7 @@
       "title": "Work",
       "description": "仕事、経験、スキル、プロジェクト。",
       "image": "/images/work.png",
-      "url": "work.html",
+      "url": "/work/",
       "size": "regular"
     },
     {
@@ -54,7 +54,7 @@
       "title": "AI 実験室",
       "description": "AI 実験",
       "image": "/images/AI.png",
-      "url": "ai.html",
+      "url": "/ai/",
       "size": "regular"
     },
     {
@@ -62,7 +62,7 @@
       "title": "Idol",
       "description": "推し、楽曲、MV、ライブ感想。",
       "image": "/images/idol.png",
-      "url": "idol.html",
+      "url": "/idol/",
       "size": "regular"
     },
     {
@@ -70,7 +70,7 @@
       "title": "Game",
       "description": "好きなゲーム、思い出、実績、プレイ記録。",
       "image": "/images/Game.png",
-      "url": "game.html",
+      "url": "/game/",
       "size": "wide"
     },
     {
@@ -78,7 +78,7 @@
       "title": "Movie",
       "description": "好きな映画、レビュー、ランキング。",
       "image": "/images/movie.png",
-      "url": "movie.html",
+      "url": "/movie/",
       "size": "regular"
     },
     {
@@ -86,7 +86,7 @@
       "title": "Food",
       "description": "グルメ、好きな料理、お店の記録。",
       "image": "/images/food.png",
-      "url": "food.html",
+      "url": "/food/",
       "size": "regular"
     },
     {
@@ -94,7 +94,7 @@
       "title": "YouTube",
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
-      "url": "youtube.html",
+      "url": "/youtube/",
       "size": "wide"
     },
     {
@@ -102,7 +102,7 @@
       "title": "CM",
       "description": "好きなCM、映像表現、印象に残ったビ芸。",
       "image": "/images/cm.png",
-      "url": "commercial.html",
+      "url": "/commercial/",
       "size": "wide"
     }
   ]
