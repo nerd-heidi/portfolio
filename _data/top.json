@@ -31,7 +31,7 @@
       "description": "日常、街、ライブ、記録としての写真。",
       "image": "/images/Photo.png",
       "url": "/photo/",
-      "size": "wide"
+      "size": "regular"
     },
     {
       "number": "05",
@@ -71,7 +71,7 @@
       "description": "好きなゲーム、思い出、実績、プレイ記録。",
       "image": "/images/Game.png",
       "url": "/game/",
-      "size": "wide"
+      "size": "regular"
     },
     {
       "number": "10",
@@ -95,7 +95,7 @@
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
       "url": "/youtube/",
-      "size": "wide"
+      "size": "regular"
     },
     {
       "number": "13",
