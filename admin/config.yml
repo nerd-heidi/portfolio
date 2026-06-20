@@ -289,3 +289,20 @@ collections:
               - {name: title,       label: タイトル,        widget: string}
               - {name: youtube_id,  label: YouTube動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
               - {name: description, label: 説明文,          widget: text, required: false}
+
+  - name: cm
+    label: "🎥 CM"
+    files:
+      - name: cm_data
+        label: コンテンツを編集
+        file: _data/cm.json
+        format: json
+        fields:
+          - name: items
+            label: CM 動画
+            widget: list
+            label_singular: CM
+            fields:
+              - {name: title,       label: タイトル,        widget: string}
+              - {name: youtube_id,  label: YouTube動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+              - {name: description, label: 説明文,          widget: text, required: false}
