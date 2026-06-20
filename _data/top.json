@@ -21,7 +21,7 @@
       "number": "03",
       "title": "Anime",
       "description": "好きなアニメ、キャラクター、感想。",
-      "image": "/images/anime-top.png",
+      "image": "/images/anime.png",
       "url": "anime.html",
       "size": "regular"
     },
