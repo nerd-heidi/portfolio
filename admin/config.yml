@@ -295,7 +295,7 @@ collections:
     files:
       - name: cm_data
         label: コンテンツを編集
-        file: _data/cm.json
+        file: _data/commercial.json
         format: json
         fields:
           - name: items

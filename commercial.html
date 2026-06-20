@@ -41,7 +41,7 @@
       if (!container) return;
       let data;
       try {
-        const res = await fetch('/_data/cm.json');
+        const res = await fetch('/_data/commercial.json');
         if (!res.ok) throw new Error(res.statusText);
         data = await res.json();
       } catch {
