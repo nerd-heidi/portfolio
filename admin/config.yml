@@ -9,6 +9,35 @@ public_folder: /images
 
 collections:
 
+  - name: top
+    label: "🏠 トップページ"
+    files:
+      - name: top_data
+        label: トップページを編集
+        file: _data/top.json
+        format: json
+        fields:
+          - name: hero_image
+            label: ヒーロー背景画像
+            widget: image
+          - name: cards
+            label: カード（11枚）
+            widget: list
+            label_singular: カード
+            fields:
+              - {name: number, label: 番号, widget: string}
+              - {name: title, label: タイトル, widget: string}
+              - {name: description, label: 説明, widget: string}
+              - {name: image, label: 画像, widget: image}
+              - {name: url, label: リンク先, widget: string}
+              - name: size
+                label: サイズ
+                widget: select
+                options:
+                  - {label: "通常", value: "regular"}
+                  - {label: "大（2×2）", value: "large"}
+                  - {label: "横長（2×1）", value: "wide"}
+
   - name: music
     label: "🎵 Favorite Music"
     files:
