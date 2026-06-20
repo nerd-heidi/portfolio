@@ -1,15 +1,40 @@
 {
-  "artists": [
-    {
-      "title": "PUNPEE",
-      "description": "ぱんぴー",
-      "image": "",
-      "tags": [
-        "HIPHOP"
-      ]
-    }
-  ],
   "mvs": [
+    {
+      "title": "YENTOWN - Asobo Feat. Awich, MonyHorse, PETZ, JNKMN & kZm (Prod. Chaki Zulu)",
+      "youtube_id": "3LElE3kqP0A",
+      "description": ""
+    },
+    {
+      "title": "LEX - 力をくれ feat. ¥ellow Bucks",
+      "youtube_id": "txaaXI6H2SU",
+      "description": ""
+    },
+    {
+      "title": "WILYWNKA - That's Me",
+      "youtube_id": "b2QxwBAVZx8",
+      "description": ""
+    },
+    {
+      "title": "THA BLUE HERB / 未来は俺等の手の中",
+      "youtube_id": "u5KV0B0teIA",
+      "description": ""
+    },
+    {
+      "title": "TOCCHI - Independent Era feat. HANG & 唾奇",
+      "youtube_id": "nSCOXdNCx5c",
+      "description": ""
+    },
+    {
+      "title": "Yvng Patra - Hood star",
+      "youtube_id": "R_mZRbHy2kI",
+      "description": ""
+    },
+    {
+      "title": "guca owl - Working Class King",
+      "youtube_id": "dJvAQcdiGjA",
+      "description": ""
+    },
     {
       "title": "lil soft tennis & swetty - 夜をぬけて",
       "youtube_id": "Zb74XQ5mNeo",
@@ -21,13 +46,18 @@
       "description": ""
     },
     {
-      "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
-      "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
+      "title": "PUNPEE - Mornin'26",
+      "youtube_id": "_BPh1DFE6XM&list=RDMMXLrfoZhx0e0&index=8",
       "description": ""
     },
     {
-      "title": "PUNPEE - Mornin'26",
-      "youtube_id": "_BPh1DFE6XM&list=RDMMXLrfoZhx0e0&index=8",
+      "title": "NORIKIYO & 田我流 - 風を切って",
+      "youtube_id": "ZFCs-EeodMc",
+      "description": ""
+    },
+    {
+      "title": "What is your name？- SUSHIBOYS",
+      "youtube_id": "7AybsiIFmxA",
       "description": ""
     },
     {
@@ -36,19 +66,54 @@
       "description": ""
     },
     {
+      "title": "Refugeecamp - 4seasons",
+      "youtube_id": "IkiuDffaALQ",
+      "description": ""
+    },
+    {
       "title": "Tokyo Young Vision - \"いつもどおり\" (feat. OSAMI, Charlu & AMO)",
       "youtube_id": "llcR8P9k8Gw&list=RDMMXLrfoZhx0e0&index=2",
+      "description": ""
+    },
+    {
+      "title": "AIRIE - 6.12inches (ft.T-STONE, Masato Hayashi)",
+      "youtube_id": "Ddun4b2KvOI",
+      "description": ""
+    },
+    {
+      "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
+      "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
+      "description": ""
+    },
+    {
+      "title": "Kvi Baba / Too Bad Day But... (Remix) feat. AKLO & KEIJU",
+      "youtube_id": "eZ607E-JvjQ",
+      "description": ""
+    },
+    {
+      "title": "Manaka - Look At Me Now",
+      "youtube_id": "oZPiskvDlTo",
       "description": ""
     }
   ],
   "albums": [
     {
-      "title": "アルバム名",
-      "description": "アルバムの説明や感想。",
-      "image": "",
       "tags": [
         "HIPHOP"
-      ]
+      ],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [
+        "HIPHOP"
+      ],
+      "image": "",
+      "description": "ぱんぴー",
+      "title": "PUNPEE"
     }
   ]
 }

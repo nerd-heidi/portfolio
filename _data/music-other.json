@@ -1,11 +1,30 @@
-﻿{
-  "artists": [
-    {"title": "アーティスト名", "description": "説明文をここに書いてください。", "image": "", "tags": []}
-  ],
+{
   "mvs": [
-    {"title": "MV タイトル", "youtube_id": "dQw4w9WgXcQ", "description": "MVの説明や感想。"}
+    {
+      "title": "Peterparker69,野田洋次郎 - Hey phone",
+      "youtube_id": "tjiWuJDIJzE",
+      "description": ""
+    },
+    {
+      "title": "BOOM BOOM SATELLITES / BACK ON MY FEET",
+      "youtube_id": "SpT5PXTgQHo",
+      "description": ""
+    }
   ],
   "albums": [
-    {"title": "アルバム名", "description": "アルバムの説明や感想。", "image": "", "tags": []}
+    {
+      "tags": [],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [],
+      "image": "",
+      "description": "説明文をここに書いてください。",
+      "title": "アーティスト名"
+    }
   ]
 }
