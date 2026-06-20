@@ -6,6 +6,11 @@
       "description": ""
     },
     {
+      "title": "Lisa lil vinci - 失業しないョ",
+      "youtube_id": "fyJzzN_3H9s",
+      "description": ""
+    },
+    {
       "title": "LEX - 力をくれ feat. ¥ellow Bucks",
       "youtube_id": "txaaXI6H2SU",
       "description": ""
@@ -28,6 +33,11 @@
     {
       "title": "TOCCHI - Independent Era feat. HANG & 唾奇",
       "youtube_id": "nSCOXdNCx5c",
+      "description": ""
+    },
+    {
+      "title": "Kianna, HARKA, AOTO, Siero - STARLIGHT",
+      "youtube_id": "6ySDF5UFsgc",
       "description": ""
     },
     {
@@ -106,24 +116,24 @@
       "description": ""
     }
   ],
-  "artists": [
-    {
-      "title": "PUNPEE",
-      "description": "ぱんぴー",
-      "image": "",
-      "tags": [
-        "HIPHOP"
-      ]
-    }
-  ],
   "albums": [
     {
-      "title": "アルバム名",
-      "description": "アルバムの説明や感想。",
-      "image": "",
       "tags": [
         "HIPHOP"
-      ]
+      ],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [
+        "HIPHOP"
+      ],
+      "image": "",
+      "description": "ぱんぴー",
+      "title": "PUNPEE"
     }
   ]
 }
