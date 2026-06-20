@@ -2,8 +2,7 @@ backend:
   name: github
   repo: nerd-heidi/portfolio
   branch: main
-  auth_type: pkce
-  app_id: Ov23lisAf8Al8BUzGEXJ
+  base_url: https://purple-bread-aff9.heidiwish.workers.dev
 
 media_folder: images
 public_folder: /images
