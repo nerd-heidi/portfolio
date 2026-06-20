@@ -86,6 +86,11 @@
       "description": ""
     },
     {
+      "title": "Mall Boyz (Tohji, gummyboy), BIM, kZm - 246",
+      "youtube_id": "ZXzp-6Eiw-4",
+      "description": ""
+    },
+    {
       "title": "SEEDA - SLICK BACK Remix ft. PUNPEE, Lisa lil vinci, jellyy, NORIKIYO | 03- Performance",
       "youtube_id": "XLrfoZhx0e0&list=RDMMXLrfoZhx0e0&start_radio=1",
       "description": ""
@@ -101,24 +106,24 @@
       "description": ""
     }
   ],
-  "albums": [
-    {
-      "tags": [
-        "HIPHOP"
-      ],
-      "image": "",
-      "description": "アルバムの説明や感想。",
-      "title": "アルバム名"
-    }
-  ],
   "artists": [
     {
+      "title": "PUNPEE",
+      "description": "ぱんぴー",
+      "image": "",
       "tags": [
         "HIPHOP"
-      ],
+      ]
+    }
+  ],
+  "albums": [
+    {
+      "title": "アルバム名",
+      "description": "アルバムの説明や感想。",
       "image": "",
-      "description": "ぱんぴー",
-      "title": "PUNPEE"
+      "tags": [
+        "HIPHOP"
+      ]
     }
   ]
 }
