@@ -37,7 +37,7 @@
       "number": "05",
       "title": "Favorite Idol",
       "description": "推し、楽曲、MV、ライブ感想。",
-      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/idol.png",
       "url": "idol.html",
       "size": "regular"
     },
@@ -61,7 +61,7 @@
       "number": "08",
       "title": "Favorite Book",
       "description": "好きな本、影響を受けた言葉、読書メモ。",
-      "image": "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/book.png",
       "url": "book.html",
       "size": "regular"
     },
@@ -77,7 +77,7 @@
       "number": "10",
       "title": "Movie",
       "description": "好きな映画、レビュー、ランキング。",
-      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/movie.png",
       "url": "movie.html",
       "size": "regular"
     },
@@ -85,7 +85,7 @@
       "number": "11",
       "title": "Food",
       "description": "グルメ、好きな料理、お店の記録。",
-      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=900&q=80",
+      "image": "/images/food.png",
       "url": "food.html",
       "size": "regular"
     }
