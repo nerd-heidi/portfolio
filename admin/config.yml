@@ -92,21 +92,13 @@ collections:
         file: _data/beat.json
         format: json
         fields:
-          - name: sections
-            label: セクション
+          - name: beats
+            label: ビート
             widget: list
-            label_singular: セクション
+            label_singular: ビート
             fields:
-              - {name: heading, label: 見出し, widget: string}
-              - name: items
-                label: アイテム
-                widget: list
-                label_singular: アイテム
-                fields:
-                  - {name: title,       label: タイトル,   widget: string}
-                  - {name: description, label: 説明文,     widget: text}
-                  - {name: image,       label: 画像,       widget: image, required: false}
-                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+              - {name: title, label: タイトル, widget: string}
+              - {name: audio, label: 音源ファイル (MP3/WAV), widget: file, media_folder: /audio, public_folder: /audio}
 
   - name: anime
     label: "📺 Anime"

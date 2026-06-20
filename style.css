@@ -522,6 +522,114 @@ h1 {
   font-size: 16px;
 }
 
+/* ===== BEAT PLAYER ===== */
+.beat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 80px;
+}
+
+.beat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.beat-item:hover {
+  border-color: rgba(167, 128, 255, 0.4);
+}
+
+.beat-item.playing {
+  border-color: rgba(167, 128, 255, 0.7);
+  box-shadow: 0 0 24px rgba(120, 70, 255, 0.15);
+}
+
+.beat-play {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(167, 128, 255, 0.15);
+  border: 1px solid rgba(167, 128, 255, 0.35);
+  color: #a780ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.beat-play:hover {
+  background: rgba(167, 128, 255, 0.3);
+  transform: scale(1.07);
+}
+
+.beat-item.playing .beat-play {
+  background: rgba(167, 128, 255, 0.35);
+}
+
+.beat-play svg {
+  width: 16px;
+  height: 16px;
+}
+
+.beat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.beat-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.beat-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.beat-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.beat-progress-bar:hover {
+  height: 6px;
+}
+
+.beat-progress-fill {
+  height: 100%;
+  background: #a780ff;
+  border-radius: 2px;
+  width: 0%;
+  pointer-events: none;
+}
+
+.beat-time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ===== PHOTO GALLERY GRID ===== */
 .photo-grid {
   display: grid;
