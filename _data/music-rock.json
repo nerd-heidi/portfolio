@@ -1,11 +1,39 @@
-﻿{
+{
   "artists": [
-    {"title": "アーティスト名", "description": "説明文をここに書いてください。", "image": "", "tags": []}
+    {
+      "title": "1",
+      "description": "1",
+      "image": "",
+      "tags": [
+        "1"
+      ]
+    }
   ],
   "mvs": [
-    {"title": "MV タイトル", "youtube_id": "dQw4w9WgXcQ", "description": "MVの説明や感想。"}
+    {
+      "title": "クリープハイプ  / 栞",
+      "youtube_id": "j4XsCJHfplg",
+      "description": "MVの説明や感想。"
+    },
+    {
+      "title": "OKAMOTO'S  / Beautiful Days",
+      "youtube_id": "w3CaZ3p8E2Y",
+      "description": ""
+    },
+    {
+      "title": "syrup16g / ex.人間",
+      "youtube_id": "ZOb-FTdtYF0",
+      "description": ""
+    }
   ],
   "albums": [
-    {"title": "アルバム名", "description": "アルバムの説明や感想。", "image": "", "tags": []}
+    {
+      "title": "アルバム名",
+      "description": "アルバムの説明や感想。",
+      "image": "",
+      "tags": [
+        "1"
+      ]
+    }
   ]
 }
