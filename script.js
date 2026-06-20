@@ -30,3 +30,24 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// ハンバーガーメニュー
+(function() {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav    = document.querySelector('.site-header nav');
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // リンクをタップしたら閉じる
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
