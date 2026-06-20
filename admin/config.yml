@@ -5,8 +5,6 @@ backend:
   auth_type: pkce
   app_id: Ov23lisAf8Al8BUzGEXJ
 
-locale: ja
-
 media_folder: images
 public_folder: /images
 
