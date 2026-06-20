@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube | NERD Life</title>
+  <meta name="description" content="お気に入りの動画、チャンネル、ループ再生している映像。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">NERD Life</a>
+    <nav>
+      <a href="favorite-music.html">Music</a>
+      <a href="beat.html">Beat</a>
+      <a href="anime.html">Anime</a>
+      <a href="work.html">Work</a>
+      <a href="ai.html">AI</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">12 — YouTube</p>
+      <h1>YouTube.</h1>
+      <p class="lead">お気に入りの動画、チャンネル、ループ再生している映像。</p>
+      <a href="index.html" class="back-link">← Back to Top</a>
+    </section>
+
+    <div class="page-content"><div class="loading-state">読み込み中…</div></div>
+  </main>
+
+  <footer>
+    <p>© 2026 NERD Life. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (async function() {
+      const container = document.querySelector('.page-content');
+      if (!container) return;
+      let data;
+      try {
+        const res = await fetch('/_data/youtube.json');
+        if (!res.ok) throw new Error(res.statusText);
+        data = await res.json();
+      } catch {
+        container.innerHTML = '<p class="loading-state">読み込みに失敗しました。</p>';
+        return;
+      }
+      const items = data.items || [];
+      if (items.length === 0) {
+        container.innerHTML = '<p class="loading-state">コンテンツがありません。</p>';
+        return;
+      }
+      function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+      const cardsHTML = items.map(item => {
+        const vid = esc((item.youtube_id || '').split('&')[0]);
+        if (!vid) return '';
+        return `<div class="mv-card"><div class="mv-embed"><div class="yt-facade" data-id="${vid}"><img src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt="${esc(item.title)}" loading="lazy"><button class="yt-play" aria-label="再生"></button></div></div><div class="mv-info"><h3>${esc(item.title)}</h3>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div></div>`;
+      }).join('');
+      container.innerHTML = `<section class="content-section"><h2 class="section-heading">YouTube</h2><div class="mv-grid">${cardsHTML}</div></section>`;
+      container.querySelectorAll('.mv-card').forEach(c => {
+        const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { c.classList.add('visible'); obs.unobserve(c); } }, { threshold: 0.1 });
+        obs.observe(c);
+      });
+    })();
+  </script>
+</body>
+</html>

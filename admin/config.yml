@@ -288,3 +288,20 @@ collections:
                   - {name: description, label: 説明文,     widget: text}
                   - {name: image,       label: 画像,       widget: image, required: false}
                   - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+
+  - name: youtube
+    label: "▶️ YouTube"
+    files:
+      - name: youtube_data
+        label: コンテンツを編集
+        file: _data/youtube.json
+        format: json
+        fields:
+          - name: items
+            label: YouTube 動画
+            widget: list
+            label_singular: 動画
+            fields:
+              - {name: title,       label: タイトル,        widget: string}
+              - {name: youtube_id,  label: YouTube動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+              - {name: description, label: 説明文,          widget: text, required: false}
