@@ -1,11 +1,40 @@
-﻿{
-  "artists": [
-    {"title": "アーティスト名", "description": "説明文をここに書いてください。", "image": "", "tags": []}
-  ],
+{
   "mvs": [
-    {"title": "MV タイトル", "youtube_id": "dQw4w9WgXcQ", "description": "MVの説明や感想。"}
+    {
+      "title": "宇多田ヒカル / Time",
+      "youtube_id": "1ksh8x9bIPI",
+      "description": ""
+    },
+    {
+      "title": "星野源 / Pop Virus",
+      "youtube_id": "HG0M_eZduxY",
+      "description": ""
+    },
+    {
+      "title": "藤井 風 - 満ちてゆく",
+      "youtube_id": "ptiK8U4WlSc",
+      "description": ""
+    },
+    {
+      "title": "米津玄師 / IRIS OUT",
+      "youtube_id": "LmZD-TU96q4",
+      "description": ""
+    }
   ],
   "albums": [
-    {"title": "アルバム名", "description": "アルバムの説明や感想。", "image": "", "tags": []}
+    {
+      "tags": [],
+      "image": "",
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [],
+      "image": "",
+      "description": "説明文をここに書いてください。",
+      "title": "アーティスト名"
+    }
   ]
 }
