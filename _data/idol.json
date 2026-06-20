@@ -1,9 +1,24 @@
-﻿{
+{
   "items": [
     {
-      "title": "グループ / アーティスト名",
-      "youtube_id": "",
+      "title": "BiSH / MORE THAN LiKE",
+      "youtube_id": "Jzg0oBf-47A",
       "description": "好きな楽曲、ライブの雰囲気、メンバーの魅力など。"
+    },
+    {
+      "title": "XG - NEW DANCE",
+      "youtube_id": "cQTo9O85Zro",
+      "description": ""
+    },
+    {
+      "title": "LE SSERAFIM / DIFFERENT",
+      "youtube_id": "HI9bU2j_Vmc",
+      "description": ""
+    },
+    {
+      "title": "KiiiKiii / I DO ME",
+      "youtube_id": "hAEfi_SKTEU",
+      "description": ""
     }
   ]
 }
