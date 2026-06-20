@@ -35,10 +35,10 @@
     },
     {
       "number": "05",
-      "title": "Idol",
-      "description": "推し、楽曲、MV、ライブ感想。",
-      "image": "/images/idol.png",
-      "url": "idol.html",
+      "title": "Book",
+      "description": "好きな本、影響を受けた言葉、読書メモ。",
+      "image": "/images/book.png",
+      "url": "book.html",
       "size": "regular"
     },
     {
@@ -59,10 +59,10 @@
     },
     {
       "number": "08",
-      "title": "Book",
-      "description": "好きな本、影響を受けた言葉、読書メモ。",
-      "image": "/images/book.png",
-      "url": "book.html",
+      "title": "Idol",
+      "description": "推し、楽曲、MV、ライブ感想。",
+      "image": "/images/idol.png",
+      "url": "idol.html",
       "size": "regular"
     },
     {
