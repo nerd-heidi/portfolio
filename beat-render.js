@@ -53,7 +53,8 @@ async function renderBeatPage() {
   container.innerHTML = `<div class="beat-list">${items}</div>`;
 
   const audios = beats.map(b => {
-    const a = new Audio(b.audio || '');
+    const src = b.audio ? encodeURI(b.audio) : '';
+    const a = new Audio(src);
     a.preload = 'metadata';
     return a;
   });
