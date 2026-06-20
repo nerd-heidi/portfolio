@@ -3,7 +3,7 @@
   "cards": [
     {
       "number": "01",
-      "title": "Favorite Music",
+      "title": "Music",
       "description": "好きな音楽、アーティスト、アルバム、プレイリスト。",
       "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80",
       "url": "favorite-music.html",
@@ -11,7 +11,7 @@
     },
     {
       "number": "02",
-      "title": "Beat",
+      "title": "My Beat",
       "description": "自作ビート、制作メモ、使用ツール。",
       "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80",
       "url": "beat.html",
@@ -35,7 +35,7 @@
     },
     {
       "number": "05",
-      "title": "Favorite Idol",
+      "title": "Idol",
       "description": "推し、楽曲、MV、ライブ感想。",
       "image": "/images/idol.png",
       "url": "idol.html",
@@ -59,7 +59,7 @@
     },
     {
       "number": "08",
-      "title": "Favorite Book",
+      "title": "Book",
       "description": "好きな本、影響を受けた言葉、読書メモ。",
       "image": "/images/book.png",
       "url": "book.html",
