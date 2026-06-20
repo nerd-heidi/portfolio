@@ -60,32 +60,14 @@ collections:
         file: _data/music-hiphop.json
         format: json
         fields: &genre_fields
-          - name: artists
-            label: Favorite Artists
-            widget: list
-            label_singular: アーティスト
-            fields:
-              - {name: title,       label: アーティスト名, widget: string}
-              - {name: description, label: 説明文,         widget: text}
-              - {name: image,       label: 画像,           widget: image, required: false}
-              - {name: tags,        label: タグ,           widget: list, field: {name: tag, label: タグ, widget: string}}
           - name: mvs
-            label: Favorite MV
+            label: Favorite Artists
             widget: list
             label_singular: MV
             fields:
               - {name: title,       label: タイトル,       widget: string}
               - {name: youtube_id,  label: YouTube 動画ID, widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
               - {name: description, label: 説明・感想,     widget: text, required: false}
-          - name: albums
-            label: Favorite Albums
-            widget: list
-            label_singular: アルバム
-            fields:
-              - {name: title,       label: アルバム名,     widget: string}
-              - {name: description, label: 説明・感想,     widget: text}
-              - {name: image,       label: 画像,           widget: image, required: false}
-              - {name: tags,        label: タグ,           widget: list, field: {name: tag, label: タグ, widget: string}}
       - name: music_rock
         label: Rock
         file: _data/music-rock.json
@@ -240,21 +222,14 @@ collections:
         file: _data/book.json
         format: json
         fields:
-          - name: sections
-            label: セクション
+          - name: items
+            label: Favorite Books
             widget: list
-            label_singular: セクション
+            label_singular: 本
             fields:
-              - {name: heading, label: 見出し, widget: string}
-              - name: items
-                label: アイテム
-                widget: list
-                label_singular: アイテム
-                fields:
-                  - {name: title,       label: タイトル,   widget: string}
-                  - {name: description, label: 説明文,     widget: text}
-                  - {name: image,       label: 画像,       widget: image, required: false}
-                  - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
+              - {name: title, label: タイトル,   widget: string}
+              - {name: image, label: 表紙画像, widget: image, required: false}
+              - {name: url,   label: リンク先URL, widget: string, required: false, hint: "公式サイト・Amazonなど"}
 
   - name: game
     label: "🎮 Game"

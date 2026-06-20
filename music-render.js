@@ -103,15 +103,8 @@ async function renderMusicPage(dataFile) {
       </div>`;
     }).join('');
     html += `<section class="content-section">
-      <h2 class="section-heading">Favorite Music</h2>
+      <h2 class="section-heading">Favorite Artists</h2>
       <div class="mv-grid">${mvsHTML}</div>
-    </section>`;
-  }
-
-  if ((data.albums || []).length > 0) {
-    html += `<section class="content-section">
-      <h2 class="section-heading">Favorite Albums</h2>
-      <div class="item-grid">${data.albums.map(createItemCard).join('')}</div>
     </section>`;
   }
 

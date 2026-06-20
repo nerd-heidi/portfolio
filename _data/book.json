@@ -1,50 +1,9 @@
-{
-  "sections": [
+﻿{
+  "items": [
     {
-      "heading": "All Time Favorites",
-      "items": [
-        {
-          "title": "書名 / 著者名",
-          "description": "この本から受け取ったこと、印象に残った言葉、人生に影響を与えたポイントなどを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80",
-          "tags": ["自己啓発", "何度も読む"]
-        },
-        {
-          "title": "書名 / 著者名",
-          "description": "この本から受け取ったこと、印象に残った言葉、人生に影響を与えたポイントなどを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
-          "tags": ["ビジネス", "思考法"]
-        },
-        {
-          "title": "書名 / 著者名",
-          "description": "この本から受け取ったこと、印象に残った言葉、人生に影響を与えたポイントなどを書きましょう。",
-          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&q=80",
-          "tags": ["小説", "没入感"]
-        }
-      ]
-    },
-    {
-      "heading": "最近読んだ本",
-      "items": [
-        {
-          "title": "書名 / 著者名",
-          "description": "最近読んだ本の感想。どんな内容で、何を学んだか、誰かにおすすめするなら？",
-          "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
-          "tags": ["2025", "読了"]
-        },
-        {
-          "title": "書名 / 著者名",
-          "description": "最近読んだ本の感想。どんな内容で、何を学んだか、誰かにおすすめするなら？",
-          "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
-          "tags": ["2026", "読了"]
-        },
-        {
-          "title": "書名 / 著者名",
-          "description": "最近読んだ本の感想。どんな内容で、何を学んだか、誰かにおすすめするなら？",
-          "image": "https://images.unsplash.com/photo-1495640452828-3df6795cf69b?auto=format&fit=crop&w=800&q=80",
-          "tags": ["積読消化", "おすすめ"]
-        }
-      ]
+      "title": "書名 / 著者名",
+      "image": "",
+      "url": ""
     }
   ]
 }
