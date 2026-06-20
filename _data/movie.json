@@ -1,14 +1,14 @@
-﻿{
+{
   "items": [
     {
-      "title": "鉄コン筋クリート",
-      "image": "",
-      "url": ""
+      "title": "渇き。",
+      "image": "/images/kawaki.jpg",
+      "url": "https://kawaki.gaga.ne.jp/"
     },
     {
-      "title": "渇き。",
-      "image": "",
-      "url": ""
+      "title": "鉄コン筋クリート",
+      "image": "/images/tekkon.jpg",
+      "url": "https://filmarks.com/movies/671"
     }
   ]
 }
