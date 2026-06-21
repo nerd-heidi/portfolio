@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   /* ─── Styles (embedded) ─────────────────────────────────────────── */
@@ -250,29 +250,34 @@
     {
       keywords: ['ページ', 'カテゴリ', '何がある', 'コンテンツ', '一覧', 'サイトマップ', 'sitemap'],
       answer: 'Music・Beat・Anime・Work・AI・Book・Movie・Photo・Game・Idol・Playlist・Food・YouTube・Commercialなど多彩なカテゴリがあります！<br>→ <a href="/">トップページへ</a>'
+    },
+    {
+      keywords: ['character', 'bot character', 'キャラクター', 'melodyとは', 'melodyって', 'ボットキャラ'],
+      answer: 'MelodyはNERD Lifeと一緒にいるAIミュージックコンパニオンだよ🎵<br>→ <a href="/melody/">Melody キャラクターページへ</a>'
     }
   ];
 
   /* ─── クイックリプライ ────────────────────────────────────────── */
   var QR = [
-    { label: '\ud83d\udc64 プロフィール', q: 'プロフィール' },
-    { label: '\ud83c� 音楽', q: '音楽' },
-    { label: '\ud83c� ビート制作', q: 'ビート' },
-    { label: '\ud83c� アイドル', q: 'アイドル' },
-    { label: '\ud83c� アニメ', q: 'アニメ' },
-    { label: '\ud83d� お仕事', q: '仕事' },
-    { label: '\ud83e� AI', q: 'AI' },
-    { label: '\ud83d� 本', q: '本' },
-    { label: '\ud83c� 映画', q: '映画' },
-    { label: '\ud83d� 写真', q: '写真' },
-    { label: '\ud83c� ゲーム', q: 'ゲーム' },
-    { label: '\ud83c� グルメ', q: 'グルメ' },
-    { label: '\u25b6 YouTube', q: 'youtube' },
-    { label: '\ud83d� 全ページ一覧', q: '一覧' }
+    { label: '👤 私について', q: 'プロフィール' },
+    { label: '🎵 音楽', q: '音楽' },
+    { label: '🎧 ビート制作', q: 'ビート' },
+    { label: '🎤 アイドル', q: 'アイドル' },
+    { label: '🎌 アニメ', q: 'アニメ' },
+    { label: '💼 お仕事', q: '仕事' },
+    { label: '🤖 AI', q: 'AI' },
+    { label: '📚 本', q: '本' },
+    { label: '🎬 映画', q: '映画' },
+    { label: '📷 写真', q: '写真' },
+    { label: '🎮 ゲーム', q: 'ゲーム' },
+    { label: '🍽 グルメ', q: 'グルメ' },
+    { label: '▶ YouTube', q: 'youtube' },
+    { label: '📋 全ページ一覧', q: '一覧' },
+    { label: '🎀 Bot Character について', q: 'character' }
   ];
 
   var GREETING = 'こんにちは、Melodyだよ🎵<br>今日はどんな気分？一緒にぴったりの音楽を見つけよう♪';
-  var FALLBACK = 'ハウン。下のボタンから選んでみてね\ud83c�';
+  var FALLBACK = 'うまく理解できなかったよ〜 下のボタンから選んでみてね！';
 
   /* ─── FAQ 検索 ───────────────────────────────────────────────── */
   function findAnswer(text) {
@@ -334,7 +339,7 @@
       var btn = document.createElement('button');
       btn.className = 'cb-qr-btn';
       btn.textContent = item.label;
-      btn.addEventListener('click', function () { onSelect(item.q, item.label); });
+      btn.addEventListener('click', function (e) { e.stopPropagation(); onSelect(item.q, item.label); });
       el.appendChild(btn);
     });
   }
