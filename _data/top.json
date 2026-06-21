@@ -11,6 +11,14 @@
     },
     {
       "number": "02",
+      "title": "Playlist",
+      "description": "Apple Music で公開しているプレイリストのアートワークギャラリー。",
+      "image": "/images/playlist.png",
+      "url": "/playlist/",
+      "size": "large"
+    },
+    {
+      "number": "03",
       "title": "My Beat",
       "description": "自作ビート、制作メモ、使用ツール。",
       "image": "/images/My Beat.png",
@@ -18,7 +26,7 @@
       "size": "regular"
     },
     {
-      "number": "03",
+      "number": "04",
       "title": "Anime",
       "description": "好きなアニメ、キャラクター、感想。",
       "image": "/images/anime.png",
@@ -26,7 +34,7 @@
       "size": "regular"
     },
     {
-      "number": "04",
+      "number": "05",
       "title": "My Photo",
       "description": "日常、街、ライブ、記録としての写真。",
       "image": "/images/Photo.png",
@@ -34,7 +42,7 @@
       "size": "wide"
     },
     {
-      "number": "05",
+      "number": "06",
       "title": "Book",
       "description": "好きな本、影響を受けた言葉、読書メモ。",
       "image": "/images/book.png",
@@ -42,7 +50,7 @@
       "size": "regular"
     },
     {
-      "number": "06",
+      "number": "07",
       "title": "Work",
       "description": "仕事、経験、スキル、プロジェクト。",
       "image": "/images/work.png",
@@ -50,7 +58,7 @@
       "size": "regular"
     },
     {
-      "number": "07",
+      "number": "08",
       "title": "AI 実験室",
       "description": "AI 実験",
       "image": "/images/AI.png",
@@ -58,7 +66,7 @@
       "size": "regular"
     },
     {
-      "number": "08",
+      "number": "09",
       "title": "Idol",
       "description": "推し、楽曲、MV、ライブ感想。",
       "image": "/images/idol.png",
@@ -66,7 +74,7 @@
       "size": "regular"
     },
     {
-      "number": "09",
+      "number": "10",
       "title": "Game",
       "description": "好きなゲーム、思い出、実績、プレイ記録。",
       "image": "/images/Game.png",
@@ -74,7 +82,7 @@
       "size": "wide"
     },
     {
-      "number": "10",
+      "number": "11",
       "title": "Movie",
       "description": "好きな映画、レビュー、ランキング。",
       "image": "/images/movie.png",
@@ -82,7 +90,7 @@
       "size": "regular"
     },
     {
-      "number": "11",
+      "number": "12",
       "title": "Food",
       "description": "グルメ、好きな料理、お店の記録。",
       "image": "/images/food.png",
@@ -90,7 +98,7 @@
       "size": "regular"
     },
     {
-      "number": "12",
+      "number": "13",
       "title": "YouTube",
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
@@ -98,7 +106,7 @@
       "size": "wide"
     },
     {
-      "number": "13",
+      "number": "14",
       "title": "CM",
       "description": "好きなCM、映像表現、印象に残ったビ芸。",
       "image": "/images/cm.png",
