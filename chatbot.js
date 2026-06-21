@@ -6,7 +6,7 @@
   style.textContent = '\
 #chatbot-toggle {\
   position: fixed;\
-  top: 82px;\
+  top: 120px;\
   right: 0;\
   z-index: 5;\
   width: 195px;\
@@ -28,7 +28,7 @@
 }\
 #chatbot-window {\
   position: fixed;\
-  top: 88px;\
+  top: 126px;\
   right: 200px;\
   z-index: 9999;\
   width: 340px;\

@@ -6,9 +6,9 @@
   style.textContent = '\
 #chatbot-seeno-toggle {\
   position: fixed;\
-  top: 82px;\
-  left: 0;\
-  z-index: 5;\
+  top: 20px;\
+  left: 150px;\
+  z-index: 15;\
   width: 195px;\
   background: none;\
   border: none;\
@@ -29,7 +29,7 @@
 #chatbot-seeno-window {\
   position: fixed;\
   top: 88px;\
-  left: 200px;\
+  left: 355px;\
   z-index: 9999;\
   width: 340px;\
   max-height: 520px;\
@@ -163,6 +163,7 @@
   #chatbot-seeno-toggle {\
     top: 82px;\
     left: 0;\
+    z-index: 15;\
     width: 140px;\
   }\
 }\
