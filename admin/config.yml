@@ -84,6 +84,24 @@ collections:
         format: json
         fields: *genre_fields
 
+  - name: playlist
+    label: "🎧 Playlist"
+    files:
+      - name: playlist_data
+        label: コンテンツを編集
+        file: _data/playlist.json
+        format: json
+        fields:
+          - name: playlists
+            label: プレイリスト
+            widget: list
+            label_singular: プレイリスト
+            fields:
+              - {name: title,       label: タイトル,              widget: string}
+              - {name: description, label: 説明文,                widget: text, required: false}
+              - {name: artwork,     label: アートワーク画像,      widget: image, required: false}
+              - {name: url,         label: Apple Music URL,       widget: string, hint: "https://music.apple.com/jp/playlist/..."}
+
   - name: beat
     label: "🎛 Beat"
     files:
