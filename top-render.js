@@ -1,3 +1,17 @@
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function safeUrl(url) {
+  if (!url) return '#';
+  return /^javascript:/i.test(url.trim()) ? '#' : url;
+}
+
 async function renderTopPage() {
   const res = await fetch('/_data/top.json?v=' + Date.now());
   if (!res.ok) return;
@@ -6,7 +20,8 @@ async function renderTopPage() {
   // ヒーロー背景画像
   const hero = document.querySelector('.hero');
   if (hero && data.hero_image) {
-    hero.style.backgroundImage = `url('${data.hero_image}')`;
+    const safe = safeUrl(data.hero_image);
+    hero.style.backgroundImage = `url('${safe.replace(/'/g, '%27')}')`;
   }
 
   // カードグリッドを描画
@@ -16,11 +31,11 @@ async function renderTopPage() {
   grid.innerHTML = data.cards.map(card => {
     const sizeClass = card.size === 'large' ? 'large' : card.size === 'wide' ? 'wide' : '';
     return `
-      <a class="topic-card${sizeClass ? ' ' + sizeClass : ''}" href="${card.url}">
-        <img src="${card.image}" alt="${card.title}" loading="lazy">
+      <a class="topic-card${sizeClass ? ' ' + sizeClass : ''}" href="${escapeHtml(safeUrl(card.url))}">
+        <img src="${escapeHtml(safeUrl(card.image))}" alt="${escapeHtml(card.title)}" loading="lazy">
         <div class="card-text">
-          <span>${card.number}</span>
-          <h2>${card.title}</h2>
+          <span>${escapeHtml(card.number)}</span>
+          <h2>${escapeHtml(card.title)}</h2>
         </div>
       </a>`;
   }).join('');
