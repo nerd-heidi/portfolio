@@ -1,4 +1,4 @@
-﻿/* mv-roulette.js – おすすめ MV ルーレット（バナー + セクション表示） */
+﻿/* mv-roulette.js – おすすめ MV ルーレット（バナー枠内オーバーレイ） */
 (function () {
   var section = document.getElementById('mv-roulette');
   if (!section) return;
@@ -6,47 +6,48 @@
   var css =
     '#mv-roulette{padding:0 24px 0;}' +
     '.mvr-wrap{max-width:900px;margin:0 auto;}' +
-    /* バナー画像 */
-    '.mvr-banner-btn{display:block;width:100%;border:none;padding:0;background:none;' +
-      'cursor:pointer;border-radius:18px;overflow:hidden;margin-bottom:16px;' +
-      'transition:transform .25s,filter .25s;outline:none;}' +
-    '.mvr-banner-btn:hover{transform:scale(1.01);filter:brightness(1.08);}' +
-    '.mvr-banner-btn:active{transform:scale(.99);}' +
-    '.mvr-banner-btn img{width:100%;display:block;border-radius:18px;}' +
-    /* MV 情報行 */
-    '.mvr-row{display:flex;align-items:center;gap:14px;' +
-      'background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);' +
-      'border-radius:14px;padding:12px 16px;}' +
-    '.mvr-thumb-link{flex-shrink:0;width:56px;height:56px;border-radius:8px;overflow:hidden;' +
-      'display:block;position:relative;background:#111;}' +
-    '.mvr-thumb-link img{width:100%;height:100%;object-fit:cover;display:block;}' +
-    '.mvr-thumb-link::after{content:"▶";position:absolute;inset:0;display:flex;' +
-      'align-items:center;justify-content:center;font-size:14px;color:#fff;' +
-      'background:rgba(0,0,0,.25);}' +
-    '.mvr-info{flex:1;min-width:0;display:flex;align-items:center;gap:8px;overflow:hidden;}' +
-    '.mvr-song{font-size:17px;font-weight:700;color:rgba(255,255,255,.88);' +
-      'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:55%;}' +
-    '.mvr-sep{color:rgba(255,255,255,.2);flex-shrink:0;font-size:14px;}' +
-    '.mvr-artist{font-size:15px;color:rgba(255,255,255,.45);' +
-      'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
-    '.mvr-actions{display:flex;gap:8px;flex-shrink:0;}' +
-    '.mvr-yt{padding:8px 16px;border-radius:100px;' +
+    /* バナー全体をボタン化 */
+    '.mvr-banner-wrap{' +
+      'position:relative;display:block;width:100%;' +
+      'border:none;padding:0;background:none;cursor:pointer;' +
+      'border-radius:18px;overflow:hidden;' +
+      'transition:filter .2s;outline:none;}' +
+    '.mvr-banner-wrap:hover{filter:brightness(1.07);}' +
+    '.mvr-banner-wrap:active{filter:brightness(.95);}' +
+    '.mvr-banner-wrap>img{width:100%;display:block;border-radius:18px;}' +
+    /* バナー枠内オーバーレイ（% は画像内の枠位置に合わせた値） */
+    '.mvr-overlay{' +
+      'position:absolute;' +
+      'top:26%;bottom:22%;left:36%;right:17%;' +
+      'display:flex;align-items:center;gap:3%;' +
+      'pointer-events:none;}' +
+    /* サムネ */
+    '.mvr-ov-thumb{' +
+      'height:100%;aspect-ratio:1;flex-shrink:0;' +
+      'border-radius:10px;overflow:hidden;background:#111;}' +
+    '.mvr-ov-thumb img{width:100%;height:100%;object-fit:cover;display:block;}' +
+    /* テキスト情報 */
+    '.mvr-ov-info{flex:1;min-width:0;text-align:left;}' +
+    '.mvr-ov-song{' +
+      'display:block;font-size:clamp(11px,1.8vw,20px);font-weight:700;' +
+      'color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
+      'text-shadow:0 1px 6px rgba(0,0,0,.8);}' +
+    '.mvr-ov-artist{' +
+      'display:block;font-size:clamp(9px,1.4vw,16px);' +
+      'color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
+      'margin-top:.25em;text-shadow:0 1px 4px rgba(0,0,0,.8);}' +
+    /* YouTube ボタン */
+    '.mvr-yt-wrap{display:flex;justify-content:flex-end;margin-top:8px;}' +
+    '.mvr-yt{padding:7px 16px;border-radius:100px;' +
       'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
       'color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;' +
-      'white-space:nowrap;transition:background .2s;}' +
+      'transition:background .2s;}' +
     '.mvr-yt:hover{background:rgba(255,255,255,.14);}' +
-    /* バナーホバー時のヒント */
     '.mvr-hint{text-align:center;font-size:11px;color:rgba(255,255,255,.22);' +
-      'margin:4px 0 0;letter-spacing:.05em;}' +
-    /* topic-grid との隙間を詰める */
+      'margin:5px 0 0;letter-spacing:.05em;}' +
     '#mv-roulette+.topic-grid{margin-top:16px!important;}' +
-    /* スピン中のアニメ */
-    '@keyframes mvr-flash{0%,100%{opacity:1}50%{opacity:.55}}' +
-    '.mvr-spinning .mvr-banner-btn img{animation:mvr-flash .13s steps(1) infinite;}' +
-    /* モバイル */
     '@media(max-width:540px){' +
-      '.mvr-yt{display:none;}' +
-      '.mvr-row{gap:10px;padding:10px 12px;}' +
+      '.mvr-yt-wrap{display:none;}' +
     '}';
 
   var st = document.createElement('style');
@@ -75,19 +76,20 @@
 
     section.innerHTML = [
       '<div class="mvr-wrap">',
-        '<button class="mvr-banner-btn" id="mvr-banner" aria-label="シャッフル">',
-          '<img src="/images/Shuffle.png" alt="MV Shuffle" />',
+        '<button class="mvr-banner-wrap" id="mvr-banner" aria-label="シャッフル">',
+          '<img src="/images/Shuffle2.png" alt="MV Shuffle" />',
+          '<div class="mvr-overlay">',
+            '<div class="mvr-ov-thumb">',
+              '<img id="mvr-thumb" src="" alt="" />',
+            '</div>',
+            '<div class="mvr-ov-info">',
+              '<span class="mvr-ov-song" id="mvr-song"></span>',
+              '<span class="mvr-ov-artist" id="mvr-artist"></span>',
+            '</div>',
+          '</div>',
         '</button>',
-        '<div class="mvr-row">',
-          '<a class="mvr-thumb-link" id="mvr-thumb-link" href="#" target="_blank" rel="noopener noreferrer">',
-            '<img id="mvr-thumb" src="" alt="" />',
-          '</a>',
-          '<div class="mvr-info">',
-            '<span class="mvr-song" id="mvr-song"></span>',            '<span class="mvr-sep">·</span>' +            '<span class="mvr-artist" id="mvr-artist"></span>',
-          '</div>',
-          '<div class="mvr-actions">',
-            '<a class="mvr-yt" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube</a>',
-          '</div>',
+        '<div class="mvr-yt-wrap">',
+          '<a class="mvr-yt" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube で見る</a>',
         '</div>',
         items.length > 1 ? '<p class="mvr-hint">バナーをクリックしてシャッフル ✦</p>' : '',
       '</div>'
@@ -97,8 +99,7 @@
       var mv = items[i];
       var wu = watchUrl(mv.youtube_id);
       document.getElementById('mvr-thumb').src = thumbUrl(mv.youtube_id);
-      document.getElementById('mvr-thumb').alt = mv.title;
-      document.getElementById('mvr-thumb-link').href = wu;
+      document.getElementById('mvr-thumb').alt = esc(mv.title);
       document.getElementById('mvr-song').textContent   = mv.title;
       document.getElementById('mvr-artist').textContent = mv.artist || '';
       document.getElementById('mvr-yt').href = wu;
@@ -111,7 +112,6 @@
     banner.addEventListener('click', function () {
       if (banner.disabled) return;
       banner.disabled = true;
-      section.querySelector('.mvr-wrap').classList.add('mvr-spinning');
 
       var steps = 18, cur = 0, delays = [];
       for (var i = 0; i < steps; i++) delays.push(i < 12 ? 75 : 75 + (i - 11) * 55);
@@ -122,12 +122,8 @@
         idx = next;
         update(idx);
         cur++;
-        if (cur < steps) {
-          setTimeout(step, delays[cur]);
-        } else {
-          section.querySelector('.mvr-wrap').classList.remove('mvr-spinning');
-          banner.disabled = false;
-        }
+        if (cur < steps) { setTimeout(step, delays[cur]); }
+        else { banner.disabled = false; }
       }
       setTimeout(step, delays[0]);
     });
