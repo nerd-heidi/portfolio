@@ -18,13 +18,13 @@
     /* バナー枠内オーバーレイ（% は画像内の枠位置に合わせた値） */
     '.mvr-overlay{' +
       'position:absolute;' +
-      'top:26%;bottom:22%;left:36%;right:17%;' +
-      'display:flex;align-items:center;gap:3%;' +
+      'top:28%;bottom:24%;left:37%;right:19%;' +
+      'display:flex;align-items:center;gap:2%;' +
       'pointer-events:none;}' +
     /* サムネ */
     '.mvr-ov-thumb{' +
-      'height:100%;aspect-ratio:1;flex-shrink:0;' +
-      'border-radius:10px;overflow:hidden;background:#111;}' +
+      'width:28%;aspect-ratio:16/9;flex-shrink:0;' +
+      'border-radius:8px;overflow:hidden;background:#111;}' +
     '.mvr-ov-thumb img{width:100%;height:100%;object-fit:cover;display:block;}' +
     /* テキスト情報 */
     '.mvr-ov-info{flex:1;min-width:0;text-align:left;}' +
