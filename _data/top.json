@@ -13,7 +13,7 @@
       "number": "02",
       "title": "Playlist",
       "description": "Apple Music で公開しているプレイリストのアートワークギャラリー。",
-      "image": "/images/playlist.png",
+      "image": "/images/Playlist.png",
       "url": "/playlist/",
       "size": "large"
     },
