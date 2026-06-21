@@ -19,8 +19,8 @@
     },
     {
       "number": "03",
-      "title": "My Beat",
-      "description": "自作ビート、制作メモ、使用ツール。",
+      "title": "My Beat (FL Studio)",
+      "description": "自作ビート",
       "image": "/images/My Beat.png",
       "url": "/beat/",
       "size": "regular"
