@@ -127,7 +127,7 @@
       "description": "気分診断。MelodyかSeenoがぴったりの音楽を提案します。",
       "image": "/images/choice.png",
       "url": "/quiz/",
-      "size": "regular"
+      "size": "wide"
     }
   ]
 }
