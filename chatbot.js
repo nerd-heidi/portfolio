@@ -6,10 +6,10 @@
   style.textContent = '\
 #chatbot-toggle {\
   position: fixed;\
-  bottom: 8px;\
-  right: 12px;\
-  z-index: 9999;\
-  width: 130px;\
+  top: 82px;\
+  right: 0;\
+  z-index: 5;\
+  width: 195px;\
   background: none;\
   border: none;\
   cursor: pointer;\
@@ -18,7 +18,7 @@
   transition: transform 0.22s ease, filter 0.22s ease;\
 }\
 #chatbot-toggle:hover {\
-  transform: scale(1.06) translateY(-4px);\
+  transform: scale(1.04);\
   filter: drop-shadow(0 8px 22px rgba(0,0,0,0.55));\
 }\
 #chatbot-toggle img {\
@@ -28,8 +28,8 @@
 }\
 #chatbot-window {\
   position: fixed;\
-  bottom: 160px;\
-  right: 16px;\
+  top: 88px;\
+  right: 200px;\
   z-index: 9999;\
   width: 340px;\
   max-height: 520px;\
@@ -186,16 +186,17 @@
 }\
 .cb-send:hover { transform: scale(1.1); }\
 .cb-send svg { width: 16px; height: 16px; fill: #fff; }\
-@media (max-width: 480px) {\
+@media (max-width: 768px) {\
   #chatbot-window {\
-    width: calc(100vw - 20px);\
-    right: 10px;\
-    bottom: 145px;\
+    width: calc(100vw - 16px);\
+    right: 8px;\
+    top: 230px;\
+    max-height: calc(100vh - 250px);\
   }\
   #chatbot-toggle {\
-    right: 6px;\
-    bottom: 4px;\
-    width: 110px;\
+    top: 82px;\
+    right: 0;\
+    width: 140px;\
   }\
 }\
 ';
