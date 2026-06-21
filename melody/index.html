@@ -1,270 +1,71 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Melody – AI Music Companion | NERD Life</title>
-  <meta name="description" content="Melody（メロディ）はあなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたりするAIミュージックコンパニオンです。" />
+  <title>AI Companions – Melody & Seeno | NERD Life</title>
+  <meta name="description" content="NERD Lifeの2人のAIミュージックコンパニオン、Melody（メロディ）とSeeno（シーノ）を紹介します。" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* ===== MELODY PAGE ===== */
-
-    /* Hero */
-    .melody-hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      padding: 80px 0 72px;
-      min-height: 58vh;
-    }
-    .melody-hero-text { flex: 1; max-width: 580px; }
-
-    .melody-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(167,128,255,0.14);
-      border: 1px solid rgba(167,128,255,0.38);
-      color: #c9a8ff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-    }
-
-    .melody-title {
-      font-size: clamp(60px, 9vw, 104px);
-      font-weight: 900;
-      letter-spacing: -3px;
-      line-height: 1;
-      margin: 0 0 10px;
-      background: linear-gradient(130deg, #ffffff 20%, #c9a8ff 70%, #a780ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .melody-subtitle {
-      font-size: 14px;
-      color: rgba(255,255,255,0.42);
-      letter-spacing: 0.06em;
-      margin: 0 0 32px;
-    }
-
-    .melody-tagline {
-      font-size: clamp(18px, 2.4vw, 24px);
-      font-weight: 300;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.85);
-      margin: 0 0 44px;
-    }
-
-    .melody-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #a780ff, #6a4ecf);
-      color: #fff;
-      border: none;
-      border-radius: 100px;
-      padding: 15px 34px;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      box-shadow: 0 4px 28px rgba(167,128,255,0.42);
-      text-decoration: none;
-    }
-    .melody-cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 36px rgba(167,128,255,0.58);
-    }
-
-    .melody-hero-img {
-      flex-shrink: 0;
-      width: min(300px, 38vw);
-      filter: drop-shadow(0 8px 48px rgba(167,128,255,0.28));
-      animation: floatChar 4s ease-in-out infinite;
-    }
-    .melody-hero-img img { width: 100%; height: auto; display: block; }
-
-    @keyframes floatChar {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-14px); }
-    }
-
-    /* Section common */
-    .melody-section {
-      padding: 76px 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .melody-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #a780ff;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .melody-section-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      margin: 0 0 52px;
-    }
-
-    /* Features */
-    .melody-features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-    }
-    .melody-feature-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 30px 24px;
-      transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease;
-    }
-    .melody-feature-card:hover {
-      border-color: rgba(167,128,255,0.38);
-      background: rgba(167,128,255,0.07);
-      transform: translateY(-4px);
-    }
-    .melody-feature-icon { font-size: 30px; margin-bottom: 16px; display: block; }
-    .melody-feature-name { font-size: 16px; font-weight: 700; margin: 0 0 10px; }
-    .melody-feature-desc { font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.75; margin: 0; }
-
-    /* Chat example */
-    .melody-chat-wrap { display: flex; justify-content: center; }
-    .melody-chat-box {
-      width: min(480px, 100%);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 22px;
-      overflow: hidden;
-    }
-    .melody-chat-header {
-      padding: 14px 18px;
-      background: rgba(167,128,255,0.1);
-      border-bottom: 1px solid rgba(167,128,255,0.18);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .melody-chat-avatar {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      background: linear-gradient(135deg,#a780ff,#6a4ecf);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
-    }
-    .melody-chat-name { font-size: 14px; font-weight: 700; }
-    .melody-chat-status { font-size: 11px; color: rgba(255,255,255,0.42); }
-    .melody-chat-messages {
-      padding: 22px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .melody-msg {
-      max-width: 82%;
-      padding: 11px 15px;
-      border-radius: 16px;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .melody-msg.bot {
-      background: rgba(167,128,255,0.14);
-      border: 1px solid rgba(167,128,255,0.22);
-      color: #ede8ff;
-      align-self: flex-start;
-      border-bottom-left-radius: 4px;
-    }
-    .melody-msg.user {
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.85);
-      align-self: flex-end;
-      border-bottom-right-radius: 4px;
-    }
-    .melody-playlist-card {
-      margin-top: 11px;
-      background: rgba(167,128,255,0.1);
-      border: 1px solid rgba(167,128,255,0.25);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-    .melody-playlist-title { font-size: 12px; font-weight: 700; color: #c9a8ff; margin-bottom: 9px; }
-    .melody-playlist-tracks {
-      font-size: 12px; color: rgba(255,255,255,0.52);
-      line-height: 1.9; padding-left: 0; margin: 0; list-style: none;
-    }
-    .melody-playlist-tracks li::before { content: "♩ "; color: #a780ff; }
-
-    /* Profile */
-    .melody-profile-layout {
-      display: flex;
-      align-items: flex-start;
-      gap: 64px;
-    }
-    .melody-profile-img {
-      flex-shrink: 0;
-      width: min(180px, 28vw);
-      filter: drop-shadow(0 6px 28px rgba(167,128,255,0.22));
-    }
-    .melody-profile-img img { width: 100%; height: auto; display: block; }
-    .melody-profile-table { flex: 1; }
-    .melody-profile-row {
-      display: flex;
-      gap: 24px;
-      padding: 17px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 14px;
-    }
-    .melody-profile-row:last-child { border-bottom: none; }
-    .melody-profile-key {
-      width: 96px; flex-shrink: 0;
-      color: rgba(255,255,255,0.4);
-      font-size: 12px; letter-spacing: 0.04em; padding-top: 2px;
-    }
-    .melody-profile-val { color: rgba(255,255,255,0.88); line-height: 1.75; }
-
-    /* CTA Banner */
-    .melody-cta-banner {
-      padding: 80px 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      text-align: center;
-    }
-    .melody-cta-banner-quote {
-      font-size: clamp(13px, 1.8vw, 16px);
-      color: rgba(255,255,255,0.42);
-      font-style: italic;
-      letter-spacing: 0.04em;
-      margin: 0 0 10px;
-    }
-    .melody-cta-banner-title {
-      font-size: clamp(22px, 3.5vw, 38px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      margin: 0 0 36px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .melody-hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 44px 0 48px;
-        min-height: unset;
-      }
-      .melody-hero-img { width: min(200px, 62vw); }
-      .melody-profile-layout { flex-direction: column; align-items: center; gap: 32px; }
-      .melody-profile-img { width: 140px; }
+    .ac-hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:80px 0 64px; }
+    .ac-hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.55); font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px; }
+    .ac-hero-title { font-size:clamp(40px,7vw,80px); font-weight:900; letter-spacing:-2px; line-height:1; margin:0 0 12px; }
+    .ac-hero-melody { color:#c9a8ff; }
+    .ac-hero-amp { color:rgba(255,255,255,0.3); margin:0 12px; }
+    .ac-hero-seeno { color:#D6C5B4; }
+    .ac-hero-sub { font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:0.06em; margin:0 0 16px; }
+    .ac-hero-desc { font-size:clamp(15px,2vw,18px); color:rgba(255,255,255,0.7); line-height:1.75; max-width:560px; margin:0 auto 44px; }
+    .ac-hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .ac-cta-btn { display:inline-flex; align-items:center; gap:8px; border:none; border-radius:100px; padding:14px 28px; font-size:14px; font-weight:700; font-family:inherit; cursor:pointer; transition:transform 0.2s ease,box-shadow 0.2s ease; text-decoration:none; }
+    .ac-cta-btn:hover { transform:translateY(-3px); }
+    .ac-cta-melody { background:linear-gradient(135deg,#a780ff,#6a4ecf); color:#fff; box-shadow:0 4px 24px rgba(167,128,255,0.4); }
+    .ac-cta-melody:hover { box-shadow:0 8px 32px rgba(167,128,255,0.55); }
+    .ac-cta-seeno { background:linear-gradient(135deg,#A68D72,#665C50); color:#fff; box-shadow:0 4px 24px rgba(166,141,114,0.35); }
+    .ac-cta-seeno:hover { box-shadow:0 8px 32px rgba(166,141,114,0.5); }
+    .ac-chars { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:72px 0; border-top:1px solid rgba(255,255,255,0.07); }
+    .ac-char-card { border-radius:24px; overflow:hidden; }
+    .ac-char-card-melody { background:rgba(167,128,255,0.06); border:1px solid rgba(167,128,255,0.18); }
+    .ac-char-card-seeno { background:rgba(166,141,114,0.06); border:1px solid rgba(166,141,114,0.18); }
+    .ac-char-header { padding:32px 32px 0; display:flex; align-items:flex-end; gap:24px; }
+    .ac-char-img { width:130px; flex-shrink:0; filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5)); }
+    .ac-char-img img { width:100%; height:auto; display:block; }
+    .ac-char-name-block { padding-bottom:12px; }
+    .ac-char-type { font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:6px; }
+    .ac-char-card-melody .ac-char-type { color:#a780ff; }
+    .ac-char-card-seeno .ac-char-type { color:#A68D72; }
+    .ac-char-name { font-size:clamp(32px,4vw,52px); font-weight:900; letter-spacing:-1.5px; line-height:1; margin:0 0 4px; }
+    .ac-char-card-melody .ac-char-name { color:#c9a8ff; }
+    .ac-char-card-seeno .ac-char-name { color:#D6C5B4; }
+    .ac-char-tagline { font-size:12px; color:rgba(255,255,255,0.4); font-style:italic; letter-spacing:0.04em; }
+    .ac-char-body { padding:24px 32px 32px; }
+    .ac-char-row { display:flex; gap:16px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:13px; }
+    .ac-char-row:last-child { border-bottom:none; }
+    .ac-char-key { width:72px; flex-shrink:0; color:rgba(255,255,255,0.38); font-size:11px; letter-spacing:0.04em; padding-top:1px; }
+    .ac-char-val { color:rgba(255,255,255,0.85); line-height:1.7; }
+    .ac-char-quote { margin:20px 0 0; padding:14px 18px; border-radius:10px; font-size:13px; font-style:italic; line-height:1.7; color:rgba(255,255,255,0.65); }
+    .ac-char-card-melody .ac-char-quote { background:rgba(167,128,255,0.1); border-left:3px solid rgba(167,128,255,0.5); }
+    .ac-char-card-seeno .ac-char-quote { background:rgba(166,141,114,0.1); border-left:3px solid rgba(166,141,114,0.5); }
+    .ac-features { padding:72px 0; border-top:1px solid rgba(255,255,255,0.07); }
+    .ac-section-eyebrow { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; margin-bottom:10px; background:linear-gradient(90deg,#a780ff,#A68D72); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .ac-section-title { font-size:clamp(26px,3.5vw,40px); font-weight:900; letter-spacing:-1px; margin:0 0 48px; }
+    .ac-features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
+    .ac-feature-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px 22px; transition:border-color 0.2s ease,transform 0.2s ease; }
+    .ac-feature-card:hover { border-color:rgba(255,255,255,0.16); transform:translateY(-3px); }
+    .ac-feature-icon { font-size:26px; margin-bottom:14px; display:block; }
+    .ac-feature-who { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
+    .ac-feature-who.melody { color:#a780ff; }
+    .ac-feature-who.seeno { color:#A68D72; }
+    .ac-feature-who.both { color:rgba(255,255,255,0.38); }
+    .ac-feature-name { font-size:15px; font-weight:700; margin:0 0 8px; }
+    .ac-feature-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7; margin:0; }
+    .ac-cta-banner { padding:80px 0; border-top:1px solid rgba(255,255,255,0.07); text-align:center; }
+    .ac-cta-banner-quote { font-size:13px; color:rgba(255,255,255,0.38); font-style:italic; margin:0 0 8px; }
+    .ac-cta-banner-title { font-size:clamp(20px,3.2vw,34px); font-weight:900; letter-spacing:-1px; margin:0 0 32px; }
+    @media (max-width:768px) {
+      .ac-chars { grid-template-columns:1fr; }
+      .ac-hero-btns { flex-direction:column; align-items:center; }
+      .ac-char-header { flex-direction:column; align-items:flex-start; gap:12px; }
+      .ac-char-img { width:100px; }
     }
   </style>
 </head>
@@ -282,139 +83,86 @@
   </header>
 
   <main>
-
-    <!-- ── HERO ── -->
-    <section class="melody-hero">
-      <div class="melody-hero-text">
-        <span class="melody-tag">✦ AI BOT</span>
-        <h1 class="melody-title">Melody</h1>
-        <p class="melody-subtitle">Your AI Music Companion</p>
-        <p class="melody-tagline">
-          音楽で、あなたの毎日を<br>ちょっとだけ特別に。
-        </p>
-        <button class="melody-cta-btn"
-          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
-          Melodyと話す →
-        </button>
-      </div>
-      <div class="melody-hero-img">
-        <img src="/images/chatbot-char.png" alt="Melody" />
+    <section class="ac-hero">
+      <span class="ac-hero-tag">✦ AI COMPANIONS</span>
+      <h1 class="ac-hero-title">
+        <span class="ac-hero-melody">Melody</span>
+        <span class="ac-hero-amp">&</span>
+        <span class="ac-hero-seeno">Seeno</span>
+      </h1>
+      <p class="ac-hero-sub">Your AI Music Companions</p>
+      <p class="ac-hero-desc">NERD Lifeに常駐する2人のAIミュージックコンパニオン。<br>それぞれ違う個性で、あなたの音楽ライフに寄り添います。</p>
+      <div class="ac-hero-btns">
+        <button class="ac-cta-btn ac-cta-melody" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
+        <button class="ac-cta-btn ac-cta-seeno" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
       </div>
     </section>
 
-    <!-- ── FEATURES ── -->
-    <section class="melody-section">
-      <p class="melody-eyebrow">できること</p>
-      <h2 class="melody-section-title">Melodyにできること。</h2>
-      <div class="melody-features-grid">
-        <div class="melody-feature-card">
-          <span class="melody-feature-icon">🎵</span>
-          <h3 class="melody-feature-name">音楽のおすすめ</h3>
-          <p class="melody-feature-desc">気分やジャンルを伝えると、ぴったりの曲やアーティストを紹介します。</p>
+    <section class="ac-chars">
+      <div class="ac-char-card ac-char-card-melody">
+        <div class="ac-char-header">
+          <div class="ac-char-img"><img src="/images/chatbot-char.png" alt="Melody" /></div>
+          <div class="ac-char-name-block">
+            <p class="ac-char-type">AI Music Companion</p>
+            <h2 class="ac-char-name">Melody</h2>
+            <p class="ac-char-tagline">Your AI Music Companion</p>
+          </div>
         </div>
-        <div class="melody-feature-card">
-          <span class="melody-feature-icon">💬</span>
-          <h3 class="melody-feature-name">気分に寄り添う会話</h3>
-          <p class="melody-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p>
-        </div>
-        <div class="melody-feature-card">
-          <span class="melody-feature-icon">🎧</span>
-          <h3 class="melody-feature-name">プレイリスト作成</h3>
-          <p class="melody-feature-desc">シチュエーションに合ったプレイリストのアイデアを提案します。</p>
-        </div>
-        <div class="melody-feature-card">
-          <span class="melody-feature-icon">✨</span>
-          <h3 class="melody-feature-name">いつでもお話し相手</h3>
-          <p class="melody-feature-desc">ちょっとした雑談から音楽の深い話まで、気軽に話しかけてください。</p>
+        <div class="ac-char-body">
+          <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Melody（メロディ）</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">やさしい・聞き上手・ちょっぴり天然</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「いい曲だね〜」「それ、わかる！」</span></div>
+          <blockquote class="ac-char-quote">今日はどんな気分？一緒にぴったりの音楽を見つけよう。いつでも話しかけてね🎵</blockquote>
         </div>
       </div>
-    </section>
 
-    <!-- ── CHAT EXAMPLE ── -->
-    <section class="melody-section">
-      <p class="melody-eyebrow">チャット例</p>
-      <h2 class="melody-section-title">こんな会話ができます。</h2>
-      <div class="melody-chat-wrap">
-        <div class="melody-chat-box">
-          <div class="melody-chat-header">
-            <div class="melody-chat-avatar">🎵</div>
-            <div>
-              <div class="melody-chat-name">Melody</div>
-              <div class="melody-chat-status">AIミュージックコンパニオン</div>
-            </div>
+      <div class="ac-char-card ac-char-card-seeno">
+        <div class="ac-char-header">
+          <div class="ac-char-img"><img src="/images/chatbot-seeno.png" alt="Seeno" /></div>
+          <div class="ac-char-name-block">
+            <p class="ac-char-type">AI Music Companion</p>
+            <h2 class="ac-char-name">Seeno</h2>
+            <p class="ac-char-tagline">Music is my escape.</p>
           </div>
-          <div class="melody-chat-messages">
-            <div class="melody-msg bot">
-              今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう♪
-            </div>
-            <div class="melody-msg user">なんだか落ち着きたいな</div>
-            <div class="melody-msg bot">
-              うんうん、そんな気分だよね。<br>こんなプレイリストはどう？✨
-              <div class="melody-playlist-card">
-                <div class="melody-playlist-title">🎧 Melody's Chill Time</div>
-                <ul class="melody-playlist-tracks">
-                  <li>深夜のピアノ</li>
-                  <li>窓と星とピアノ</li>
-                  <li>風のゆくえ</li>
-                  <li>君の声が聞こえる</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="ac-char-body">
+          <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Seeno（シーノ）</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">クールで落ち着いているが、芯は優しい。音楽にとても真剣</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、レコード集め、夜の散歩、カフェで考え事</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「それ、いいね」「音楽って、やっぱりすごい」</span></div>
+          <blockquote class="ac-char-quote">音楽のある場所で、私はいつも、自分らしくいられる。ビートの中に、答えがあるから。</blockquote>
         </div>
       </div>
     </section>
 
-    <!-- ── PROFILE ── -->
-    <section class="melody-section">
-      <p class="melody-eyebrow">プロフィール</p>
-      <h2 class="melody-section-title">Melodyって、どんな子？</h2>
-      <div class="melody-profile-layout">
-        <div class="melody-profile-img">
-          <img src="/images/chatbot-char.png" alt="Melody" />
-        </div>
-        <div class="melody-profile-table">
-          <div class="melody-profile-row">
-            <span class="melody-profile-key">名前</span>
-            <span class="melody-profile-val">Melody（メロディ）</span>
-          </div>
-          <div class="melody-profile-row">
-            <span class="melody-profile-key">タイプ</span>
-            <span class="melody-profile-val">AIミュージックコンパニオン</span>
-          </div>
-          <div class="melody-profile-row">
-            <span class="melody-profile-key">性格</span>
-            <span class="melody-profile-val">やさしい・聞き上手・ちょっぴり天然</span>
-          </div>
-          <div class="melody-profile-row">
-            <span class="melody-profile-key">好きなこと</span>
-            <span class="melody-profile-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span>
-          </div>
-          <div class="melody-profile-row">
-            <span class="melody-profile-key">口癖</span>
-            <span class="melody-profile-val">「いい曲だね〜」「それ、わかる！」</span>
-          </div>
-        </div>
+    <section class="ac-features">
+      <p class="ac-section-eyebrow">できること</p>
+      <h2 class="ac-section-title">2人にできること。</h2>
+      <div class="ac-features-grid">
+        <div class="ac-feature-card"><span class="ac-feature-icon">🎵</span><p class="ac-feature-who both">Melody & Seeno</p><h3 class="ac-feature-name">音楽のおすすめ</h3><p class="ac-feature-desc">気分やジャンルに合った曲やアーティストを紹介します。</p></div>
+        <div class="ac-feature-card"><span class="ac-feature-icon">💬</span><p class="ac-feature-who melody">Melody</p><h3 class="ac-feature-name">気分に寄り添う会話</h3><p class="ac-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p></div>
+        <div class="ac-feature-card"><span class="ac-feature-icon">🎧</span><p class="ac-feature-who seeno">Seeno</p><h3 class="ac-feature-name">音楽への深い洞察</h3><p class="ac-feature-desc">レコードやビート、音楽の深い話ならSeenoに。</p></div>
+        <div class="ac-feature-card"><span class="ac-feature-icon">📋</span><p class="ac-feature-who both">Melody & Seeno</p><h3 class="ac-feature-name">ポートフォリオ案内</h3><p class="ac-feature-desc">各コンテンツページへの案内もお任せください。</p></div>
       </div>
     </section>
 
-    <!-- ── CTA BANNER ── -->
-    <div class="melody-cta-banner">
-      <p class="melody-cta-banner-quote">Good Music, Good Day.</p>
-      <h2 class="melody-cta-banner-title">いい音楽は、きっといい一日をつくるから。</h2>
-      <button class="melody-cta-btn"
-        onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
-        Melodyと話してみる →
-      </button>
+    <div class="ac-cta-banner">
+      <p class="ac-cta-banner-quote">Good Music, Good Day. — Music is my escape.</p>
+      <h2 class="ac-cta-banner-title">どちらに話しかける？</h2>
+      <div class="ac-hero-btns">
+        <button class="ac-cta-btn ac-cta-melody" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
+        <button class="ac-cta-btn ac-cta-seeno" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
+      </div>
     </div>
-
   </main>
 
-  <footer>
-    <p>© 2026 NERD Life. All Rights Reserved.</p>
-  </footer>
+  <footer><p>© 2026 NERD Life. All Rights Reserved.</p></footer>
 
   <script src="/script.js"></script>
   <script src="/chatbot.js"></script>
+  <script src="/chatbot-seeno.js"></script>
 </body>
 </html>
