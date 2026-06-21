@@ -124,68 +124,35 @@
   text-underline-offset: 2px;\
 }\
 .cb-qr {\
-  padding: 6px 14px 12px;\
-  display: flex;\
-  flex-wrap: wrap;\
-  gap: 6px;\
+  padding: 8px 10px 12px;\
+  display: grid;\
+  grid-template-columns: 1fr 1fr;\
+  gap: 5px;\
   flex-shrink: 0;\
+  max-height: 185px;\
+  overflow-y: auto;\
+  scrollbar-width: thin;\
+  scrollbar-color: rgba(167,128,255,0.3) transparent;\
 }\
+.cb-qr::-webkit-scrollbar { width: 4px; }\
+.cb-qr::-webkit-scrollbar-thumb { background: rgba(167,128,255,0.3); border-radius: 4px; }\
 .cb-qr-btn {\
   background: rgba(167,128,255,0.1);\
-  border: 1px solid rgba(167,128,255,0.38);\
+  border: 1px solid rgba(167,128,255,0.35);\
   color: #c9a8ff;\
-  border-radius: 20px;\
-  padding: 5px 13px;\
+  border-radius: 8px;\
+  padding: 7px 8px;\
   font-size: 12px;\
   cursor: pointer;\
   transition: background 0.18s ease, color 0.18s ease;\
   font-family: inherit;\
-  line-height: 1.4;\
+  line-height: 1.35;\
+  text-align: left;\
 }\
 .cb-qr-btn:hover {\
   background: rgba(167,128,255,0.26);\
   color: #fff;\
 }\
-.cb-input-row {\
-  display: flex;\
-  align-items: center;\
-  gap: 8px;\
-  padding: 10px 14px;\
-  border-top: 1px solid rgba(255,255,255,0.08);\
-  flex-shrink: 0;\
-}\
-.cb-input {\
-  flex: 1;\
-  background: rgba(255,255,255,0.06);\
-  border: 1px solid rgba(255,255,255,0.12);\
-  border-radius: 20px;\
-  padding: 8px 14px;\
-  color: #f5f5f5;\
-  font-size: 13px;\
-  font-family: inherit;\
-  outline: none;\
-  transition: border-color 0.2s ease;\
-  min-width: 0;\
-}\
-.cb-input:focus {\
-  border-color: rgba(167,128,255,0.55);\
-}\
-.cb-input::placeholder { color: rgba(255,255,255,0.28); }\
-.cb-send {\
-  width: 36px;\
-  height: 36px;\
-  border-radius: 50%;\
-  background: linear-gradient(135deg,#a780ff,#6a4ecf);\
-  border: none;\
-  cursor: pointer;\
-  display: flex;\
-  align-items: center;\
-  justify-content: center;\
-  transition: transform 0.18s ease;\
-  flex-shrink: 0;\
-}\
-.cb-send:hover { transform: scale(1.1); }\
-.cb-send svg { width: 16px; height: 16px; fill: #fff; }\
 @media (max-width: 768px) {\
   #chatbot-window {\
     width: calc(100vw - 16px);\
@@ -288,14 +255,24 @@
 
   /* ─── クイックリプライ ────────────────────────────────────────── */
   var QR = [
-    { label: 'プロフィールを教えて', q: 'プロフィール' },
-    { label: 'どんなコンテンツがある？', q: '一覧' },
-    { label: '音楽について', q: '音楽' },
-    { label: 'お仕事について', q: '仕事' }
+    { label: '\ud83d\udc64 プロフィール', q: 'プロフィール' },
+    { label: '\ud83c� 音楽', q: '音楽' },
+    { label: '\ud83c� ビート制作', q: 'ビート' },
+    { label: '\ud83c� アイドル', q: 'アイドル' },
+    { label: '\ud83c� アニメ', q: 'アニメ' },
+    { label: '\ud83d� お仕事', q: '仕事' },
+    { label: '\ud83e� AI', q: 'AI' },
+    { label: '\ud83d� 本', q: '本' },
+    { label: '\ud83c� 映画', q: '映画' },
+    { label: '\ud83d� 写真', q: '写真' },
+    { label: '\ud83c� ゲーム', q: 'ゲーム' },
+    { label: '\ud83c� グルメ', q: 'グルメ' },
+    { label: '\u25b6 YouTube', q: 'youtube' },
+    { label: '\ud83d� 全ページ一覧', q: '一覧' }
   ];
 
   var GREETING = 'こんにちは、Melodyだよ🎵<br>今日はどんな気分？一緒にぴったりの音楽を見つけよう♪';
-  var FALLBACK = 'うまく理解できませんでした。\n「音楽」「アニメ」「AI」「仕事」などのキーワードで試してみてください。';
+  var FALLBACK = 'ハウン。下のボタンから選んでみてね\ud83c�';
 
   /* ─── FAQ 検索 ───────────────────────────────────────────────── */
   function findAnswer(text) {
@@ -332,16 +309,7 @@
         '</div>' +
       '</div>' +
       '<div class="cb-messages" id="cb-messages"></div>' +
-      '<div class="cb-qr" id="cb-qr"></div>' +
-      '<div class="cb-input-row">' +
-        '<input class="cb-input" id="cb-input" type="text"' +
-          ' placeholder="メッセージを入力…" autocomplete="off" maxlength="200" />' +
-        '<button class="cb-send" id="cb-send" aria-label="送信">' +
-          '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
-            '<path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>' +
-          '</svg>' +
-        '</button>' +
-      '</div>';
+      '<div class="cb-qr" id="cb-qr"></div>';
 
     document.body.appendChild(toggle);
     document.body.appendChild(win);
@@ -381,11 +349,10 @@
       if (!text) return;
       document.getElementById('cb-qr').innerHTML = '';
       addMsg(text, 'user');
-      document.getElementById('cb-input').value = '';
       setTimeout(function () {
         var ans = findAnswer(query || text);
         addMsg(ans || FALLBACK, 'bot');
-        if (!ans) renderQR(send);
+        renderQR(send);
       }, 380);
     }
 
@@ -397,10 +364,6 @@
         addMsg(GREETING, 'bot');
         renderQR(send);
       }
-      setTimeout(function () {
-        var inp = document.getElementById('cb-input');
-        if (inp) inp.focus();
-      }, 250);
     }
 
     function closeChat() {
@@ -411,18 +374,6 @@
 
     ui.toggle.addEventListener('click', function () {
       isOpen ? closeChat() : openChat();
-    });
-
-    document.getElementById('cb-send').addEventListener('click', function () {
-      var v = document.getElementById('cb-input').value.trim();
-      if (v) send(v);
-    });
-
-    document.getElementById('cb-input').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') {
-        var v = this.value.trim();
-        if (v) send(v);
-      }
     });
 
     document.addEventListener('click', function (e) {
