@@ -7,6 +7,7 @@
   <meta name="description" content="Apple Music で公開しているプレイリストのアートワークギャラリー。" />
   <link rel="stylesheet" href="/style.css" />
   <style>
+    /* ── ギャラリーグリッド ── */
     .playlist-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -14,39 +15,62 @@
       padding: 2rem 0;
     }
 
+    /* ── カード ── */
     .playlist-card {
       display: flex;
       flex-direction: column;
       background: #111;
       border-radius: 12px;
       overflow: hidden;
-      text-decoration: none;
       color: inherit;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .playlist-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    .playlist-card__cover {
+      display: block;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
     }
+    .playlist-card__cover:hover { opacity: 0.85; }
 
-    .playlist-card__artwork {
+    /* ── アートワーク モザイク ── */
+    .pl-mosaic {
       width: 100%;
       aspect-ratio: 1 / 1;
+      display: grid;
+      overflow: hidden;
+    }
+
+    /* 1 枚：全面 */
+    .pl-mosaic--1col {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    /* 2〜4 枚：2×2 */
+    .pl-mosaic--2col {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .pl-mosaic img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .playlist-card__artwork-placeholder {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: #222;
+    /* プレースホルダー */
+    .pl-mosaic--empty {
+      grid-template-columns: 1fr;
+      background: #1c1c1e;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 3.5rem;
+      color: #444;
     }
 
+    /* ── カード本文 ── */
     .playlist-card__body {
       padding: 1rem 1.2rem 1.4rem;
       display: flex;
@@ -79,7 +103,9 @@
       color: #fc3c44;
       font-weight: 600;
       letter-spacing: 0.04em;
+      text-decoration: none;
     }
+    .playlist-card__badge:hover { text-decoration: underline; }
 
     .playlist-card__badge svg {
       width: 14px;
