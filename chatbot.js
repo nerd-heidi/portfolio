@@ -425,7 +425,7 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (isOpen && !ui.win.contains(e.target) && e.target !== ui.toggle) {
+      if (isOpen && !ui.win.contains(e.target) && !ui.toggle.contains(e.target)) {
         closeChat();
       }
     });
