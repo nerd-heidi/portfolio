@@ -7,65 +7,99 @@
   <meta name="description" content="NERD Lifeの2人のAIミュージックコンパニオン、Melody（メロディ）とSeeno（シーノ）を紹介します。" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    .ac-hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:80px 0 64px; }
-    .ac-hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.55); font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px; }
-    .ac-hero-title { font-size:clamp(40px,7vw,80px); font-weight:900; letter-spacing:-2px; line-height:1; margin:0 0 12px; }
-    .ac-hero-melody { color:#c9a8ff; }
-    .ac-hero-amp { color:rgba(255,255,255,0.3); margin:0 12px; }
-    .ac-hero-seeno { color:#D6C5B4; }
-    .ac-hero-sub { font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:0.06em; margin:0 0 16px; }
-    .ac-hero-desc { font-size:clamp(15px,2vw,18px); color:rgba(255,255,255,0.7); line-height:1.75; max-width:560px; margin:0 auto 44px; }
-    .ac-hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-    .ac-cta-btn { display:inline-flex; align-items:center; gap:8px; border:none; border-radius:100px; padding:14px 28px; font-size:14px; font-weight:700; font-family:inherit; cursor:pointer; transition:transform 0.2s ease,box-shadow 0.2s ease; text-decoration:none; }
-    .ac-cta-btn:hover { transform:translateY(-3px); }
-    .ac-cta-melody { background:linear-gradient(135deg,#a780ff,#6a4ecf); color:#fff; box-shadow:0 4px 24px rgba(167,128,255,0.4); }
-    .ac-cta-melody:hover { box-shadow:0 8px 32px rgba(167,128,255,0.55); }
-    .ac-cta-seeno { background:linear-gradient(135deg,#A68D72,#665C50); color:#fff; box-shadow:0 4px 24px rgba(166,141,114,0.35); }
-    .ac-cta-seeno:hover { box-shadow:0 8px 32px rgba(166,141,114,0.5); }
-    .ac-chars { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:72px 0; border-top:1px solid rgba(255,255,255,0.07); }
-    .ac-char-card { border-radius:24px; overflow:hidden; }
-    .ac-char-card-melody { background:rgba(167,128,255,0.06); border:1px solid rgba(167,128,255,0.18); }
-    .ac-char-card-seeno { background:rgba(166,141,114,0.06); border:1px solid rgba(166,141,114,0.18); }
-    .ac-char-header { padding:32px 32px 0; display:flex; align-items:flex-end; gap:24px; }
-    .ac-char-img { width:130px; flex-shrink:0; filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5)); }
-    .ac-char-img img { width:100%; height:auto; display:block; }
-    .ac-char-name-block { padding-bottom:12px; }
-    .ac-char-type { font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:6px; }
-    .ac-char-card-melody .ac-char-type { color:#a780ff; }
-    .ac-char-card-seeno .ac-char-type { color:#A68D72; }
-    .ac-char-name { font-size:clamp(32px,4vw,52px); font-weight:900; letter-spacing:-1.5px; line-height:1; margin:0 0 4px; }
-    .ac-char-card-melody .ac-char-name { color:#c9a8ff; }
-    .ac-char-card-seeno .ac-char-name { color:#D6C5B4; }
-    .ac-char-tagline { font-size:12px; color:rgba(255,255,255,0.4); font-style:italic; letter-spacing:0.04em; }
-    .ac-char-body { padding:24px 32px 32px; }
-    .ac-char-row { display:flex; gap:16px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:13px; }
-    .ac-char-row:last-child { border-bottom:none; }
-    .ac-char-key { width:72px; flex-shrink:0; color:rgba(255,255,255,0.38); font-size:11px; letter-spacing:0.04em; padding-top:1px; }
-    .ac-char-val { color:rgba(255,255,255,0.85); line-height:1.7; }
-    .ac-char-quote { margin:20px 0 0; padding:14px 18px; border-radius:10px; font-size:13px; font-style:italic; line-height:1.7; color:rgba(255,255,255,0.65); }
-    .ac-char-card-melody .ac-char-quote { background:rgba(167,128,255,0.1); border-left:3px solid rgba(167,128,255,0.5); }
-    .ac-char-card-seeno .ac-char-quote { background:rgba(166,141,114,0.1); border-left:3px solid rgba(166,141,114,0.5); }
-    .ac-features { padding:72px 0; border-top:1px solid rgba(255,255,255,0.07); }
-    .ac-section-eyebrow { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; margin-bottom:10px; background:linear-gradient(90deg,#a780ff,#A68D72); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .ac-section-title { font-size:clamp(26px,3.5vw,40px); font-weight:900; letter-spacing:-1px; margin:0 0 48px; }
-    .ac-features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
-    .ac-feature-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px 22px; transition:border-color 0.2s ease,transform 0.2s ease; }
-    .ac-feature-card:hover { border-color:rgba(255,255,255,0.16); transform:translateY(-3px); }
-    .ac-feature-icon { font-size:26px; margin-bottom:14px; display:block; }
-    .ac-feature-who { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
-    .ac-feature-who.melody { color:#a780ff; }
-    .ac-feature-who.seeno { color:#A68D72; }
-    .ac-feature-who.both { color:rgba(255,255,255,0.38); }
-    .ac-feature-name { font-size:15px; font-weight:700; margin:0 0 8px; }
-    .ac-feature-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7; margin:0; }
-    .ac-cta-banner { padding:80px 0; border-top:1px solid rgba(255,255,255,0.07); text-align:center; }
-    .ac-cta-banner-quote { font-size:13px; color:rgba(255,255,255,0.38); font-style:italic; margin:0 0 8px; }
-    .ac-cta-banner-title { font-size:clamp(20px,3.2vw,34px); font-weight:900; letter-spacing:-1px; margin:0 0 32px; }
-    @media (max-width:768px) {
-      .ac-chars { grid-template-columns:1fr; }
-      .ac-hero-btns { flex-direction:column; align-items:center; }
-      .ac-char-header { flex-direction:column; align-items:flex-start; gap:12px; }
-      .ac-char-img { width:100px; }
+    /* ===== AI COMPANIONS PAGE ===== */
+    .ac-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 0 64px}
+    .ac-hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
+    .ac-hero-title{font-size:clamp(40px,7vw,80px);font-weight:900;letter-spacing:-2px;line-height:1;margin:0 0 12px}
+    .ac-hero-melody{color:#c9a8ff}
+    .ac-hero-amp{color:rgba(255,255,255,.28);margin:0 12px}
+    .ac-hero-seeno{color:#D6C5B4}
+    .ac-hero-sub{font-size:14px;color:rgba(255,255,255,.38);letter-spacing:.06em;margin:0 0 16px}
+    .ac-hero-desc{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.68);line-height:1.8;max-width:560px;margin:0 auto 44px}
+    .ac-hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .ac-cta-btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:14px 28px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none}
+    .ac-cta-btn:hover{transform:translateY(-3px)}
+    .ac-cta-melody{background:linear-gradient(135deg,#a780ff,#6a4ecf);color:#fff;box-shadow:0 4px 24px rgba(167,128,255,.4)}
+    .ac-cta-melody:hover{box-shadow:0 8px 32px rgba(167,128,255,.55)}
+    .ac-cta-seeno{background:linear-gradient(135deg,#A68D72,#665C50);color:#fff;box-shadow:0 4px 24px rgba(166,141,114,.35)}
+    .ac-cta-seeno:hover{box-shadow:0 8px 32px rgba(166,141,114,.5)}
+
+    /* ── Character Cards ── */
+    .ac-chars{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:72px 0;border-top:1px solid rgba(255,255,255,.07)}
+    .ac-char-card{border-radius:24px;overflow:hidden}
+    .ac-char-card-melody{background:rgba(167,128,255,.05);border:1px solid rgba(167,128,255,.18)}
+    .ac-char-card-seeno{background:rgba(166,141,114,.05);border:1px solid rgba(166,141,114,.18)}
+    .ac-char-header{padding:32px 32px 0;display:flex;align-items:flex-end;gap:24px}
+    .ac-char-img{width:130px;flex-shrink:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.55))}
+    .ac-char-img img{width:100%;height:auto;display:block}
+    .ac-char-name-block{padding-bottom:12px}
+    .ac-char-type{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+    .ac-char-card-melody .ac-char-type{color:#a780ff}
+    .ac-char-card-seeno .ac-char-type{color:#A68D72}
+    .ac-char-name{font-size:clamp(30px,4vw,50px);font-weight:900;letter-spacing:-1.5px;line-height:1;margin:0 0 4px}
+    .ac-char-card-melody .ac-char-name{color:#c9a8ff}
+    .ac-char-card-seeno .ac-char-name{color:#D6C5B4}
+    .ac-char-tagline{font-size:12px;color:rgba(255,255,255,.38);font-style:italic;letter-spacing:.04em}
+    .ac-char-body{padding:24px 32px 32px}
+
+    /* About block */
+    .ac-char-about{font-size:13px;color:rgba(255,255,255,.62);line-height:1.85;margin:0 0 20px;padding:16px 18px;border-radius:12px}
+    .ac-char-card-melody .ac-char-about{background:rgba(167,128,255,.07);border:1px solid rgba(167,128,255,.14)}
+    .ac-char-card-seeno .ac-char-about{background:rgba(166,141,114,.07);border:1px solid rgba(166,141,114,.14)}
+
+    /* Profile table */
+    .ac-char-row{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.055);font-size:13px}
+    .ac-char-row:last-child{border-bottom:none}
+    .ac-char-key{width:76px;flex-shrink:0;color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.04em;padding-top:1px}
+    .ac-char-val{color:rgba(255,255,255,.82);line-height:1.7}
+
+    /* Feature tags */
+    .ac-char-features{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 0}
+    .ac-char-feat-tag{font-size:11px;padding:5px 11px;border-radius:20px;font-weight:600}
+    .ac-char-card-melody .ac-char-feat-tag{background:rgba(167,128,255,.12);border:1px solid rgba(167,128,255,.28);color:#c9a8ff}
+    .ac-char-card-seeno .ac-char-feat-tag{background:rgba(166,141,114,.12);border:1px solid rgba(166,141,114,.28);color:#D6C5B4}
+
+    /* Quote */
+    .ac-char-quote{margin:20px 0 0;padding:14px 18px;border-radius:10px;font-size:13px;font-style:italic;line-height:1.75;color:rgba(255,255,255,.6)}
+    .ac-char-card-melody .ac-char-quote{background:rgba(167,128,255,.1);border-left:3px solid rgba(167,128,255,.5)}
+    .ac-char-card-seeno .ac-char-quote{background:rgba(166,141,114,.1);border-left:3px solid rgba(166,141,114,.5)}
+
+    /* ── Detail tags (Seeno) ── */
+    .ac-char-detail-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:20px 0 8px}
+    .ac-char-details{display:flex;flex-wrap:wrap;gap:6px}
+    .ac-char-detail-tag{font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(166,141,114,.08);border:1px solid rgba(166,141,114,.22);color:rgba(255,255,255,.55)}
+
+    /* ── Color Palette ── */
+    .ac-palette{display:flex;gap:6px;margin:20px 0 0;align-items:center}
+    .ac-palette-swatch{width:22px;height:22px;border-radius:6px;flex-shrink:0}
+    .ac-palette-label{font-size:10px;color:rgba(255,255,255,.3);margin-left:8px;letter-spacing:.04em}
+
+    /* ── Features Section ── */
+    .ac-features{padding:72px 0;border-top:1px solid rgba(255,255,255,.07)}
+    .ac-section-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px;background:linear-gradient(90deg,#a780ff,#A68D72);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .ac-section-title{font-size:clamp(26px,3.5vw,40px);font-weight:900;letter-spacing:-1px;margin:0 0 48px}
+    .ac-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+    .ac-feature-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 22px;transition:border-color .2s,transform .2s}
+    .ac-feature-card:hover{border-color:rgba(255,255,255,.16);transform:translateY(-3px)}
+    .ac-feature-icon{font-size:26px;margin-bottom:14px;display:block}
+    .ac-feature-who{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+    .ac-feature-who.melody{color:#a780ff}
+    .ac-feature-who.seeno{color:#A68D72}
+    .ac-feature-who.both{color:rgba(255,255,255,.35)}
+    .ac-feature-name{font-size:15px;font-weight:700;margin:0 0 8px}
+    .ac-feature-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7;margin:0}
+
+    /* ── CTA ── */
+    .ac-cta-banner{padding:80px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+    .ac-cta-banner-quote{font-size:14px;color:rgba(255,255,255,.35);font-style:italic;margin:0 0 8px}
+    .ac-cta-banner-title{font-size:clamp(20px,3.2vw,34px);font-weight:900;letter-spacing:-1px;margin:0 0 32px}
+
+    /* ── Responsive ── */
+    @media(max-width:768px){
+      .ac-chars{grid-template-columns:1fr}
+      .ac-hero-btns{flex-direction:column;align-items:center}
+      .ac-char-header{flex-direction:column;align-items:flex-start;gap:12px}
+      .ac-char-img{width:100px}
     }
   </style>
 </head>
@@ -83,25 +117,41 @@
   </header>
 
   <main>
+
+    <!-- ── HERO ── -->
     <section class="ac-hero">
       <span class="ac-hero-tag">✦ AI COMPANIONS</span>
       <h1 class="ac-hero-title">
         <span class="ac-hero-melody">Melody</span>
-        <span class="ac-hero-amp">&</span>
+        <span class="ac-hero-amp">&amp;</span>
         <span class="ac-hero-seeno">Seeno</span>
       </h1>
       <p class="ac-hero-sub">Your AI Music Companions</p>
-      <p class="ac-hero-desc">NERD Lifeに常駐する2人のAIミュージックコンパニオン。<br>それぞれ違う個性で、あなたの音楽ライフに寄り添います。</p>
+      <p class="ac-hero-desc">
+        音楽で、あなたの毎日をちょっとだけ特別に。<br>
+        NERD Lifeに常駐する2人のAIが、それぞれの個性で寄り添います。
+      </p>
       <div class="ac-hero-btns">
-        <button class="ac-cta-btn ac-cta-melody" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
-        <button class="ac-cta-btn ac-cta-seeno" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
+        <button class="ac-cta-btn ac-cta-melody"
+          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
+          🎵 Melodyと話す
+        </button>
+        <button class="ac-cta-btn ac-cta-seeno"
+          onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">
+          🎧 Seenoと話す
+        </button>
       </div>
     </section>
 
+    <!-- ── CHARACTER CARDS ── -->
     <section class="ac-chars">
+
+      <!-- Melody -->
       <div class="ac-char-card ac-char-card-melody">
         <div class="ac-char-header">
-          <div class="ac-char-img"><img src="/images/chatbot-char.png" alt="Melody" /></div>
+          <div class="ac-char-img">
+            <img src="/images/chatbot-char.png" alt="Melody" />
+          </div>
           <div class="ac-char-name-block">
             <p class="ac-char-type">AI Music Companion</p>
             <h2 class="ac-char-name">Melody</h2>
@@ -109,18 +159,32 @@
           </div>
         </div>
         <div class="ac-char-body">
+          <p class="ac-char-about">
+            あなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたり。いつでもあなたに寄り添う、AIミュージックパートナーです。
+          </p>
           <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Melody（メロディ）</span></div>
           <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
           <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">やさしい・聞き上手・ちょっぴり天然</span></div>
           <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span></div>
           <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「いい曲だね〜」「それ、わかる！」</span></div>
-          <blockquote class="ac-char-quote">今日はどんな気分？一緒にぴったりの音楽を見つけよう。いつでも話しかけてね🎵</blockquote>
+          <div class="ac-char-features">
+            <span class="ac-char-feat-tag">🎵 音楽のおすすめ</span>
+            <span class="ac-char-feat-tag">💬 気分に寄り添う会話</span>
+            <span class="ac-char-feat-tag">📋 プレイリスト作成</span>
+            <span class="ac-char-feat-tag">🤍 いつでもお話し相手</span>
+          </div>
+          <blockquote class="ac-char-quote">
+            今日はどんな気分？一緒にぴったりの音楽を見つけよう。いつでも話しかけてね🎵
+          </blockquote>
         </div>
       </div>
 
+      <!-- Seeno -->
       <div class="ac-char-card ac-char-card-seeno">
         <div class="ac-char-header">
-          <div class="ac-char-img"><img src="/images/chatbot-seeno.png" alt="Seeno" /></div>
+          <div class="ac-char-img">
+            <img src="/images/chatbot-seeno.png" alt="Seeno" />
+          </div>
           <div class="ac-char-name-block">
             <p class="ac-char-type">AI Music Companion</p>
             <h2 class="ac-char-name">Seeno</h2>
@@ -128,38 +192,110 @@
           </div>
         </div>
         <div class="ac-char-body">
+          <p class="ac-char-about">
+            音楽を通して、あなたとつながるAI。気分や好みに合わせてぴったりの音楽を見つけたり、新しい音楽との出会いをサポートします。いつでも、どこでも、最高の音楽体験を一緒に。
+          </p>
           <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Seeno（シーノ）</span></div>
           <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">クールで落ち着いているが、芯は優しい。音楽にとても真剣</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、レコード集め、夜の散歩、カフェで考え事</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">クールで落ち着いているが、芯は優しい。自分の世界を大切にし、音楽にとても真剣</span></div>
+          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、レコード集め、夜の散歩、写真を撮ること、カフェで考え事</span></div>
           <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「それ、いいね」「音楽って、やっぱりすごい」</span></div>
-          <blockquote class="ac-char-quote">音楽のある場所で、私はいつも、自分らしくいられる。ビートの中に、答えがあるから。</blockquote>
+          <div class="ac-char-features">
+            <span class="ac-char-feat-tag">🎧 音楽のおすすめ</span>
+            <span class="ac-char-feat-tag">🎵 新しい出会いをサポート</span>
+            <span class="ac-char-feat-tag">📀 レコード愛好家</span>
+            <span class="ac-char-feat-tag">🌙 夜の散歩仲間</span>
+          </div>
+          <p class="ac-char-detail-label">DETAILS</p>
+          <div class="ac-char-details">
+            <span class="ac-char-detail-tag">🎧 お気に入りのヘッドホン</span>
+            <span class="ac-char-detail-tag">🧥 オーバーサイズのパーカー</span>
+            <span class="ac-char-detail-tag">⛓ チェーンアクセサリー</span>
+            <span class="ac-char-detail-tag">👁 落ち着いた瞳</span>
+          </div>
+          <div class="ac-palette">
+            <span class="ac-palette-swatch" style="background:#0F0F10"></span>
+            <span class="ac-palette-swatch" style="background:#1C1C1E"></span>
+            <span class="ac-palette-swatch" style="background:#2D2D30"></span>
+            <span class="ac-palette-swatch" style="background:#665C50"></span>
+            <span class="ac-palette-swatch" style="background:#A68D72"></span>
+            <span class="ac-palette-swatch" style="background:#D6C5B4"></span>
+            <span class="ac-palette-swatch" style="background:#E75C3D"></span>
+            <span class="ac-palette-label">COLOR PALETTE</span>
+          </div>
+          <blockquote class="ac-char-quote">
+            音楽のある場所で、私はいつも、自分らしくいられる。ビートの中に、答えがあるから。
+          </blockquote>
         </div>
       </div>
+
     </section>
 
+    <!-- ── FEATURES ── -->
     <section class="ac-features">
       <p class="ac-section-eyebrow">できること</p>
       <h2 class="ac-section-title">2人にできること。</h2>
       <div class="ac-features-grid">
-        <div class="ac-feature-card"><span class="ac-feature-icon">🎵</span><p class="ac-feature-who both">Melody & Seeno</p><h3 class="ac-feature-name">音楽のおすすめ</h3><p class="ac-feature-desc">気分やジャンルに合った曲やアーティストを紹介します。</p></div>
-        <div class="ac-feature-card"><span class="ac-feature-icon">💬</span><p class="ac-feature-who melody">Melody</p><h3 class="ac-feature-name">気分に寄り添う会話</h3><p class="ac-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p></div>
-        <div class="ac-feature-card"><span class="ac-feature-icon">🎧</span><p class="ac-feature-who seeno">Seeno</p><h3 class="ac-feature-name">音楽への深い洞察</h3><p class="ac-feature-desc">レコードやビート、音楽の深い話ならSeenoに。</p></div>
-        <div class="ac-feature-card"><span class="ac-feature-icon">📋</span><p class="ac-feature-who both">Melody & Seeno</p><h3 class="ac-feature-name">ポートフォリオ案内</h3><p class="ac-feature-desc">各コンテンツページへの案内もお任せください。</p></div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">🎵</span>
+          <p class="ac-feature-who both">Melody &amp; Seeno</p>
+          <h3 class="ac-feature-name">音楽のおすすめ</h3>
+          <p class="ac-feature-desc">気分やジャンルに合った曲やアーティストを紹介します。</p>
+        </div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">💬</span>
+          <p class="ac-feature-who melody">Melody</p>
+          <h3 class="ac-feature-name">気分に寄り添う会話</h3>
+          <p class="ac-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p>
+        </div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">📋</span>
+          <p class="ac-feature-who melody">Melody</p>
+          <h3 class="ac-feature-name">プレイリスト作成</h3>
+          <p class="ac-feature-desc">テーマや気分に合わせたプレイリストをご提案します。</p>
+        </div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">🤍</span>
+          <p class="ac-feature-who melody">Melody</p>
+          <h3 class="ac-feature-name">いつでもお話し相手</h3>
+          <p class="ac-feature-desc">音楽以外の話も。いつでも気軽に話しかけてください。</p>
+        </div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">🎧</span>
+          <p class="ac-feature-who seeno">Seeno</p>
+          <h3 class="ac-feature-name">音楽への深い洞察</h3>
+          <p class="ac-feature-desc">レコード・ビート・音楽の深い話ならSeenoに。</p>
+        </div>
+        <div class="ac-feature-card">
+          <span class="ac-feature-icon">✨</span>
+          <p class="ac-feature-who seeno">Seeno</p>
+          <h3 class="ac-feature-name">新しい音楽との出会い</h3>
+          <p class="ac-feature-desc">まだ知らない音楽との出会いをサポートします。</p>
+        </div>
       </div>
     </section>
 
+    <!-- ── CTA ── -->
     <div class="ac-cta-banner">
-      <p class="ac-cta-banner-quote">Good Music, Good Day. — Music is my escape.</p>
+      <p class="ac-cta-banner-quote">Good Music, Good Day. いい音楽は、きっといい一日をつくから。♪</p>
       <h2 class="ac-cta-banner-title">どちらに話しかける？</h2>
       <div class="ac-hero-btns">
-        <button class="ac-cta-btn ac-cta-melody" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
-        <button class="ac-cta-btn ac-cta-seeno" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
+        <button class="ac-cta-btn ac-cta-melody"
+          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
+          🎵 Melodyと話す
+        </button>
+        <button class="ac-cta-btn ac-cta-seeno"
+          onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">
+          🎧 Seenoと話す
+        </button>
       </div>
     </div>
+
   </main>
 
-  <footer><p>© 2026 NERD Life. All Rights Reserved.</p></footer>
+  <footer>
+    <p>© 2026 NERD Life. All Rights Reserved.</p>
+  </footer>
 
   <script src="/script.js"></script>
   <script src="/chatbot.js"></script>
