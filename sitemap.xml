@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://nerd-heidi.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://nerd-heidi.com/favorite-music/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/beat/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/anime/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/work/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/ai/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/book/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/movie/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/photo/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/game/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/idol/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/playlist/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/food/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/youtube/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/commercial/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nerd-heidi.com/music-hiphop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nerd-heidi.com/music-idol/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nerd-heidi.com/music-other/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nerd-heidi.com/music-pops/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nerd-heidi.com/music-rock/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nerd-heidi.com/melody/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
