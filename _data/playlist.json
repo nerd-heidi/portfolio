@@ -1,10 +1,10 @@
 {
   "playlists": [
     {
-      "title": "Playlist Title",
-      "description": "プレイリストの説明文",
-      "artwork": "/images/playlist-artwork-1.png",
-      "url": "https://music.apple.com/jp/playlist/xxxxx"
+      "title": "My Favorite",
+      "description": "",
+      "artwork": "",
+      "url": "https://music.apple.com/jp/playlist/my-favorite-music/pl.u-YlZyFq3pZ4Y?l=en-US"
     }
   ]
 }
