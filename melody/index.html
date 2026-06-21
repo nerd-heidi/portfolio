@@ -4,102 +4,268 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Companions – Melody & Seeno | NERD Life</title>
-  <meta name="description" content="NERD Lifeの2人のAIミュージックコンパニオン、Melody（メロディ）とSeeno（シーノ）を紹介します。" />
+  <meta name="description" content="MelodyとSeeno、2人のAIミュージックコンパニオンのキャラクタープロフィール。" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* ===== AI COMPANIONS PAGE ===== */
-    .ac-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:80px 0 64px}
-    .ac-hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
-    .ac-hero-title{font-size:clamp(40px,7vw,80px);font-weight:900;letter-spacing:-2px;line-height:1;margin:0 0 12px}
-    .ac-hero-melody{color:#c9a8ff}
-    .ac-hero-amp{color:rgba(255,255,255,.28);margin:0 12px}
-    .ac-hero-seeno{color:#D6C5B4}
-    .ac-hero-sub{font-size:14px;color:rgba(255,255,255,.38);letter-spacing:.06em;margin:0 0 16px}
-    .ac-hero-desc{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.68);line-height:1.8;max-width:560px;margin:0 auto 44px}
-    .ac-hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-    .ac-cta-btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:14px 28px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none}
-    .ac-cta-btn:hover{transform:translateY(-3px)}
-    .ac-cta-melody{background:linear-gradient(135deg,#a780ff,#6a4ecf);color:#fff;box-shadow:0 4px 24px rgba(167,128,255,.4)}
-    .ac-cta-melody:hover{box-shadow:0 8px 32px rgba(167,128,255,.55)}
-    .ac-cta-seeno{background:linear-gradient(135deg,#A68D72,#665C50);color:#fff;box-shadow:0 4px 24px rgba(166,141,114,.35)}
-    .ac-cta-seeno:hover{box-shadow:0 8px 32px rgba(166,141,114,.5)}
+    /* ===== BASE ===== */
+    .comp-main { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-    /* ── Character Cards ── */
-    .ac-chars{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:72px 0;border-top:1px solid rgba(255,255,255,.07)}
-    .ac-char-card{border-radius:24px;overflow:hidden}
-    .ac-char-card-melody{background:rgba(167,128,255,.05);border:1px solid rgba(167,128,255,.18)}
-    .ac-char-card-seeno{background:rgba(166,141,114,.05);border:1px solid rgba(166,141,114,.18)}
-    .ac-char-header{padding:32px 32px 0;display:flex;align-items:flex-end;gap:24px}
-    .ac-char-img{width:130px;flex-shrink:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.55))}
-    .ac-char-img img{width:100%;height:auto;display:block}
-    .ac-char-name-block{padding-bottom:12px}
-    .ac-char-type{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-    .ac-char-card-melody .ac-char-type{color:#a780ff}
-    .ac-char-card-seeno .ac-char-type{color:#A68D72}
-    .ac-char-name{font-size:clamp(30px,4vw,50px);font-weight:900;letter-spacing:-1.5px;line-height:1;margin:0 0 4px}
-    .ac-char-card-melody .ac-char-name{color:#c9a8ff}
-    .ac-char-card-seeno .ac-char-name{color:#D6C5B4}
-    .ac-char-tagline{font-size:12px;color:rgba(255,255,255,.38);font-style:italic;letter-spacing:.04em}
-    .ac-char-body{padding:24px 32px 32px}
+    /* ===== HERO ===== */
+    .comp-hero {
+      text-align: center;
+      padding: 80px 24px 56px;
+      position: relative;
+    }
+    .comp-hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.5); font-size: 11px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .comp-hero-title {
+      font-size: clamp(48px,8vw,96px); font-weight: 900;
+      letter-spacing: -3px; line-height: 1; margin: 0 0 16px;
+    }
+    .comp-hero-m { color: #c9a8ff; }
+    .comp-hero-amp { color: rgba(255,255,255,.22); margin: 0 16px; }
+    .comp-hero-s { color: #D6C5B4; }
+    .comp-hero-sub {
+      font-size: 15px; color: rgba(255,255,255,.4);
+      letter-spacing: .06em; margin: 0 0 44px;
+    }
+    .comp-hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .comp-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: none; border-radius: 100px; padding: 13px 26px;
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      cursor: pointer; transition: transform .2s, box-shadow .2s; text-decoration: none;
+    }
+    .comp-btn:hover { transform: translateY(-3px); }
+    .comp-btn-m { background: linear-gradient(135deg,#a780ff,#6a4ecf); color: #fff; box-shadow: 0 4px 20px rgba(167,128,255,.4); }
+    .comp-btn-m:hover { box-shadow: 0 8px 28px rgba(167,128,255,.55); }
+    .comp-btn-s { background: linear-gradient(135deg,#A68D72,#665C50); color: #fff; box-shadow: 0 4px 20px rgba(166,141,114,.35); }
+    .comp-btn-s:hover { box-shadow: 0 8px 28px rgba(166,141,114,.5); }
 
-    /* About block */
-    .ac-char-about{font-size:13px;color:rgba(255,255,255,.62);line-height:1.85;margin:0 0 20px;padding:16px 18px;border-radius:12px}
-    .ac-char-card-melody .ac-char-about{background:rgba(167,128,255,.07);border:1px solid rgba(167,128,255,.14)}
-    .ac-char-card-seeno .ac-char-about{background:rgba(166,141,114,.07);border:1px solid rgba(166,141,114,.14)}
+    /* ===== SECTION DIVIDER ===== */
+    .char-section { padding: 80px 0; border-top: 1px solid rgba(255,255,255,.07); }
 
-    /* Profile table */
-    .ac-char-row{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.055);font-size:13px}
-    .ac-char-row:last-child{border-bottom:none}
-    .ac-char-key{width:76px;flex-shrink:0;color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.04em;padding-top:1px}
-    .ac-char-val{color:rgba(255,255,255,.82);line-height:1.7}
+    /* ===== SECTION HEADER ===== */
+    .char-sec-header {
+      display: flex; align-items: center; gap: 20px; margin-bottom: 56px;
+    }
+    .char-sec-badge {
+      font-size: 10px; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 4px;
+    }
+    .m-badge { background: rgba(167,128,255,.2); color: #a780ff; }
+    .s-badge { background: rgba(166,141,114,.2); color: #A68D72; }
+    .char-sec-name {
+      font-size: clamp(36px,5vw,64px); font-weight: 900;
+      letter-spacing: -2px; line-height: 1;
+    }
+    .char-sec-name.m { color: #c9a8ff; }
+    .char-sec-name.s { color: #D6C5B4; }
+    .char-sec-tagline {
+      font-size: 13px; color: rgba(255,255,255,.4);
+      font-style: italic; margin-top: 4px;
+    }
 
-    /* Feature tags */
-    .ac-char-features{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 0}
-    .ac-char-feat-tag{font-size:11px;padding:5px 11px;border-radius:20px;font-weight:600}
-    .ac-char-card-melody .ac-char-feat-tag{background:rgba(167,128,255,.12);border:1px solid rgba(167,128,255,.28);color:#c9a8ff}
-    .ac-char-card-seeno .ac-char-feat-tag{background:rgba(166,141,114,.12);border:1px solid rgba(166,141,114,.28);color:#D6C5B4}
+    /* ===== MAIN LAYOUT ===== */
+    .char-main {
+      display: grid; grid-template-columns: 420px 1fr; gap: 48px;
+      align-items: start; margin-bottom: 64px;
+    }
+    .char-main.reverse { grid-template-columns: 1fr 420px; }
+    .char-main.reverse .char-img-col { order: 2; }
+    .char-main.reverse .char-data-col { order: 1; }
 
-    /* Quote */
-    .ac-char-quote{margin:20px 0 0;padding:14px 18px;border-radius:10px;font-size:13px;font-style:italic;line-height:1.75;color:rgba(255,255,255,.6)}
-    .ac-char-card-melody .ac-char-quote{background:rgba(167,128,255,.1);border-left:3px solid rgba(167,128,255,.5)}
-    .ac-char-card-seeno .ac-char-quote{background:rgba(166,141,114,.1);border-left:3px solid rgba(166,141,114,.5)}
+    .char-img-col { position: relative; }
+    .char-img-col img {
+      width: 100%; border-radius: 24px;
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,.6));
+    }
+    .char-img-caption {
+      display: flex; gap: 6px; margin-top: 12px; justify-content: center;
+    }
+    .char-img-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 4px;
+      color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.1);
+    }
 
-    /* ── Detail tags (Seeno) ── */
-    .ac-char-detail-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:20px 0 8px}
-    .ac-char-details{display:flex;flex-wrap:wrap;gap:6px}
-    .ac-char-detail-tag{font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(166,141,114,.08);border:1px solid rgba(166,141,114,.22);color:rgba(255,255,255,.55)}
+    /* ===== DATA COL ===== */
+    .char-catchphrase {
+      font-size: clamp(16px,2vw,22px); font-weight: 700;
+      line-height: 1.7; margin: 0 0 28px; color: rgba(255,255,255,.85);
+    }
 
-    /* ── Color Palette ── */
-    .ac-palette{display:flex;gap:6px;margin:20px 0 0;align-items:center}
-    .ac-palette-swatch{width:22px;height:22px;border-radius:6px;flex-shrink:0}
-    .ac-palette-label{font-size:10px;color:rgba(255,255,255,.3);margin-left:8px;letter-spacing:.04em}
+    .char-features { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; }
+    .char-feature {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: rgba(255,255,255,.75); font-weight: 500;
+    }
+    .char-feature-icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .m-icon-bg { background: rgba(167,128,255,.15); }
+    .s-icon-bg { background: rgba(166,141,114,.15); }
 
-    /* ── Features Section ── */
-    .ac-features{padding:72px 0;border-top:1px solid rgba(255,255,255,.07)}
-    .ac-section-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px;background:linear-gradient(90deg,#a780ff,#A68D72);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .ac-section-title{font-size:clamp(26px,3.5vw,40px);font-weight:900;letter-spacing:-1px;margin:0 0 48px}
-    .ac-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
-    .ac-feature-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 22px;transition:border-color .2s,transform .2s}
-    .ac-feature-card:hover{border-color:rgba(255,255,255,.16);transform:translateY(-3px)}
-    .ac-feature-icon{font-size:26px;margin-bottom:14px;display:block}
-    .ac-feature-who{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-    .ac-feature-who.melody{color:#a780ff}
-    .ac-feature-who.seeno{color:#A68D72}
-    .ac-feature-who.both{color:rgba(255,255,255,.35)}
-    .ac-feature-name{font-size:15px;font-weight:700;margin:0 0 8px}
-    .ac-feature-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7;margin:0}
+    /* ===== ABOUT ===== */
+    .char-about-block {
+      border-radius: 16px; padding: 24px; margin: 0 0 24px;
+    }
+    .m-about { background: rgba(167,128,255,.07); border: 1px solid rgba(167,128,255,.16); }
+    .s-about { background: rgba(166,141,114,.07); border: 1px solid rgba(166,141,114,.16); }
+    .char-about-title {
+      font-size: 11px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; margin: 0 0 12px;
+    }
+    .m-about .char-about-title { color: #a780ff; }
+    .s-about .char-about-title { color: #A68D72; }
+    .char-about-text {
+      font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.9; margin: 0;
+    }
 
-    /* ── CTA ── */
-    .ac-cta-banner{padding:80px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
-    .ac-cta-banner-quote{font-size:14px;color:rgba(255,255,255,.35);font-style:italic;margin:0 0 8px}
-    .ac-cta-banner-title{font-size:clamp(20px,3.2vw,34px);font-weight:900;letter-spacing:-1px;margin:0 0 32px}
+    /* ===== PROFILE ===== */
+    .char-profile-block {
+      border-radius: 16px; padding: 20px; margin: 0 0 24px;
+    }
+    .m-profile { background: rgba(167,128,255,.05); border: 1px solid rgba(167,128,255,.14); }
+    .s-profile { background: rgba(166,141,114,.05); border: 1px solid rgba(166,141,114,.14); }
+    .profile-block-title {
+      font-size: 11px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; margin: 0 0 14px;
+    }
+    .m-profile .profile-block-title { color: #a780ff; }
+    .s-profile .profile-block-title { color: #A68D72; }
+    .profile-row { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .profile-row:last-child { border-bottom: none; }
+    .profile-key { width: 72px; flex-shrink: 0; color: rgba(255,255,255,.35); font-size: 11px; }
+    .profile-val { color: rgba(255,255,255,.82); line-height: 1.7; }
 
-    /* ── Responsive ── */
-    @media(max-width:768px){
-      .ac-chars{grid-template-columns:1fr}
-      .ac-hero-btns{flex-direction:column;align-items:center}
-      .ac-char-header{flex-direction:column;align-items:flex-start;gap:12px}
-      .ac-char-img{width:100px}
+    /* ===== EXPRESSIONS ===== */
+    .section-label {
+      font-size: 11px; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; margin: 0 0 20px;
+    }
+    .m-label { color: #a780ff; }
+    .s-label { color: #A68D72; }
+
+    .expressions-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+    .exp-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; padding: 16px 14px; border-radius: 14px;
+      min-width: 90px; flex: 1; max-width: 120px;
+      transition: transform .2s;
+    }
+    .exp-card:hover { transform: translateY(-4px); }
+    .m-exp { background: rgba(167,128,255,.08); border: 1px solid rgba(167,128,255,.2); }
+    .s-exp { background: rgba(166,141,114,.08); border: 1px solid rgba(166,141,114,.2); }
+    .exp-face { font-size: 28px; }
+    .exp-name { font-size: 11px; color: rgba(255,255,255,.6); text-align: center; font-weight: 600; }
+
+    /* ===== DETAILS GRID ===== */
+    .details-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 48px; }
+    .detail-card {
+      border-radius: 16px; padding: 20px 14px; text-align: center;
+      transition: transform .2s;
+    }
+    .detail-card:hover { transform: translateY(-4px); }
+    .s-detail { background: rgba(166,141,114,.07); border: 1px solid rgba(166,141,114,.18); }
+    .detail-icon { font-size: 28px; display: block; margin-bottom: 10px; }
+    .detail-name { font-size: 11px; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+    /* ===== ITEMS GRID ===== */
+    .items-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+    .item-card {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-radius: 12px; font-size: 13px;
+      color: rgba(255,255,255,.65);
+    }
+    .s-item { background: rgba(166,141,114,.08); border: 1px solid rgba(166,141,114,.18); }
+    .item-icon { font-size: 20px; }
+
+    /* ===== MOOD BOARD ===== */
+    .mood-board { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
+    .mood-tag {
+      padding: 6px 14px; border-radius: 20px; font-size: 12px;
+      background: rgba(166,141,114,.1); border: 1px solid rgba(166,141,114,.25);
+      color: #D6C5B4; font-weight: 600;
+    }
+
+    /* ===== CHAT EXAMPLE ===== */
+    .chat-block {
+      border-radius: 20px; padding: 24px; margin-bottom: 48px;
+      max-width: 520px;
+    }
+    .m-chat { background: rgba(167,128,255,.06); border: 1px solid rgba(167,128,255,.16); }
+    .s-chat { background: rgba(166,141,114,.06); border: 1px solid rgba(166,141,114,.16); }
+    .chat-block-title {
+      font-size: 11px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; margin: 0 0 16px;
+    }
+    .m-chat .chat-block-title { color: #a780ff; }
+    .s-chat .chat-block-title { color: #A68D72; }
+    .chat-msgs { display: flex; flex-direction: column; gap: 10px; }
+    .chat-msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 13px; line-height: 1.65; }
+    .chat-bot-m { background: rgba(167,128,255,.14); border: 1px solid rgba(167,128,255,.22); color: #f0eaff; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .chat-user-m { background: rgba(167,128,255,.32); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .chat-bot-s { background: rgba(166,141,114,.14); border: 1px solid rgba(166,141,114,.22); color: #f0ebe3; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .chat-user-s { background: rgba(166,141,114,.32); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .chat-playlist {
+      margin-top: 8px; padding: 12px 14px; border-radius: 10px;
+      font-size: 12px; line-height: 1.9;
+    }
+    .m-playlist { background: rgba(167,128,255,.18); color: #d4baff; }
+    .s-playlist { background: rgba(166,141,114,.18); color: #D6C5B4; }
+    .chat-playlist-title { font-weight: 700; margin-bottom: 4px; }
+
+    /* ===== COLOR PALETTE ===== */
+    .palette-row { display: flex; gap: 0; border-radius: 12px; overflow: hidden; margin-bottom: 48px; }
+    .palette-swatch { flex: 1; height: 52px; position: relative; cursor: default; transition: flex .2s; }
+    .palette-swatch:hover { flex: 2; }
+    .palette-hex {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      text-align: center; font-size: 9px; color: rgba(255,255,255,.5);
+      font-weight: 700; letter-spacing: .04em;
+    }
+
+    /* ===== TWO-COL LAYOUT (about + chat) ===== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 48px; }
+
+    /* ===== DIVIDER ===== */
+    .char-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+      margin: 64px 0;
+    }
+
+    /* ===== CTA ===== */
+    .comp-cta {
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .comp-cta-quote { font-size: 14px; color: rgba(255,255,255,.32); font-style: italic; margin: 0 0 8px; }
+    .comp-cta-title { font-size: clamp(22px,3.5vw,38px); font-weight: 900; letter-spacing: -1px; margin: 0 0 32px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .char-main { grid-template-columns: 1fr; }
+      .char-main.reverse .char-img-col { order: 1; }
+      .char-main.reverse .char-data-col { order: 2; }
+      .char-img-col img { max-width: 320px; margin: 0 auto; display: block; }
+      .two-col { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .comp-hero-btns { flex-direction: column; align-items: center; }
+      .details-grid { grid-template-columns: repeat(2,1fr); }
+      .expressions-row { gap: 8px; }
+      .exp-card { min-width: 70px; }
     }
   </style>
 </head>
@@ -117,185 +283,254 @@
   </header>
 
   <main>
-
     <!-- ── HERO ── -->
-    <section class="ac-hero">
-      <span class="ac-hero-tag">✦ AI COMPANIONS</span>
-      <h1 class="ac-hero-title">
-        <span class="ac-hero-melody">Melody</span>
-        <span class="ac-hero-amp">&amp;</span>
-        <span class="ac-hero-seeno">Seeno</span>
+    <div class="comp-hero">
+      <span class="comp-hero-badge">✦ AI COMPANIONS</span>
+      <h1 class="comp-hero-title">
+        <span class="comp-hero-m">Melody</span>
+        <span class="comp-hero-amp">&amp;</span>
+        <span class="comp-hero-s">Seeno</span>
       </h1>
-      <p class="ac-hero-sub">Your AI Music Companions</p>
-      <p class="ac-hero-desc">
-        音楽で、あなたの毎日をちょっとだけ特別に。<br>
-        NERD Lifeに常駐する2人のAIが、それぞれの個性で寄り添います。
-      </p>
-      <div class="ac-hero-btns">
-        <button class="ac-cta-btn ac-cta-melody"
-          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
-          🎵 Melodyと話す
-        </button>
-        <button class="ac-cta-btn ac-cta-seeno"
-          onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">
-          🎧 Seenoと話す
-        </button>
+      <p class="comp-hero-sub">Your AI Music Companions</p>
+      <div class="comp-hero-btns">
+        <button class="comp-btn comp-btn-m" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
+        <button class="comp-btn comp-btn-s" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         MELODY SECTION
+    ════════════════════════════════════════ -->
+    <section class="char-section">
+      <div class="comp-main">
+
+        <!-- Header -->
+        <div class="char-sec-header">
+          <span class="char-sec-badge m-badge">AI BOT</span>
+          <div>
+            <div class="char-sec-name m">Melody</div>
+            <div class="char-sec-tagline">Your AI Music Companion</div>
+          </div>
+        </div>
+
+        <!-- Main layout -->
+        <div class="char-main">
+          <!-- Image -->
+          <div class="char-img-col">
+            <img src="/images/Melody2.png" alt="Melody キャラクターイラスト" />
+          </div>
+
+          <!-- Data -->
+          <div class="char-data-col">
+            <p class="char-catchphrase">音楽で、あなたの毎日を<br>ちょっとだけ特別に。</p>
+
+            <ul class="char-features">
+              <li class="char-feature"><span class="char-feature-icon m-icon-bg">🎵</span>音楽のおすすめ</li>
+              <li class="char-feature"><span class="char-feature-icon m-icon-bg">💬</span>気分に寄り添う会話</li>
+              <li class="char-feature"><span class="char-feature-icon m-icon-bg">📋</span>プレイリスト作成</li>
+              <li class="char-feature"><span class="char-feature-icon m-icon-bg">🤍</span>いつでもお話し相手</li>
+            </ul>
+
+            <!-- About -->
+            <div class="char-about-block m-about">
+              <p class="char-about-title">Melody とは？</p>
+              <p class="char-about-text">あなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたり。いつでもあなたに寄り添う、AIミュージックパートナーです。</p>
+            </div>
+
+            <!-- Profile -->
+            <div class="char-profile-block m-profile">
+              <p class="profile-block-title">PROFILE</p>
+              <div class="profile-row"><span class="profile-key">名前</span><span class="profile-val">Melody（メロディ）</span></div>
+              <div class="profile-row"><span class="profile-key">タイプ</span><span class="profile-val">AIミュージックコンパニオン</span></div>
+              <div class="profile-row"><span class="profile-key">性格</span><span class="profile-val">やさしい・聞き上手・ちょっぴり天然</span></div>
+              <div class="profile-row"><span class="profile-key">好きなこと</span><span class="profile-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span></div>
+              <div class="profile-row"><span class="profile-key">口癖</span><span class="profile-val">「いい曲だね〜」「それ、わかる！」</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expressions -->
+        <p class="section-label m-label">EXPRESSIONS</p>
+        <div class="expressions-row">
+          <div class="exp-card m-exp"><span class="exp-face">☺️</span><p class="exp-name">微笑み</p></div>
+          <div class="exp-card m-exp"><span class="exp-face">😉</span><p class="exp-name">ウィンク♪</p></div>
+          <div class="exp-card m-exp"><span class="exp-face">✨</span><p class="exp-name">わくわく！</p></div>
+        </div>
+
+        <!-- Chat Example -->
+        <div class="two-col">
+          <div>
+            <p class="section-label m-label">CHAT EXAMPLE</p>
+            <div class="chat-block m-chat">
+              <p class="chat-block-title">チャット例</p>
+              <div class="chat-msgs">
+                <div class="chat-msg chat-bot-m">今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう♪</div>
+                <div class="chat-msg chat-user-m">なんだか落ち着きたいな...</div>
+                <div class="chat-msg chat-bot-m">
+                  うんうん、そんな気分だよね。<br>こんなプレイリストはどう？
+                  <div class="chat-playlist m-playlist">
+                    <p class="chat-playlist-title">🎧 Melody's Chill Time</p>
+                    1. 夜明け前のピアノ<br>
+                    2. 風のゆくえ<br>
+                    3. 君の声が聞こえる
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+            <p class="section-label m-label" style="margin-top:0;">CATCHPHRASE</p>
+            <blockquote style="margin:0;padding:20px 24px;background:rgba(167,128,255,.07);border-left:3px solid #a780ff;border-radius:0 12px 12px 0;font-size:15px;color:rgba(255,255,255,.75);line-height:1.8;font-style:italic;">
+              Good Music, Good Day.<br>いい音楽は、きっといい一日をつくから。♪
+            </blockquote>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ── CHARACTER CARDS ── -->
-    <section class="ac-chars">
+    <!-- ════════════════════════════════════════
+         SEENO SECTION
+    ════════════════════════════════════════ -->
+    <section class="char-section">
+      <div class="comp-main">
 
-      <!-- Melody -->
-      <div class="ac-char-card ac-char-card-melody">
-        <div class="ac-char-header">
-          <div class="ac-char-img">
-            <img src="/images/chatbot-char.png" alt="Melody" />
-          </div>
-          <div class="ac-char-name-block">
-            <p class="ac-char-type">AI Music Companion</p>
-            <h2 class="ac-char-name">Melody</h2>
-            <p class="ac-char-tagline">Your AI Music Companion</p>
+        <!-- Header -->
+        <div class="char-sec-header">
+          <span class="char-sec-badge s-badge">AI MUSIC COMPANION</span>
+          <div>
+            <div class="char-sec-name s">Seeno</div>
+            <div class="char-sec-tagline">Music is my escape.</div>
           </div>
         </div>
-        <div class="ac-char-body">
-          <p class="ac-char-about">
-            あなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたり。いつでもあなたに寄り添う、AIミュージックパートナーです。
-          </p>
-          <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Melody（メロディ）</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">やさしい・聞き上手・ちょっぴり天然</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「いい曲だね〜」「それ、わかる！」</span></div>
-          <div class="ac-char-features">
-            <span class="ac-char-feat-tag">🎵 音楽のおすすめ</span>
-            <span class="ac-char-feat-tag">💬 気分に寄り添う会話</span>
-            <span class="ac-char-feat-tag">📋 プレイリスト作成</span>
-            <span class="ac-char-feat-tag">🤍 いつでもお話し相手</span>
-          </div>
-          <blockquote class="ac-char-quote">
-            今日はどんな気分？一緒にぴったりの音楽を見つけよう。いつでも話しかけてね🎵
-          </blockquote>
-        </div>
-      </div>
 
-      <!-- Seeno -->
-      <div class="ac-char-card ac-char-card-seeno">
-        <div class="ac-char-header">
-          <div class="ac-char-img">
-            <img src="/images/chatbot-seeno.png" alt="Seeno" />
+        <!-- Main layout (image right) -->
+        <div class="char-main reverse">
+          <!-- Image -->
+          <div class="char-img-col">
+            <img src="/images/Seeno.png" alt="Seeno キャラクターイラスト" />
+            <div class="char-img-caption">
+              <span class="char-img-label">FRONT</span>
+              <span class="char-img-label">SIDE</span>
+              <span class="char-img-label">BACK</span>
+            </div>
           </div>
-          <div class="ac-char-name-block">
-            <p class="ac-char-type">AI Music Companion</p>
-            <h2 class="ac-char-name">Seeno</h2>
-            <p class="ac-char-tagline">Music is my escape.</p>
-          </div>
-        </div>
-        <div class="ac-char-body">
-          <p class="ac-char-about">
-            音楽を通して、あなたとつながるAI。気分や好みに合わせてぴったりの音楽を見つけたり、新しい音楽との出会いをサポートします。いつでも、どこでも、最高の音楽体験を一緒に。
-          </p>
-          <div class="ac-char-row"><span class="ac-char-key">名前</span><span class="ac-char-val">Seeno（シーノ）</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">タイプ</span><span class="ac-char-val">AIミュージックコンパニオン</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">性格</span><span class="ac-char-val">クールで落ち着いているが、芯は優しい。自分の世界を大切にし、音楽にとても真剣</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">好きなこと</span><span class="ac-char-val">音楽を聴くこと、レコード集め、夜の散歩、写真を撮ること、カフェで考え事</span></div>
-          <div class="ac-char-row"><span class="ac-char-key">口癖</span><span class="ac-char-val">「それ、いいね」「音楽って、やっぱりすごい」</span></div>
-          <div class="ac-char-features">
-            <span class="ac-char-feat-tag">🎧 音楽のおすすめ</span>
-            <span class="ac-char-feat-tag">🎵 新しい出会いをサポート</span>
-            <span class="ac-char-feat-tag">📀 レコード愛好家</span>
-            <span class="ac-char-feat-tag">🌙 夜の散歩仲間</span>
-          </div>
-          <p class="ac-char-detail-label">DETAILS</p>
-          <div class="ac-char-details">
-            <span class="ac-char-detail-tag">🎧 お気に入りのヘッドホン</span>
-            <span class="ac-char-detail-tag">🧥 オーバーサイズのパーカー</span>
-            <span class="ac-char-detail-tag">⛓ チェーンアクセサリー</span>
-            <span class="ac-char-detail-tag">👁 落ち着いた瞳</span>
-          </div>
-          <div class="ac-palette">
-            <span class="ac-palette-swatch" style="background:#0F0F10"></span>
-            <span class="ac-palette-swatch" style="background:#1C1C1E"></span>
-            <span class="ac-palette-swatch" style="background:#2D2D30"></span>
-            <span class="ac-palette-swatch" style="background:#665C50"></span>
-            <span class="ac-palette-swatch" style="background:#A68D72"></span>
-            <span class="ac-palette-swatch" style="background:#D6C5B4"></span>
-            <span class="ac-palette-swatch" style="background:#E75C3D"></span>
-            <span class="ac-palette-label">COLOR PALETTE</span>
-          </div>
-          <blockquote class="ac-char-quote">
-            音楽のある場所で、私はいつも、自分らしくいられる。ビートの中に、答えがあるから。
-          </blockquote>
-        </div>
-      </div>
 
-    </section>
+          <!-- Data -->
+          <div class="char-data-col">
+            <p class="char-catchphrase">音楽のある場所で、私はいつも、<br>自分らしくいられる。<br><span style="font-size:0.75em;color:rgba(255,255,255,.55);">ビートの中に、答えがあるから。</span></p>
 
-    <!-- ── FEATURES ── -->
-    <section class="ac-features">
-      <p class="ac-section-eyebrow">できること</p>
-      <h2 class="ac-section-title">2人にできること。</h2>
-      <div class="ac-features-grid">
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">🎵</span>
-          <p class="ac-feature-who both">Melody &amp; Seeno</p>
-          <h3 class="ac-feature-name">音楽のおすすめ</h3>
-          <p class="ac-feature-desc">気分やジャンルに合った曲やアーティストを紹介します。</p>
+            <!-- About -->
+            <div class="char-about-block s-about">
+              <p class="char-about-title">ABOUT SEENO</p>
+              <p class="char-about-text">音楽を通して、あなたとつながるAI。気分や好みに合わせて、ぴったりの音楽を見つけたり、新しい音楽との出会いをサポートします。いつでも、どこでも、最高の音楽体験を一緒に。</p>
+            </div>
+
+            <!-- Profile -->
+            <div class="char-profile-block s-profile">
+              <p class="profile-block-title">PROFILE</p>
+              <div class="profile-row"><span class="profile-key">名前</span><span class="profile-val">Seeno（シーノ）</span></div>
+              <div class="profile-row"><span class="profile-key">タイプ</span><span class="profile-val">AIミュージックコンパニオン</span></div>
+              <div class="profile-row"><span class="profile-key">性格</span><span class="profile-val">クールで落ち着いているが、芯は優しい。自分の世界を大切にし、音楽にとても真剣</span></div>
+              <div class="profile-row"><span class="profile-key">好きなこと</span><span class="profile-val">音楽を聴くこと、レコード集め、夜の散歩、写真を撮ること、カフェで考え事</span></div>
+              <div class="profile-row"><span class="profile-key">口癖</span><span class="profile-val">「それ、いいね」「音楽って、やっぱりすごい」</span></div>
+            </div>
+          </div>
         </div>
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">💬</span>
-          <p class="ac-feature-who melody">Melody</p>
-          <h3 class="ac-feature-name">気分に寄り添う会話</h3>
-          <p class="ac-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p>
+
+        <!-- Expressions -->
+        <p class="section-label s-label">EXPRESSIONS</p>
+        <div class="expressions-row">
+          <div class="exp-card s-exp"><span class="exp-face">😐</span><p class="exp-name">クール</p></div>
+          <div class="exp-card s-exp"><span class="exp-face">🙂</span><p class="exp-name">微笑み</p></div>
+          <div class="exp-card s-exp"><span class="exp-face">🎵</span><p class="exp-name">音楽に浸る</p></div>
+          <div class="exp-card s-exp"><span class="exp-face">🤔</span><p class="exp-name">考える</p></div>
+          <div class="exp-card s-exp"><span class="exp-face">😌</span><p class="exp-name">リラックス</p></div>
         </div>
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">📋</span>
-          <p class="ac-feature-who melody">Melody</p>
-          <h3 class="ac-feature-name">プレイリスト作成</h3>
-          <p class="ac-feature-desc">テーマや気分に合わせたプレイリストをご提案します。</p>
+
+        <!-- Details -->
+        <p class="section-label s-label">DETAILS</p>
+        <div class="details-grid">
+          <div class="detail-card s-detail"><span class="detail-icon">🎧</span><p class="detail-name">お気に入りのヘッドホン</p></div>
+          <div class="detail-card s-detail"><span class="detail-icon">🧥</span><p class="detail-name">オーバーサイズのパーカー</p></div>
+          <div class="detail-card s-detail"><span class="detail-icon">⛓</span><p class="detail-name">チェーンアクセサリー</p></div>
+          <div class="detail-card s-detail"><span class="detail-icon">👁</span><p class="detail-name">落ち着いた瞳</p></div>
         </div>
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">🤍</span>
-          <p class="ac-feature-who melody">Melody</p>
-          <h3 class="ac-feature-name">いつでもお話し相手</h3>
-          <p class="ac-feature-desc">音楽以外の話も。いつでも気軽に話しかけてください。</p>
+
+        <!-- Items + Mood Board + Chat -->
+        <div class="two-col">
+          <div>
+            <p class="section-label s-label">ITEMS</p>
+            <div class="items-grid">
+              <div class="item-card s-item"><span class="item-icon">📀</span>お気に入りのレコード</div>
+              <div class="item-card s-item"><span class="item-icon">🎒</span>バックパック</div>
+              <div class="item-card s-item"><span class="item-icon">🔑</span>キーホルダー</div>
+              <div class="item-card s-item"><span class="item-icon">📱</span>スマホ</div>
+              <div class="item-card s-item"><span class="item-icon">☕</span>コーヒー</div>
+            </div>
+
+            <p class="section-label s-label">MOOD BOARD</p>
+            <div class="mood-board">
+              <span class="mood-tag">RECORDS</span>
+              <span class="mood-tag">夜の街</span>
+              <span class="mood-tag">ネオンの光</span>
+              <span class="mood-tag">静寂のビート</span>
+              <span class="mood-tag">深夜のカフェ</span>
+              <span class="mood-tag">MIDNIGHT CITY</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="section-label s-label">CHAT EXAMPLE</p>
+            <div class="chat-block s-chat">
+              <p class="chat-block-title">チャット例</p>
+              <div class="chat-msgs">
+                <div class="chat-msg chat-bot-s">今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう。</div>
+                <div class="chat-msg chat-user-s">ちょっと落ち着きたい気分...</div>
+                <div class="chat-msg chat-bot-s">
+                  うん、わかった。<br>こんなプレイリストはどう？
+                  <div class="chat-playlist s-playlist">
+                    <p class="chat-playlist-title">🌙 Midnight City Walk</p>
+                    1. 夜の街の中で<br>
+                    2. 静寂とメロディ<br>
+                    3. ネオンの海<br>
+                    4. 静寂のビート<br>
+                    5. 明日への光
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">🎧</span>
-          <p class="ac-feature-who seeno">Seeno</p>
-          <h3 class="ac-feature-name">音楽への深い洞察</h3>
-          <p class="ac-feature-desc">レコード・ビート・音楽の深い話ならSeenoに。</p>
+
+        <!-- Color Palette -->
+        <p class="section-label s-label">COLOR PALETTE</p>
+        <div class="palette-row">
+          <div class="palette-swatch" style="background:#0F0F10"><span class="palette-hex">#0F0F10</span></div>
+          <div class="palette-swatch" style="background:#1C1C1E"><span class="palette-hex">#1C1C1E</span></div>
+          <div class="palette-swatch" style="background:#2D2D30"><span class="palette-hex">#2D2D30</span></div>
+          <div class="palette-swatch" style="background:#665C50"><span class="palette-hex">#665C50</span></div>
+          <div class="palette-swatch" style="background:#A68D72"><span class="palette-hex">#A68D72</span></div>
+          <div class="palette-swatch" style="background:#D6C5B4"><span class="palette-hex">#D6C5B4</span></div>
+          <div class="palette-swatch" style="background:#E75C3D"><span class="palette-hex">#E75C3D</span></div>
         </div>
-        <div class="ac-feature-card">
-          <span class="ac-feature-icon">✨</span>
-          <p class="ac-feature-who seeno">Seeno</p>
-          <h3 class="ac-feature-name">新しい音楽との出会い</h3>
-          <p class="ac-feature-desc">まだ知らない音楽との出会いをサポートします。</p>
-        </div>
+
       </div>
     </section>
 
     <!-- ── CTA ── -->
-    <div class="ac-cta-banner">
-      <p class="ac-cta-banner-quote">Good Music, Good Day. いい音楽は、きっといい一日をつくから。♪</p>
-      <h2 class="ac-cta-banner-title">どちらに話しかける？</h2>
-      <div class="ac-hero-btns">
-        <button class="ac-cta-btn ac-cta-melody"
-          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
-          🎵 Melodyと話す
-        </button>
-        <button class="ac-cta-btn ac-cta-seeno"
-          onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">
-          🎧 Seenoと話す
-        </button>
+    <div class="comp-cta">
+      <p class="comp-cta-quote">Good Music, Good Day. — Music is my escape.</p>
+      <h2 class="comp-cta-title">どちらに話しかける？</h2>
+      <div class="comp-hero-btns">
+        <button class="comp-btn comp-btn-m" onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">🎵 Melodyと話す</button>
+        <button class="comp-btn comp-btn-s" onclick="var t=document.getElementById('chatbot-seeno-toggle');if(t)t.click();">🎧 Seenoと話す</button>
       </div>
     </div>
 
   </main>
 
-  <footer>
-    <p>© 2026 NERD Life. All Rights Reserved.</p>
-  </footer>
+  <footer><p>© 2026 NERD Life. All Rights Reserved.</p></footer>
 
   <script src="/script.js"></script>
   <script src="/chatbot.js"></script>
