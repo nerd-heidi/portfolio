@@ -1,49 +1,49 @@
-﻿/* mv-roulette.js – おすすめ MV ルーレット（画面下部固定バー） */
+﻿/* mv-roulette.js – おすすめ MV ルーレット（バナー + セクション表示） */
 (function () {
+  var section = document.getElementById('mv-roulette');
+  if (!section) return;
+
   var css =
-    '#mvr-bar{' +
-      'position:fixed;bottom:0;left:0;right:0;height:64px;z-index:8500;' +
-      'display:flex;align-items:center;gap:12px;padding:0 16px;' +
-      'background:rgba(8,8,8,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);' +
-      'border-top:1px solid rgba(255,255,255,.08);' +
-      'transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);' +
-    '}' +
-    '#mvr-bar.visible{transform:translateY(0);}' +
-    '.mvr-bar-thumb{' +
-      'flex-shrink:0;width:44px;height:44px;border-radius:8px;overflow:hidden;' +
-      'display:block;background:#1a1a1a;position:relative;' +
-    '}' +
-    '.mvr-bar-thumb img{width:100%;height:100%;object-fit:cover;display:block;}' +
-    '.mvr-bar-play{' +
-      'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;' +
-      'background:rgba(0,0,0,.25);font-size:11px;color:#fff;' +
-    '}' +
-    '.mvr-bar-info{flex:1;min-width:0;line-height:1.3;}' +
-    '.mvr-bar-song{display:block;font-size:13px;font-weight:700;color:rgba(255,255,255,.88);' +
+    '#mv-roulette{padding:0 24px 56px;}' +
+    '.mvr-wrap{max-width:900px;margin:0 auto;}' +
+    /* バナー画像 */
+    '.mvr-banner-btn{display:block;width:100%;border:none;padding:0;background:none;' +
+      'cursor:pointer;border-radius:18px;overflow:hidden;margin-bottom:16px;' +
+      'transition:transform .25s,filter .25s;outline:none;}' +
+    '.mvr-banner-btn:hover{transform:scale(1.01);filter:brightness(1.08);}' +
+    '.mvr-banner-btn:active{transform:scale(.99);}' +
+    '.mvr-banner-btn img{width:100%;display:block;border-radius:18px;}' +
+    /* MV 情報行 */
+    '.mvr-row{display:flex;align-items:center;gap:14px;' +
+      'background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);' +
+      'border-radius:14px;padding:12px 16px;}' +
+    '.mvr-thumb-link{flex-shrink:0;width:56px;height:56px;border-radius:8px;overflow:hidden;' +
+      'display:block;position:relative;background:#111;}' +
+    '.mvr-thumb-link img{width:100%;height:100%;object-fit:cover;display:block;}' +
+    '.mvr-thumb-link::after{content:"▶";position:absolute;inset:0;display:flex;' +
+      'align-items:center;justify-content:center;font-size:14px;color:#fff;' +
+      'background:rgba(0,0,0,.25);}' +
+    '.mvr-info{flex:1;min-width:0;line-height:1.35;}' +
+    '.mvr-song{display:block;font-size:14px;font-weight:700;color:rgba(255,255,255,.88);' +
       'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
-    '.mvr-bar-artist{display:block;font-size:11px;color:rgba(255,255,255,.38);' +
+    '.mvr-artist{display:block;font-size:12px;color:rgba(255,255,255,.38);' +
       'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
-    '.mvr-bar-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}' +
-    '.mvr-bar-yt{' +
-      'padding:7px 14px;border-radius:100px;' +
+    '.mvr-actions{display:flex;gap:8px;flex-shrink:0;}' +
+    '.mvr-yt{padding:8px 16px;border-radius:100px;' +
       'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
       'color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;' +
-      'white-space:nowrap;transition:background .2s;' +
-    '}' +
-    '.mvr-bar-yt:hover{background:rgba(255,255,255,.14);}' +
-    '.mvr-bar-shuffle{' +
-      'padding:7px 14px;border-radius:100px;' +
-      'background:rgba(167,128,255,.12);border:1px solid rgba(167,128,255,.28);' +
-      'color:rgba(167,128,255,.9);font-size:12px;font-weight:700;cursor:pointer;' +
-      'white-space:nowrap;transition:background .2s;' +
-    '}' +
-    '.mvr-bar-shuffle:hover:not(:disabled){background:rgba(167,128,255,.24);}' +
-    '.mvr-bar-shuffle:disabled{opacity:.45;cursor:not-allowed;}' +
-    '#btt-btn{bottom:80px!important;}' +
-    '@media(max-width:480px){' +
-      '#mvr-bar{gap:8px;padding:0 10px;}' +
-      '.mvr-bar-yt{display:none;}' +
-      '.mvr-bar-song{font-size:12px;}' +
+      'white-space:nowrap;transition:background .2s;}' +
+    '.mvr-yt:hover{background:rgba(255,255,255,.14);}' +
+    /* バナーホバー時のヒント */
+    '.mvr-hint{text-align:center;font-size:11px;color:rgba(255,255,255,.22);' +
+      'margin-top:8px;letter-spacing:.05em;}' +
+    /* スピン中のアニメ */
+    '@keyframes mvr-flash{0%,100%{opacity:1}50%{opacity:.55}}' +
+    '.mvr-spinning .mvr-banner-btn img{animation:mvr-flash .13s steps(1) infinite;}' +
+    /* モバイル */
+    '@media(max-width:540px){' +
+      '.mvr-yt{display:none;}' +
+      '.mvr-row{gap:10px;padding:10px 12px;}' +
     '}';
 
   var st = document.createElement('style');
@@ -62,80 +62,69 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
       var items = (data.items || []).filter(function (i) { return i.youtube_id; });
-      if (!items.length) return;
+      if (!items.length) { section.innerHTML = ''; return; }
       render(items);
     })
-    .catch(function () {});
+    .catch(function () { section.innerHTML = ''; });
 
   function render(items) {
     var idx = Math.floor(Math.random() * items.length);
 
-    var bar = document.createElement('div');
-    bar.id = 'mvr-bar';
+    section.innerHTML = [
+      '<div class="mvr-wrap">',
+        '<button class="mvr-banner-btn" id="mvr-banner" aria-label="シャッフル">',
+          '<img src="/images/Shuffle.png" alt="MV Shuffle" />',
+        '</button>',
+        '<div class="mvr-row">',
+          '<a class="mvr-thumb-link" id="mvr-thumb-link" href="#" target="_blank" rel="noopener noreferrer">',
+            '<img id="mvr-thumb" src="" alt="" />',
+          '</a>',
+          '<div class="mvr-info">',
+            '<span class="mvr-song" id="mvr-song"></span>',
+            '<span class="mvr-artist" id="mvr-artist"></span>',
+          '</div>',
+          '<div class="mvr-actions">',
+            '<a class="mvr-yt" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube</a>',
+          '</div>',
+        '</div>',
+        items.length > 1 ? '<p class="mvr-hint">バナーをクリックしてシャッフル ✦</p>' : '',
+      '</div>'
+    ].join('');
 
-    function buildBar(i) {
+    function update(i) {
       var mv = items[i];
       var wu = watchUrl(mv.youtube_id);
-      return [
-        '<a class="mvr-bar-thumb" href="' + esc(wu) + '" target="_blank" rel="noopener noreferrer">',
-          '<img id="mvr-bar-img" src="' + esc(thumbUrl(mv.youtube_id)) + '" alt="' + esc(mv.title) + '" />',
-          '<div class="mvr-bar-play">▶</div>',
-        '</a>',
-        '<div class="mvr-bar-info">',
-          '<span class="mvr-bar-song" id="mvr-bar-song">' + esc(mv.title) + '</span>',
-          '<span class="mvr-bar-artist" id="mvr-bar-artist">' + esc(mv.artist || '') + '</span>',
-        '</div>',
-        '<div class="mvr-bar-actions">',
-          '<a class="mvr-bar-yt" id="mvr-bar-yt" href="' + esc(wu) + '" target="_blank" rel="noopener noreferrer">▶ YouTube</a>',
-          items.length > 1 ? '<button class="mvr-bar-shuffle" id="mvr-bar-shuffle">🎲 シャッフル</button>' : '',
-        '</div>'
-      ].join('');
+      document.getElementById('mvr-thumb').src = thumbUrl(mv.youtube_id);
+      document.getElementById('mvr-thumb').alt = mv.title;
+      document.getElementById('mvr-thumb-link').href = wu;
+      document.getElementById('mvr-song').textContent   = mv.title;
+      document.getElementById('mvr-artist').textContent = mv.artist || '';
+      document.getElementById('mvr-yt').href = wu;
     }
-
-    bar.innerHTML = buildBar(idx);
-
-    function inject() {
-      document.body.appendChild(bar);
-      setTimeout(function () { bar.classList.add('visible'); }, 100);
-    }
-    if (document.body) inject();
-    else document.addEventListener('DOMContentLoaded', inject);
+    update(idx);
 
     if (items.length < 2) return;
 
-    bar.addEventListener('click', function (e) {
-      var btn = e.target.closest('#mvr-bar-shuffle');
-      if (!btn) return;
-      btn.disabled = true;
+    var banner = document.getElementById('mvr-banner');
+    banner.addEventListener('click', function () {
+      if (banner.disabled) return;
+      banner.disabled = true;
+      section.querySelector('.mvr-wrap').classList.add('mvr-spinning');
 
-      var steps  = 18;
-      var cur    = 0;
-      var delays = [];
-      for (var i = 0; i < steps; i++) {
-        delays.push(i < 12 ? 80 : 80 + (i - 11) * 50);
-      }
+      var steps = 18, cur = 0, delays = [];
+      for (var i = 0; i < steps; i++) delays.push(i < 12 ? 75 : 75 + (i - 11) * 55);
 
       function step() {
         var next;
         do { next = Math.floor(Math.random() * items.length); } while (next === idx && items.length > 1);
         idx = next;
-        var mv = items[idx];
-        var wu = watchUrl(mv.youtube_id);
-        var img   = document.getElementById('mvr-bar-img');
-        var song  = document.getElementById('mvr-bar-song');
-        var art   = document.getElementById('mvr-bar-artist');
-        var yt    = document.getElementById('mvr-bar-yt');
-        var thumb = bar.querySelector('.mvr-bar-thumb');
-        if (img)   img.src = thumbUrl(mv.youtube_id);
-        if (song)  song.textContent = mv.title;
-        if (art)   art.textContent  = mv.artist || '';
-        if (yt)    yt.href = wu;
-        if (thumb) thumb.href = wu;
+        update(idx);
         cur++;
         if (cur < steps) {
           setTimeout(step, delays[cur]);
         } else {
-          btn.disabled = false;
+          section.querySelector('.mvr-wrap').classList.remove('mvr-spinning');
+          banner.disabled = false;
         }
       }
       setTimeout(step, delays[0]);
