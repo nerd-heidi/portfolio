@@ -1,4 +1,4 @@
-﻿/* mv-roulette.js – おすすめ MV ルーレット（左：バナー / 右：結果パネル） */
+﻿/* mv-roulette.js – おすすめ MV ルーレット（左：バナー / 右：横並び結果パネル） */
 (function () {
   var section = document.getElementById('mv-roulette');
   if (!section) return;
@@ -10,42 +10,44 @@
       'display:flex;align-items:stretch;' +
       'background:#0d0910;border-radius:18px;overflow:hidden;' +
       'border:1px solid rgba(200,100,200,.22);}' +
-    /* 左：バナーボタン */
+    /* 左：バナーボタン（画像の自然な高さを維持） */
     '.mvr-banner-btn{' +
-      'flex:0 0 58%;display:block;' +
+      'flex:0 0 55%;align-self:flex-start;display:block;' +
       'border:none;padding:0;background:none;cursor:pointer;' +
-      'transition:filter .2s;outline:none;overflow:hidden;}' +
+      'transition:filter .2s;outline:none;}' +
     '.mvr-banner-btn:hover{filter:brightness(1.09);}' +
     '.mvr-banner-btn:active{filter:brightness(.88);}' +
-    '.mvr-banner-btn img{width:100%;height:100%;object-fit:cover;display:block;}' +
-    /* 右：結果パネル */
+    '.mvr-banner-btn img{width:100%;display:block;}' +
+    /* 右：結果パネル（サムネ＋テキスト横並び） */
     '.mvr-result{' +
-      'flex:1;display:flex;flex-direction:column;' +
-      'justify-content:center;align-items:center;' +
-      'padding:16px 18px;gap:10px;' +
+      'flex:1;display:flex;flex-direction:row;' +
+      'align-items:center;' +
+      'padding:14px 16px;gap:14px;' +
       'background:linear-gradient(160deg,#130f1c 0%,#0d0b14 100%);' +
       'border-left:1px solid rgba(200,100,200,.18);}' +
-    '.mvr-result-label{' +
-      'font-size:10px;color:rgba(220,130,220,.85);letter-spacing:.14em;' +
-      'font-weight:700;margin:0;text-transform:uppercase;}' +
+    /* サムネ */
     '.mvr-thumb-wrap{' +
-      'width:100%;aspect-ratio:16/9;' +
-      'border-radius:10px;overflow:hidden;background:#111;' +
-      'box-shadow:0 4px 20px rgba(0,0,0,.6);}' +
+      'flex:0 0 46%;aspect-ratio:16/9;' +
+      'border-radius:8px;overflow:hidden;background:#111;' +
+      'box-shadow:0 4px 16px rgba(0,0,0,.6);}' +
     '.mvr-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;}' +
-    '.mvr-info{width:100%;text-align:center;padding:0 4px;}' +
+    /* テキスト情報 */
+    '.mvr-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px;}' +
+    '.mvr-result-label{' +
+      'font-size:9px;color:rgba(220,130,220,.85);letter-spacing:.14em;' +
+      'font-weight:700;margin:0;text-transform:uppercase;}' +
     '.mvr-song{' +
-      'display:block;font-size:clamp(11px,1.3vw,17px);font-weight:700;' +
+      'display:block;font-size:clamp(12px,1.4vw,17px);font-weight:700;' +
       'color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
     '.mvr-artist{' +
-      'display:block;font-size:clamp(11px,1.3vw,17px);' +
-      'color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
-      'margin-top:.3em;}' +
+      'display:block;font-size:clamp(12px,1.4vw,17px);' +
+      'color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
     '.mvr-yt-link{' +
-      'display:inline-block;margin-top:10px;' +
-      'padding:5px 15px;border-radius:100px;' +
+      'align-self:flex-start;' +
+      'display:inline-block;margin-top:4px;' +
+      'padding:4px 12px;border-radius:100px;' +
       'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
-      'color:rgba(255,255,255,.55);font-size:11px;font-weight:700;text-decoration:none;' +
+      'color:rgba(255,255,255,.55);font-size:10px;font-weight:700;text-decoration:none;' +
       'transition:background .2s,color .2s;}' +
     '.mvr-yt-link:hover{background:rgba(255,255,255,.14);color:rgba(255,255,255,.9);}' +
     '.mvr-hint{' +
@@ -54,8 +56,11 @@
     '#mv-roulette+.topic-grid{margin-top:16px!important;}' +
     '@media(max-width:580px){' +
       '.mvr-wrap{flex-direction:column;}' +
-      '.mvr-banner-btn{flex:none;width:100%;}' +
-      '.mvr-result{padding:12px 14px;gap:8px;}' +
+      '.mvr-banner-btn{flex:none;width:100%;align-self:auto;}' +
+      '.mvr-result{flex-direction:column;align-items:center;padding:12px 14px;gap:8px;}' +
+      '.mvr-thumb-wrap{flex:none;width:80%;}' +
+      '.mvr-info{align-items:center;text-align:center;}' +
+      '.mvr-yt-link{align-self:center;}' +
     '}';
 
   var st = document.createElement('style');
@@ -88,15 +93,15 @@
           '<img src="/images/Shuffle2.png" alt="MV Shuffle" />',
         '</button>',
         '<div class="mvr-result">',
-          '<p class="mvr-result-label">♪ Pick !</p>',
           '<div class="mvr-thumb-wrap">',
             '<img id="mvr-thumb" src="" alt="" />',
           '</div>',
           '<div class="mvr-info">',
+            '<p class="mvr-result-label">&#9834; Pick !</p>',
             '<span class="mvr-song" id="mvr-song"></span>',
             '<span class="mvr-artist" id="mvr-artist"></span>',
+            '<a class="mvr-yt-link" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">&#9654; YouTube で見る</a>',
           '</div>',
-          '<a class="mvr-yt-link" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube で見る</a>',
         '</div>',
       '</div>',
       items.length > 1 ? '<p class="mvr-hint">バナーをクリックしてシャッフル ✦</p>' : ''
@@ -104,12 +109,11 @@
 
     function update(i) {
       var mv = items[i];
-      var wu = watchUrl(mv.youtube_id);
       document.getElementById('mvr-thumb').src = thumbUrl(mv.youtube_id);
       document.getElementById('mvr-thumb').alt = esc(mv.title);
       document.getElementById('mvr-song').textContent   = mv.title || '';
       document.getElementById('mvr-artist').textContent = mv.artist || '';
-      document.getElementById('mvr-yt').href = wu;
+      document.getElementById('mvr-yt').href = watchUrl(mv.youtube_id);
     }
     update(idx);
 
