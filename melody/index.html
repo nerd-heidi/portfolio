@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melody – AI Music Companion | NERD Life</title>
+  <meta name="description" content="Melody（メロディ）はあなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたりするAIミュージックコンパニオンです。" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    /* ===== MELODY PAGE ===== */
+
+    /* Hero */
+    .melody-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      padding: 80px 0 72px;
+      min-height: 58vh;
+    }
+    .melody-hero-text { flex: 1; max-width: 580px; }
+
+    .melody-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(167,128,255,0.14);
+      border: 1px solid rgba(167,128,255,0.38);
+      color: #c9a8ff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .melody-title {
+      font-size: clamp(60px, 9vw, 104px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin: 0 0 10px;
+      background: linear-gradient(130deg, #ffffff 20%, #c9a8ff 70%, #a780ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .melody-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.06em;
+      margin: 0 0 32px;
+    }
+
+    .melody-tagline {
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 44px;
+    }
+
+    .melody-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #a780ff, #6a4ecf);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 15px 34px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: 0 4px 28px rgba(167,128,255,0.42);
+      text-decoration: none;
+    }
+    .melody-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(167,128,255,0.58);
+    }
+
+    .melody-hero-img {
+      flex-shrink: 0;
+      width: min(300px, 38vw);
+      filter: drop-shadow(0 8px 48px rgba(167,128,255,0.28));
+      animation: floatChar 4s ease-in-out infinite;
+    }
+    .melody-hero-img img { width: 100%; height: auto; display: block; }
+
+    @keyframes floatChar {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-14px); }
+    }
+
+    /* Section common */
+    .melody-section {
+      padding: 76px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .melody-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #a780ff;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .melody-section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0 0 52px;
+    }
+
+    /* Features */
+    .melody-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+    .melody-feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 30px 24px;
+      transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease;
+    }
+    .melody-feature-card:hover {
+      border-color: rgba(167,128,255,0.38);
+      background: rgba(167,128,255,0.07);
+      transform: translateY(-4px);
+    }
+    .melody-feature-icon { font-size: 30px; margin-bottom: 16px; display: block; }
+    .melody-feature-name { font-size: 16px; font-weight: 700; margin: 0 0 10px; }
+    .melody-feature-desc { font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.75; margin: 0; }
+
+    /* Chat example */
+    .melody-chat-wrap { display: flex; justify-content: center; }
+    .melody-chat-box {
+      width: min(480px, 100%);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+    .melody-chat-header {
+      padding: 14px 18px;
+      background: rgba(167,128,255,0.1);
+      border-bottom: 1px solid rgba(167,128,255,0.18);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .melody-chat-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#a780ff,#6a4ecf);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .melody-chat-name { font-size: 14px; font-weight: 700; }
+    .melody-chat-status { font-size: 11px; color: rgba(255,255,255,0.42); }
+    .melody-chat-messages {
+      padding: 22px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .melody-msg {
+      max-width: 82%;
+      padding: 11px 15px;
+      border-radius: 16px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .melody-msg.bot {
+      background: rgba(167,128,255,0.14);
+      border: 1px solid rgba(167,128,255,0.22);
+      color: #ede8ff;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .melody-msg.user {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .melody-playlist-card {
+      margin-top: 11px;
+      background: rgba(167,128,255,0.1);
+      border: 1px solid rgba(167,128,255,0.25);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .melody-playlist-title { font-size: 12px; font-weight: 700; color: #c9a8ff; margin-bottom: 9px; }
+    .melody-playlist-tracks {
+      font-size: 12px; color: rgba(255,255,255,0.52);
+      line-height: 1.9; padding-left: 0; margin: 0; list-style: none;
+    }
+    .melody-playlist-tracks li::before { content: "♩ "; color: #a780ff; }
+
+    /* Profile */
+    .melody-profile-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 64px;
+    }
+    .melody-profile-img {
+      flex-shrink: 0;
+      width: min(180px, 28vw);
+      filter: drop-shadow(0 6px 28px rgba(167,128,255,0.22));
+    }
+    .melody-profile-img img { width: 100%; height: auto; display: block; }
+    .melody-profile-table { flex: 1; }
+    .melody-profile-row {
+      display: flex;
+      gap: 24px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px;
+    }
+    .melody-profile-row:last-child { border-bottom: none; }
+    .melody-profile-key {
+      width: 96px; flex-shrink: 0;
+      color: rgba(255,255,255,0.4);
+      font-size: 12px; letter-spacing: 0.04em; padding-top: 2px;
+    }
+    .melody-profile-val { color: rgba(255,255,255,0.88); line-height: 1.75; }
+
+    /* CTA Banner */
+    .melody-cta-banner {
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+    .melody-cta-banner-quote {
+      font-size: clamp(13px, 1.8vw, 16px);
+      color: rgba(255,255,255,0.42);
+      font-style: italic;
+      letter-spacing: 0.04em;
+      margin: 0 0 10px;
+    }
+    .melody-cta-banner-title {
+      font-size: clamp(22px, 3.5vw, 38px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0 0 36px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .melody-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 44px 0 48px;
+        min-height: unset;
+      }
+      .melody-hero-img { width: min(200px, 62vw); }
+      .melody-profile-layout { flex-direction: column; align-items: center; gap: 32px; }
+      .melody-profile-img { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/">NERD Life</a>
+    <nav>
+      <a href="/favorite-music/">Music</a>
+      <a href="/beat/">Beat</a>
+      <a href="/anime/">Anime</a>
+      <a href="/work/">Work</a>
+      <a href="/ai/">AI</a>
+    </nav>
+    <button class="menu-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="melody-hero">
+      <div class="melody-hero-text">
+        <span class="melody-tag">✦ AI BOT</span>
+        <h1 class="melody-title">Melody</h1>
+        <p class="melody-subtitle">Your AI Music Companion</p>
+        <p class="melody-tagline">
+          音楽で、あなたの毎日を<br>ちょっとだけ特別に。
+        </p>
+        <button class="melody-cta-btn"
+          onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
+          Melodyと話す →
+        </button>
+      </div>
+      <div class="melody-hero-img">
+        <img src="/images/chatbot-char.png" alt="Melody" />
+      </div>
+    </section>
+
+    <!-- ── FEATURES ── -->
+    <section class="melody-section">
+      <p class="melody-eyebrow">できること</p>
+      <h2 class="melody-section-title">Melodyにできること。</h2>
+      <div class="melody-features-grid">
+        <div class="melody-feature-card">
+          <span class="melody-feature-icon">🎵</span>
+          <h3 class="melody-feature-name">音楽のおすすめ</h3>
+          <p class="melody-feature-desc">気分やジャンルを伝えると、ぴったりの曲やアーティストを紹介します。</p>
+        </div>
+        <div class="melody-feature-card">
+          <span class="melody-feature-icon">💬</span>
+          <h3 class="melody-feature-name">気分に寄り添う会話</h3>
+          <p class="melody-feature-desc">今日の気分を話してみて。Melodyはいつでも聞いています。</p>
+        </div>
+        <div class="melody-feature-card">
+          <span class="melody-feature-icon">🎧</span>
+          <h3 class="melody-feature-name">プレイリスト作成</h3>
+          <p class="melody-feature-desc">シチュエーションに合ったプレイリストのアイデアを提案します。</p>
+        </div>
+        <div class="melody-feature-card">
+          <span class="melody-feature-icon">✨</span>
+          <h3 class="melody-feature-name">いつでもお話し相手</h3>
+          <p class="melody-feature-desc">ちょっとした雑談から音楽の深い話まで、気軽に話しかけてください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHAT EXAMPLE ── -->
+    <section class="melody-section">
+      <p class="melody-eyebrow">チャット例</p>
+      <h2 class="melody-section-title">こんな会話ができます。</h2>
+      <div class="melody-chat-wrap">
+        <div class="melody-chat-box">
+          <div class="melody-chat-header">
+            <div class="melody-chat-avatar">🎵</div>
+            <div>
+              <div class="melody-chat-name">Melody</div>
+              <div class="melody-chat-status">AIミュージックコンパニオン</div>
+            </div>
+          </div>
+          <div class="melody-chat-messages">
+            <div class="melody-msg bot">
+              今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう♪
+            </div>
+            <div class="melody-msg user">なんだか落ち着きたいな</div>
+            <div class="melody-msg bot">
+              うんうん、そんな気分だよね。<br>こんなプレイリストはどう？✨
+              <div class="melody-playlist-card">
+                <div class="melody-playlist-title">🎧 Melody's Chill Time</div>
+                <ul class="melody-playlist-tracks">
+                  <li>深夜のピアノ</li>
+                  <li>窓と星とピアノ</li>
+                  <li>風のゆくえ</li>
+                  <li>君の声が聞こえる</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROFILE ── -->
+    <section class="melody-section">
+      <p class="melody-eyebrow">プロフィール</p>
+      <h2 class="melody-section-title">Melodyって、どんな子？</h2>
+      <div class="melody-profile-layout">
+        <div class="melody-profile-img">
+          <img src="/images/chatbot-char.png" alt="Melody" />
+        </div>
+        <div class="melody-profile-table">
+          <div class="melody-profile-row">
+            <span class="melody-profile-key">名前</span>
+            <span class="melody-profile-val">Melody（メロディ）</span>
+          </div>
+          <div class="melody-profile-row">
+            <span class="melody-profile-key">タイプ</span>
+            <span class="melody-profile-val">AIミュージックコンパニオン</span>
+          </div>
+          <div class="melody-profile-row">
+            <span class="melody-profile-key">性格</span>
+            <span class="melody-profile-val">やさしい・聞き上手・ちょっぴり天然</span>
+          </div>
+          <div class="melody-profile-row">
+            <span class="melody-profile-key">好きなこと</span>
+            <span class="melody-profile-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span>
+          </div>
+          <div class="melody-profile-row">
+            <span class="melody-profile-key">口癖</span>
+            <span class="melody-profile-val">「いい曲だね〜」「それ、わかる！」</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BANNER ── -->
+    <div class="melody-cta-banner">
+      <p class="melody-cta-banner-quote">Good Music, Good Day.</p>
+      <h2 class="melody-cta-banner-title">いい音楽は、きっといい一日をつくるから。</h2>
+      <button class="melody-cta-btn"
+        onclick="var t=document.getElementById('chatbot-toggle');if(t)t.click();">
+        Melodyと話してみる →
+      </button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 NERD Life. All Rights Reserved.</p>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script src="/chatbot.js"></script>
+</body>
+</html>
