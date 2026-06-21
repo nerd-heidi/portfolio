@@ -10,58 +10,40 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#050505" />
   <link rel="stylesheet" href="/style.css" />
+  <script src="/loader.js"></script>
   <style>
-    .nf-wrap {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px;
+    body { background: #F2EBE0; color: #1a1a1a; }
+    .site-header { background: rgba(242,235,224,0.95); border-bottom: 1px solid rgba(0,0,0,.08); }
+    .site-header .logo,
+    .site-header nav a { color: #1a1a1a; }
+    .site-header nav a:hover { color: #A68D72; }
+    footer { color: rgba(0,0,0,.45); border-top-color: rgba(0,0,0,.1); }
+    .footer-logo { color: rgba(0,0,0,.65) !important; }
+    .footer-email { color: rgba(0,0,0,.4) !important; }
+    .footer-social-link {
+      background: rgba(0,0,0,.06) !important;
+      border-color: rgba(0,0,0,.1) !important;
+      color: rgba(0,0,0,.4) !important;
     }
-    .nf-code {
-      font-size: clamp(80px, 15vw, 160px);
-      font-weight: 900;
-      letter-spacing: -4px;
-      line-height: 1;
-      background: linear-gradient(135deg, #a780ff 0%, #A68D72 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0 0 16px;
+    .footer-copy { color: rgba(0,0,0,.28) !important; }
+    .nf-art {
+      max-width: 760px; margin: 40px auto 0;
+      padding: 0 24px; text-align: center;
     }
-    .nf-title {
-      font-size: clamp(18px, 3vw, 26px);
-      font-weight: 700;
-      color: rgba(255,255,255,.7);
-      margin: 0 0 10px;
+    .nf-art img {
+      width: 100%; border-radius: 24px;
     }
-    .nf-sub {
-      font-size: 14px;
-      color: rgba(255,255,255,.35);
-      margin: 0 0 40px;
-      line-height: 1.7;
+    .nf-home {
+      display: flex; justify-content: center; padding: 32px 24px 64px;
     }
     .nf-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      border-radius: 100px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.75);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: background .2s, color .2s, transform .2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 100px;
+      background: #1a1a1a; color: #fff;
+      text-decoration: none; font-weight: 700; font-size: 14px;
+      transition: background .2s, transform .2s;
     }
-    .nf-btn:hover {
-      background: rgba(255,255,255,.13);
-      color: #fff;
-      transform: translateY(-2px);
-    }
+    .nf-btn:hover { background: #333; transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -78,11 +60,11 @@
   </header>
 
   <main>
-    <div class="nf-wrap">
-      <p class="nf-code">404</p>
-      <h1 class="nf-title">ページが見つかりません</h1>
-      <p class="nf-sub">そのページは存在しないか、移動した可能性があります。<br>URLをもう一度ご確認ください。</p>
-      <a href="/" class="nf-btn">← トップへ戻る</a>
+    <div class="nf-art">
+      <img src="/images/404.png" alt="404 - Page Not Found" />
+    </div>
+    <div class="nf-home">
+      <a href="/" class="nf-btn">⌂ トップへ戻る</a>
     </div>
   </main>
 

@@ -120,6 +120,14 @@
       "image": "/images/Character.png",
       "url": "/melody/",
       "size": "regular"
+    },
+    {
+      "number": "16",
+      "title": "Music Quiz",
+      "description": "気分診断。MelodyかSeenoがぴったりの音楽を提案します。",
+      "image": "/images/Character.png",
+      "url": "/quiz/",
+      "size": "regular"
     }
   ]
 }

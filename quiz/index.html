@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>気分診断 – あなたに合う音楽は？ | NERD Life</title>
+  <meta name="description" content="3つの質問に答えるとMelodyかSeenoがぴったりの音楽を提案します。" />
+  <link rel="icon" type="image/png" href="/images/favicon2.png" />
+  <link rel="apple-touch-icon" href="/images/favicon2.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .qz-wrap {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+      min-height: 72vh;
+    }
+
+    /* ── Screen toggling ── */
+    .qz-screen { display: none; }
+    .qz-screen.active { display: block; }
+
+    /* ── Progress dots ── */
+    .qz-progress {
+      display: flex; gap: 10px; justify-content: center; margin-bottom: 44px;
+    }
+    .qz-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: rgba(255,255,255,.12); transition: background .3s;
+    }
+    .qz-dot.active { background: #a780ff; box-shadow: 0 0 8px rgba(167,128,255,.5); }
+    .qz-dot.done   { background: rgba(167,128,255,.35); }
+
+    /* ── Character bubble ── */
+    .qz-char-row {
+      display: flex; align-items: flex-end; gap: 14px; margin-bottom: 28px;
+    }
+    .qz-char-row.right { flex-direction: row-reverse; }
+    .qz-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .qz-bubble {
+      flex: 1; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px; padding: 14px 18px;
+      font-size: 16px; font-weight: 700; color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+    .qz-char-row:not(.right) .qz-bubble { border-bottom-left-radius: 4px; }
+    .qz-char-row.right        .qz-bubble { border-bottom-right-radius: 4px; }
+
+    /* ── Options ── */
+    .qz-options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .qz-opt {
+      padding: 16px 14px; border-radius: 14px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.75); font-size: 14px; font-weight: 600;
+      cursor: pointer; font-family: inherit;
+      transition: background .18s, border-color .18s, transform .15s;
+      text-align: center; line-height: 1.55;
+    }
+    .qz-opt:hover {
+      background: rgba(167,128,255,.1); border-color: rgba(167,128,255,.4);
+      transform: translateY(-2px);
+    }
+    .qz-opt.s-opt:hover {
+      background: rgba(166,141,114,.1); border-color: rgba(166,141,114,.4);
+    }
+    .qz-opt.selected {
+      background: rgba(167,128,255,.18); border-color: #a780ff; color: #fff;
+    }
+    .qz-opt.s-opt.selected {
+      background: rgba(166,141,114,.18); border-color: #A68D72;
+    }
+
+    /* ── Start / Result shared ── */
+    .qz-center { text-align: center; }
+    .qz-eyebrow {
+      font-size: 11px; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: rgba(255,255,255,.32); margin: 0 0 14px;
+    }
+    .qz-h1 {
+      font-size: clamp(26px, 5vw, 42px); font-weight: 900;
+      letter-spacing: -1.5px; margin: 0 0 14px;
+    }
+    .qz-lead {
+      font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.85; margin: 0 0 40px;
+    }
+
+    /* ── Buttons ── */
+    .qz-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px; border-radius: 100px;
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .qz-btn:hover { transform: translateY(-2px); }
+    .qz-btn-m { background: linear-gradient(135deg,#a780ff,#6a4ecf); color: #fff; box-shadow: 0 4px 20px rgba(167,128,255,.35); }
+    .qz-btn-m:hover { box-shadow: 0 8px 28px rgba(167,128,255,.5); }
+    .qz-btn-s { background: linear-gradient(135deg,#A68D72,#665C50); color: #fff; box-shadow: 0 4px 20px rgba(166,141,114,.3); }
+    .qz-btn-s:hover { box-shadow: 0 8px 28px rgba(166,141,114,.45); }
+    .qz-btn-ghost {
+      background: transparent; border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.55);
+    }
+
+    /* ── Result ── */
+    .qz-result-img { width: 120px; margin-bottom: 20px; }
+    .qz-result-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; padding: 4px 14px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .qz-result-emoji { font-size: 52px; margin: 6px 0; }
+    .qz-result-title {
+      font-size: clamp(28px, 5vw, 44px); font-weight: 900;
+      letter-spacing: -2px; margin: 0 0 12px;
+    }
+    .qz-result-desc {
+      font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.85; margin: 0 0 10px;
+    }
+    .qz-result-quote {
+      font-size: 12px; color: rgba(255,255,255,.3); font-style: italic; margin: 0 0 36px;
+    }
+    .qz-result-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+    @media (max-width: 480px) {
+      .qz-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/">NERD Life</a>
+    <nav>
+      <a href="/favorite-music/">Music</a>
+      <a href="/beat/">Beat</a>
+      <a href="/anime/">Anime</a>
+      <a href="/work/">Work</a>
+      <a href="/ai/">AI</a>
+    </nav>
+    <button class="menu-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <div class="qz-wrap">
+
+      <!-- ════ START ════ -->
+      <div id="qs-start" class="qz-screen active qz-center">
+        <div style="display:flex;justify-content:center;align-items:flex-end;gap:4px;margin-bottom:28px;">
+          <img src="/images/chatbot-seeno.png" style="width:108px;" alt="Seeno" />
+          <img src="/images/chatbot-char.png"  style="width:108px;" alt="Melody" />
+        </div>
+        <p class="qz-eyebrow">Music Quiz</p>
+        <h1 class="qz-h1">今の気分に合う音楽は？</h1>
+        <p class="qz-lead">3つの質問に答えると<br>MelodyかSeenoがあなたにぴったりの音楽を提案します🎵</p>
+        <button class="qz-btn qz-btn-m" onclick="startQuiz()">🎵 診断スタート</button>
+      </div>
+
+      <!-- ════ QUESTION ════ -->
+      <div id="qs-question" class="qz-screen">
+        <div class="qz-progress" id="qz-progress"></div>
+        <div class="qz-char-row" id="qz-char-row">
+          <img class="qz-avatar" id="qz-avatar" src="" alt="" />
+          <div class="qz-bubble" id="qz-bubble"></div>
+        </div>
+        <div class="qz-options" id="qz-options"></div>
+      </div>
+
+      <!-- ════ RESULT ════ -->
+      <div id="qs-result" class="qz-screen qz-center">
+        <img id="r-img"   class="qz-result-img" src="" alt="" />
+        <div id="r-badge" class="qz-result-badge"></div>
+        <p  id="r-emoji"  class="qz-result-emoji"></p>
+        <h2 id="r-title"  class="qz-result-title"></h2>
+        <p  id="r-desc"   class="qz-result-desc"></p>
+        <p  id="r-quote"  class="qz-result-quote"></p>
+        <div class="qz-result-actions">
+          <a id="r-link" href="#" class="qz-btn">ページを見る</a>
+          <button class="qz-btn qz-btn-ghost" onclick="resetQuiz()">↩ もう一度診断する</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">NERD Life</span>
+      <a href="mailto:punpee@nerd-heidi.com" class="footer-email">punpee@nerd-heidi.com</a>
+    </div>
+    <div class="footer-social">
+      <a href="#" class="footer-social-link" aria-label="YouTube" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a href="#" class="footer-social-link" aria-label="X" title="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    </div>
+  </div>
+  <p class="footer-copy">&#169; 2026 NERD Life. All Rights Reserved.</p>
+</footer>
+
+  <script src="/script.js"></script>
+  <script src="/loader.js"></script>
+  <script src="/chatbot.js"></script>
+  <script src="/chatbot-seeno.js"></script>
+  <script>
+  /* ─── Quiz Data ─── */
+  var QUESTIONS = [
+    {
+      char: 'melody',
+      text: '今、どんな気分？🎵',
+      options: [
+        { label: '🔥 テンションを上げたい',       scores: [2, 2, 0, 0, 0, 0] },
+        { label: '😌 落ち着きたい・リラックス',    scores: [0, 0, 2, 2, 0, 0] },
+        { label: '💧 センチメンタルな気分',        scores: [0, 0, 0, 0, 4, 0] },
+        { label: '🎧 集中したい・作業したい',      scores: [0, 0, 0, 0, 0, 4] }
+      ]
+    },
+    {
+      char: 'seeno',
+      text: '音楽を聴く場所は？',
+      options: [
+        { label: '🌙 夜、ひとりの部屋で',          scores: [1, 0, 2, 0, 1, 0] },
+        { label: '🚶 外・移動中に',                scores: [2, 1, 0, 0, 0, 0] },
+        { label: '☕ カフェや作業しながら',         scores: [0, 0, 0, 1, 0, 2] },
+        { label: '👥 誰かと一緒に',                scores: [0, 2, 0, 1, 1, 0] }
+      ]
+    },
+    {
+      char: 'melody',
+      text: '好みのジャンルの雰囲気は？',
+      options: [
+        { label: '🌸 J-Pop・アイドル系',           scores: [0, 3, 0, 1, 1, 0] },
+        { label: '🎤 Hip-Hop・R&B系',              scores: [3, 0, 1, 0, 0, 0] },
+        { label: '🎸 Rock・バンド系',              scores: [2, 1, 0, 0, 0, 1] },
+        { label: '🌊 なんでも・新しい曲を発見したい', scores: [1, 1, 1, 1, 1, 1] }
+      ]
+    }
+  ];
+
+  /* 結果 0=Street Vibes(S) 1=Feel Good(M) 2=Midnight Drive(S) 3=Cozy(M) 4=Emotional(M) 5=Focus(S) */
+  var RESULTS = [
+    {
+      char:'seeno', badgeLabel:'Seeno Recommends', badgeColor:'#A68D72',
+      badgeBg:'rgba(166,141,114,.15)',
+      emoji:'🔥', title:'Street Vibes',
+      desc:'エネルギッシュなHip-HopとR&Bの世界へ。アガるビートで気分を最高潮に。',
+      quote:'"いい音楽は、テンションを変える。" — Seeno',
+      link:'/music-hiphop/', linkLabel:'🎤 Hip-Hop ページへ', btnClass:'qz-btn-s'
+    },
+    {
+      char:'melody', badgeLabel:'Melody Recommends', badgeColor:'#a780ff',
+      badgeBg:'rgba(167,128,255,.15)',
+      emoji:'🌸', title:'Feel Good Day',
+      desc:'明るくてキャッチーなJ-PopとPops。今日もいい一日にしよう！',
+      quote:'"Good Music, Good Day.♪" — Melody',
+      link:'/music-pops/', linkLabel:'🌸 Pops ページへ', btnClass:'qz-btn-m'
+    },
+    {
+      char:'seeno', badgeLabel:'Seeno Recommends', badgeColor:'#A68D72',
+      badgeBg:'rgba(166,141,114,.15)',
+      emoji:'🌙', title:'Midnight Drive',
+      desc:'深夜の静けさに溶け込む、チルなサウンド。ひとりの時間を豊かにしてくれる。',
+      quote:'"音楽のある場所で、私はいつも自分らしくいられる。" — Seeno',
+      link:'/playlist/', linkLabel:'🎧 Playlist ページへ', btnClass:'qz-btn-s'
+    },
+    {
+      char:'melody', badgeLabel:'Melody Recommends', badgeColor:'#a780ff',
+      badgeBg:'rgba(167,128,255,.15)',
+      emoji:'✨', title:'Cozy Afternoon',
+      desc:'温かくて心地よい音楽。カフェでゆっくりしているような、まったりした気分に。',
+      quote:'"音楽で、あなたの毎日をちょっとだけ特別に。" — Melody',
+      link:'/favorite-music/', linkLabel:'🎵 Music ページへ', btnClass:'qz-btn-m'
+    },
+    {
+      char:'melody', badgeLabel:'Melody Recommends', badgeColor:'#a780ff',
+      badgeBg:'rgba(167,128,255,.15)',
+      emoji:'💧', title:'Emotional Journey',
+      desc:'感情に深く寄り添う音楽。今の気持ちをそのまま受け止めてくれる曲たち。',
+      quote:'"そんな気分だよね、一緒にいるよ。" — Melody',
+      link:'/favorite-music/', linkLabel:'🎵 Music ページへ', btnClass:'qz-btn-m'
+    },
+    {
+      char:'seeno', badgeLabel:'Seeno Recommends', badgeColor:'#A68D72',
+      badgeBg:'rgba(166,141,114,.15)',
+      emoji:'🎧', title:'Deep Focus',
+      desc:'集中力を高めるクリーンなサウンド。ノイズを消して、自分の世界に入り込もう。',
+      quote:'"ビートの中に、答えがあるから。" — Seeno',
+      link:'/beat/', linkLabel:'🎹 Beat ページへ', btnClass:'qz-btn-s'
+    }
+  ];
+
+  var currentQ = 0;
+  var scores   = [0, 0, 0, 0, 0, 0];
+
+  function showScreen(id) {
+    document.querySelectorAll('.qz-screen').forEach(function(s){ s.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+  }
+
+  function startQuiz() {
+    currentQ = 0;
+    scores = [0, 0, 0, 0, 0, 0];
+    showScreen('qs-question');
+    renderQuestion();
+  }
+
+  function renderProgress() {
+    var p = document.getElementById('qz-progress');
+    p.innerHTML = QUESTIONS.map(function(_, i){
+      var c = i < currentQ ? 'done' : i === currentQ ? 'active' : '';
+      return '<div class="qz-dot ' + c + '"></div>';
+    }).join('');
+  }
+
+  function renderQuestion() {
+    renderProgress();
+    var q = QUESTIONS[currentQ];
+    var row = document.getElementById('qz-char-row');
+    var av  = document.getElementById('qz-avatar');
+    var bub = document.getElementById('qz-bubble');
+    var isSeeno = q.char === 'seeno';
+
+    row.className = 'qz-char-row' + (isSeeno ? ' right' : '');
+    av.src = isSeeno ? '/images/chatbot-seeno.png' : '/images/chatbot-char.png';
+    av.alt = isSeeno ? 'Seeno' : 'Melody';
+    bub.textContent = q.text;
+
+    var grid = document.getElementById('qz-options');
+    grid.innerHTML = q.options.map(function(opt, i){
+      return '<button class="qz-opt' + (isSeeno ? ' s-opt' : '') +
+             '" onclick="pick(' + i + ')">' + opt.label + '</button>';
+    }).join('');
+  }
+
+  function pick(i) {
+    var opts = QUESTIONS[currentQ].options[i].scores;
+    scores = scores.map(function(s, j){ return s + opts[j]; });
+
+    var btns = document.querySelectorAll('.qz-opt');
+    if (btns[i]) btns[i].classList.add('selected');
+
+    setTimeout(function(){
+      currentQ++;
+      if (currentQ < QUESTIONS.length) { renderQuestion(); }
+      else { showResult(); }
+    }, 380);
+  }
+
+  function showResult() {
+    var max = Math.max.apply(null, scores);
+    var r   = RESULTS[scores.indexOf(max)];
+
+    document.getElementById('r-img').src = r.char === 'seeno'
+      ? '/images/chatbot-seeno.png' : '/images/chatbot-char.png';
+
+    var badge = document.getElementById('r-badge');
+    badge.textContent = r.badgeLabel;
+    badge.style.background = r.badgeBg;
+    badge.style.color = r.badgeColor;
+
+    document.getElementById('r-emoji').textContent  = r.emoji;
+    document.getElementById('r-title').textContent  = r.title;
+    document.getElementById('r-desc').textContent   = r.desc;
+    document.getElementById('r-quote').textContent  = r.quote;
+
+    var link = document.getElementById('r-link');
+    link.href      = r.link;
+    link.textContent = r.linkLabel;
+    link.className = 'qz-btn ' + r.btnClass;
+
+    showScreen('qs-result');
+  }
+
+  function resetQuiz() { showScreen('qs-start'); }
+  </script>
+</body>
+</html>
