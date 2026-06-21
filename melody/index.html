@@ -252,6 +252,13 @@
     .comp-cta-quote { font-size: 14px; color: rgba(255,255,255,.32); font-style: italic; margin: 0 0 8px; }
     .comp-cta-title { font-size: clamp(22px,3.5vw,38px); font-weight: 900; letter-spacing: -1px; margin: 0 0 32px; }
 
+    /* ===== CHAR SHEET IMAGE ===== */
+    .char-sheet-img { text-align: center; margin-bottom: 48px; }
+    .char-sheet-img img {
+      max-width: 820px; width: 100%; border-radius: 20px;
+      filter: drop-shadow(0 16px 48px rgba(0,0,0,.65));
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .char-main { grid-template-columns: 1fr; }
@@ -303,8 +310,6 @@
     ════════════════════════════════════════ -->
     <section class="char-section">
       <div class="comp-main">
-
-        <!-- Header -->
         <div class="char-sec-header">
           <span class="char-sec-badge m-badge">AI BOT</span>
           <div>
@@ -312,80 +317,9 @@
             <div class="char-sec-tagline">Your AI Music Companion</div>
           </div>
         </div>
-
-        <!-- Main layout -->
-        <div class="char-main">
-          <!-- Image -->
-          <div class="char-img-col">
-            <img src="/images/Melody2.png" alt="Melody キャラクターイラスト" />
-          </div>
-
-          <!-- Data -->
-          <div class="char-data-col">
-            <p class="char-catchphrase">音楽で、あなたの毎日を<br>ちょっとだけ特別に。</p>
-
-            <ul class="char-features">
-              <li class="char-feature"><span class="char-feature-icon m-icon-bg">🎵</span>音楽のおすすめ</li>
-              <li class="char-feature"><span class="char-feature-icon m-icon-bg">💬</span>気分に寄り添う会話</li>
-              <li class="char-feature"><span class="char-feature-icon m-icon-bg">📋</span>プレイリスト作成</li>
-              <li class="char-feature"><span class="char-feature-icon m-icon-bg">🤍</span>いつでもお話し相手</li>
-            </ul>
-
-            <!-- About -->
-            <div class="char-about-block m-about">
-              <p class="char-about-title">Melody とは？</p>
-              <p class="char-about-text">あなたの気分や好みに合わせて、ぴったりの音楽を見つけたり、おしゃべりしたり。いつでもあなたに寄り添う、AIミュージックパートナーです。</p>
-            </div>
-
-            <!-- Profile -->
-            <div class="char-profile-block m-profile">
-              <p class="profile-block-title">PROFILE</p>
-              <div class="profile-row"><span class="profile-key">名前</span><span class="profile-val">Melody（メロディ）</span></div>
-              <div class="profile-row"><span class="profile-key">タイプ</span><span class="profile-val">AIミュージックコンパニオン</span></div>
-              <div class="profile-row"><span class="profile-key">性格</span><span class="profile-val">やさしい・聞き上手・ちょっぴり天然</span></div>
-              <div class="profile-row"><span class="profile-key">好きなこと</span><span class="profile-val">音楽を聴くこと、カフェ巡り、散歩、写真を撮ること</span></div>
-              <div class="profile-row"><span class="profile-key">口癖</span><span class="profile-val">「いい曲だね〜」「それ、わかる！」</span></div>
-            </div>
-          </div>
+        <div class="char-sheet-img">
+          <img src="/images/Melody2.png" alt="Melody キャラクターシート" />
         </div>
-
-        <!-- Expressions -->
-        <p class="section-label m-label">EXPRESSIONS</p>
-        <div class="expressions-row">
-          <div class="exp-card m-exp"><span class="exp-face">☺️</span><p class="exp-name">微笑み</p></div>
-          <div class="exp-card m-exp"><span class="exp-face">😉</span><p class="exp-name">ウィンク♪</p></div>
-          <div class="exp-card m-exp"><span class="exp-face">✨</span><p class="exp-name">わくわく！</p></div>
-        </div>
-
-        <!-- Chat Example -->
-        <div class="two-col">
-          <div>
-            <p class="section-label m-label">CHAT EXAMPLE</p>
-            <div class="chat-block m-chat">
-              <p class="chat-block-title">チャット例</p>
-              <div class="chat-msgs">
-                <div class="chat-msg chat-bot-m">今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう♪</div>
-                <div class="chat-msg chat-user-m">なんだか落ち着きたいな...</div>
-                <div class="chat-msg chat-bot-m">
-                  うんうん、そんな気分だよね。<br>こんなプレイリストはどう？
-                  <div class="chat-playlist m-playlist">
-                    <p class="chat-playlist-title">🎧 Melody's Chill Time</p>
-                    1. 夜明け前のピアノ<br>
-                    2. 風のゆくえ<br>
-                    3. 君の声が聞こえる
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;justify-content:flex-end;">
-            <p class="section-label m-label" style="margin-top:0;">CATCHPHRASE</p>
-            <blockquote style="margin:0;padding:20px 24px;background:rgba(167,128,255,.07);border-left:3px solid #a780ff;border-radius:0 12px 12px 0;font-size:15px;color:rgba(255,255,255,.75);line-height:1.8;font-style:italic;">
-              Good Music, Good Day.<br>いい音楽は、きっといい一日をつくから。♪
-            </blockquote>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -394,8 +328,6 @@
     ════════════════════════════════════════ -->
     <section class="char-section">
       <div class="comp-main">
-
-        <!-- Header -->
         <div class="char-sec-header">
           <span class="char-sec-badge s-badge">AI MUSIC COMPANION</span>
           <div>
@@ -403,118 +335,9 @@
             <div class="char-sec-tagline">Music is my escape.</div>
           </div>
         </div>
-
-        <!-- Main layout (image right) -->
-        <div class="char-main reverse">
-          <!-- Image -->
-          <div class="char-img-col">
-            <img src="/images/Seeno2.png" alt="Seeno キャラクターイラスト" />
-            <div class="char-img-caption">
-              <span class="char-img-label">FRONT</span>
-              <span class="char-img-label">SIDE</span>
-              <span class="char-img-label">BACK</span>
-            </div>
-          </div>
-
-          <!-- Data -->
-          <div class="char-data-col">
-            <p class="char-catchphrase">音楽のある場所で、私はいつも、<br>自分らしくいられる。<br><span style="font-size:0.75em;color:rgba(255,255,255,.55);">ビートの中に、答えがあるから。</span></p>
-
-            <!-- About -->
-            <div class="char-about-block s-about">
-              <p class="char-about-title">ABOUT SEENO</p>
-              <p class="char-about-text">音楽を通して、あなたとつながるAI。気分や好みに合わせて、ぴったりの音楽を見つけたり、新しい音楽との出会いをサポートします。いつでも、どこでも、最高の音楽体験を一緒に。</p>
-            </div>
-
-            <!-- Profile -->
-            <div class="char-profile-block s-profile">
-              <p class="profile-block-title">PROFILE</p>
-              <div class="profile-row"><span class="profile-key">名前</span><span class="profile-val">Seeno（シーノ）</span></div>
-              <div class="profile-row"><span class="profile-key">タイプ</span><span class="profile-val">AIミュージックコンパニオン</span></div>
-              <div class="profile-row"><span class="profile-key">性格</span><span class="profile-val">クールで落ち着いているが、芯は優しい。自分の世界を大切にし、音楽にとても真剣</span></div>
-              <div class="profile-row"><span class="profile-key">好きなこと</span><span class="profile-val">音楽を聴くこと、レコード集め、夜の散歩、写真を撮ること、カフェで考え事</span></div>
-              <div class="profile-row"><span class="profile-key">口癖</span><span class="profile-val">「それ、いいね」「音楽って、やっぱりすごい」</span></div>
-            </div>
-          </div>
+        <div class="char-sheet-img">
+          <img src="/images/Seeno2.png" alt="Seeno キャラクターシート" />
         </div>
-
-        <!-- Expressions -->
-        <p class="section-label s-label">EXPRESSIONS</p>
-        <div class="expressions-row">
-          <div class="exp-card s-exp"><span class="exp-face">😐</span><p class="exp-name">クール</p></div>
-          <div class="exp-card s-exp"><span class="exp-face">🙂</span><p class="exp-name">微笑み</p></div>
-          <div class="exp-card s-exp"><span class="exp-face">🎵</span><p class="exp-name">音楽に浸る</p></div>
-          <div class="exp-card s-exp"><span class="exp-face">🤔</span><p class="exp-name">考える</p></div>
-          <div class="exp-card s-exp"><span class="exp-face">😌</span><p class="exp-name">リラックス</p></div>
-        </div>
-
-        <!-- Details -->
-        <p class="section-label s-label">DETAILS</p>
-        <div class="details-grid">
-          <div class="detail-card s-detail"><span class="detail-icon">🎧</span><p class="detail-name">お気に入りのヘッドホン</p></div>
-          <div class="detail-card s-detail"><span class="detail-icon">🧥</span><p class="detail-name">オーバーサイズのパーカー</p></div>
-          <div class="detail-card s-detail"><span class="detail-icon">⛓</span><p class="detail-name">チェーンアクセサリー</p></div>
-          <div class="detail-card s-detail"><span class="detail-icon">👁</span><p class="detail-name">落ち着いた瞳</p></div>
-        </div>
-
-        <!-- Items + Mood Board + Chat -->
-        <div class="two-col">
-          <div>
-            <p class="section-label s-label">ITEMS</p>
-            <div class="items-grid">
-              <div class="item-card s-item"><span class="item-icon">📀</span>お気に入りのレコード</div>
-              <div class="item-card s-item"><span class="item-icon">🎒</span>バックパック</div>
-              <div class="item-card s-item"><span class="item-icon">🔑</span>キーホルダー</div>
-              <div class="item-card s-item"><span class="item-icon">📱</span>スマホ</div>
-              <div class="item-card s-item"><span class="item-icon">☕</span>コーヒー</div>
-            </div>
-
-            <p class="section-label s-label">MOOD BOARD</p>
-            <div class="mood-board">
-              <span class="mood-tag">RECORDS</span>
-              <span class="mood-tag">夜の街</span>
-              <span class="mood-tag">ネオンの光</span>
-              <span class="mood-tag">静寂のビート</span>
-              <span class="mood-tag">深夜のカフェ</span>
-              <span class="mood-tag">MIDNIGHT CITY</span>
-            </div>
-          </div>
-
-          <div>
-            <p class="section-label s-label">CHAT EXAMPLE</p>
-            <div class="chat-block s-chat">
-              <p class="chat-block-title">チャット例</p>
-              <div class="chat-msgs">
-                <div class="chat-msg chat-bot-s">今日はどんな気分？<br>一緒にぴったりの音楽を見つけよう。</div>
-                <div class="chat-msg chat-user-s">ちょっと落ち着きたい気分...</div>
-                <div class="chat-msg chat-bot-s">
-                  うん、わかった。<br>こんなプレイリストはどう？
-                  <div class="chat-playlist s-playlist">
-                    <p class="chat-playlist-title">🌙 Midnight City Walk</p>
-                    1. 夜の街の中で<br>
-                    2. 静寂とメロディ<br>
-                    3. ネオンの海<br>
-                    4. 静寂のビート<br>
-                    5. 明日への光
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Color Palette -->
-        <p class="section-label s-label">COLOR PALETTE</p>
-        <div class="palette-row">
-          <div class="palette-swatch" style="background:#0F0F10"><span class="palette-hex">#0F0F10</span></div>
-          <div class="palette-swatch" style="background:#1C1C1E"><span class="palette-hex">#1C1C1E</span></div>
-          <div class="palette-swatch" style="background:#2D2D30"><span class="palette-hex">#2D2D30</span></div>
-          <div class="palette-swatch" style="background:#665C50"><span class="palette-hex">#665C50</span></div>
-          <div class="palette-swatch" style="background:#A68D72"><span class="palette-hex">#A68D72</span></div>
-          <div class="palette-swatch" style="background:#D6C5B4"><span class="palette-hex">#D6C5B4</span></div>
-          <div class="palette-swatch" style="background:#E75C3D"><span class="palette-hex">#E75C3D</span></div>
-        </div>
-
       </div>
     </section>
 
