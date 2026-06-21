@@ -291,6 +291,24 @@ collections:
                   - {name: image,       label: 画像,       widget: image, required: false}
                   - {name: tags,        label: タグ,       widget: list, allow_add: true, field: {name: tag, label: タグ, widget: string}}
 
+  - name: mv_roulette
+    label: "🎬 MV ルーレット"
+    files:
+      - name: mv_roulette_data
+        label: MV ルーレットを編集
+        file: _data/mv-roulette.json
+        format: json
+        fields:
+          - name: items
+            label: MV リスト
+            widget: list
+            label_singular: MV
+            summary: "{{fields.title}} / {{fields.artist}}"
+            fields:
+              - {name: title,      label: 曲名,            widget: string}
+              - {name: artist,     label: アーティスト名,  widget: string}
+              - {name: youtube_id, label: YouTube 動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+
   - name: youtube
     label: "▶️ YouTube"
     files:
