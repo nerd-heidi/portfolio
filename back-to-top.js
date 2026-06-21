@@ -3,7 +3,7 @@
   var css =
     '#btt-btn{' +
       'position:fixed;bottom:24px;right:24px;z-index:9000;' +
-      'width:130px;cursor:pointer;' +
+      'width:180px;cursor:pointer;' +
       'opacity:0;pointer-events:none;' +
       'transition:opacity .4s, transform .4s;' +
       'transform:translateY(20px);' +
@@ -19,7 +19,7 @@
     '}' +
     '#btt-btn:active{transform:translateY(-2px);}' +
     '@media(max-width:600px){' +
-      '#btt-btn{width:100px;bottom:16px;right:12px;}' +
+      '#btt-btn{width:140px;bottom:16px;right:12px;}' +
     '}';
 
   var style = document.createElement('style');
