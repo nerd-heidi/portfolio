@@ -91,6 +91,11 @@
       "description": ""
     },
     {
+      "title": "生きる Reflection Eternal LHW? Remix / 不可思議/wonderboy",
+      "youtube_id": "X9t0wZS",
+      "description": ""
+    },
+    {
       "title": "Refugeecamp - 4seasons",
       "youtube_id": "IkiuDffaALQ",
       "description": ""
@@ -121,24 +126,24 @@
       "description": ""
     }
   ],
-  "albums": [
-    {
-      "tags": [
-        "HIPHOP"
-      ],
-      "image": "",
-      "description": "アルバムの説明や感想。",
-      "title": "アルバム名"
-    }
-  ],
   "artists": [
     {
+      "title": "PUNPEE",
+      "description": "ぱんぴー",
+      "image": "",
       "tags": [
         "HIPHOP"
-      ],
+      ]
+    }
+  ],
+  "albums": [
+    {
+      "title": "アルバム名",
+      "description": "アルバムの説明や感想。",
       "image": "",
-      "description": "ぱんぴー",
-      "title": "PUNPEE"
+      "tags": [
+        "HIPHOP"
+      ]
     }
   ]
 }
