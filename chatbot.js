@@ -253,7 +253,7 @@
     },
     {
       keywords: ['character', 'bot character', 'キャラクター', 'melodyとは', 'melodyって', 'ボットキャラ'],
-      answer: 'MelodyはNERD Lifeと一緒にいるAIミュージックコンパニオンだよ🎵<br>→ <a href="/melody/">Melody キャラクターページへ</a>'
+      answer: 'MelodyとSeeno（シーノ）、2人のAIミュージックコンパニオンがいるよ🎵<br><a href="/melody/" style="display:inline-block;margin-top:8px;padding:7px 16px;background:rgba(167,128,255,0.18);border:1px solid rgba(167,128,255,0.5);border-radius:8px;color:#c9a8ff;text-decoration:none;font-weight:700;">🎀 キャラクター紹介ページへ →</a>'
     }
   ];
 

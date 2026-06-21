@@ -253,7 +253,7 @@
     },
     {
       keywords: ['character', 'bot character', 'キャラクター', 'melodyとは', 'melodyって', 'ボットキャラ'],
-      answer: 'MelodyとSeeno（シーノ）の2体がいるよ🎵<br>→ <a href="/melody/">キャラクターページへ</a>'
+      answer: 'SeenoとMelody。2人のAIミュージックコンパニオン。<br><a href="/melody/" style="display:inline-block;margin-top:8px;padding:7px 16px;background:rgba(166,141,114,0.18);border:1px solid rgba(166,141,114,0.5);border-radius:8px;color:#D6C5B4;text-decoration:none;font-weight:700;">🎀 キャラクター紹介ページへ →</a>'
     }
   ];
 
