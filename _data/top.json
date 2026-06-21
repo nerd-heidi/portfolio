@@ -112,6 +112,14 @@
       "image": "/images/cm.png",
       "url": "/commercial/",
       "size": "regular"
+    },
+    {
+      "number": "15",
+      "title": "AI Companions",
+      "description": "MelodyとSeenoのAIミュージックコンパニオン。",
+      "image": "/images/Character.png",
+      "url": "/melody/",
+      "size": "regular"
     }
   ]
 }
