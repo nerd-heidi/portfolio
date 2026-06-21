@@ -4,7 +4,7 @@
   if (!section) return;
 
   var css =
-    '#mv-roulette{padding:0 24px 20px;}' +
+    '#mv-roulette{padding:0 24px 0;}' +
     '.mvr-wrap{max-width:900px;margin:0 auto;}' +
     /* バナー画像 */
     '.mvr-banner-btn{display:block;width:100%;border:none;padding:0;background:none;' +
@@ -37,7 +37,9 @@
     '.mvr-yt:hover{background:rgba(255,255,255,.14);}' +
     /* バナーホバー時のヒント */
     '.mvr-hint{text-align:center;font-size:11px;color:rgba(255,255,255,.22);' +
-      'margin-top:8px;letter-spacing:.05em;}' +
+      'margin:4px 0 0;letter-spacing:.05em;}' +
+    /* topic-grid との隙間を詰める */
+    '#mv-roulette+.topic-grid{margin-top:16px!important;}' +
     /* スピン中のアニメ */
     '@keyframes mvr-flash{0%,100%{opacity:1}50%{opacity:.55}}' +
     '.mvr-spinning .mvr-banner-btn img{animation:mvr-flash .13s steps(1) infinite;}' +
