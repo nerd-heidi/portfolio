@@ -4,7 +4,7 @@
   if (!section) return;
 
   var css =
-    '#mv-roulette{padding:0 24px 56px;}' +
+    '#mv-roulette{padding:0 24px 20px;}' +
     '.mvr-wrap{max-width:900px;margin:0 auto;}' +
     /* バナー画像 */
     '.mvr-banner-btn{display:block;width:100%;border:none;padding:0;background:none;' +
@@ -23,10 +23,11 @@
     '.mvr-thumb-link::after{content:"▶";position:absolute;inset:0;display:flex;' +
       'align-items:center;justify-content:center;font-size:14px;color:#fff;' +
       'background:rgba(0,0,0,.25);}' +
-    '.mvr-info{flex:1;min-width:0;line-height:1.35;}' +
-    '.mvr-song{display:block;font-size:14px;font-weight:700;color:rgba(255,255,255,.88);' +
-      'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
-    '.mvr-artist{display:block;font-size:12px;color:rgba(255,255,255,.38);' +
+    '.mvr-info{flex:1;min-width:0;display:flex;align-items:center;gap:8px;overflow:hidden;}' +
+    '.mvr-song{font-size:17px;font-weight:700;color:rgba(255,255,255,.88);' +
+      'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:55%;}' +
+    '.mvr-sep{color:rgba(255,255,255,.2);flex-shrink:0;font-size:14px;}' +
+    '.mvr-artist{font-size:15px;color:rgba(255,255,255,.45);' +
       'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
     '.mvr-actions{display:flex;gap:8px;flex-shrink:0;}' +
     '.mvr-yt{padding:8px 16px;border-radius:100px;' +
@@ -80,8 +81,7 @@
             '<img id="mvr-thumb" src="" alt="" />',
           '</a>',
           '<div class="mvr-info">',
-            '<span class="mvr-song" id="mvr-song"></span>',
-            '<span class="mvr-artist" id="mvr-artist"></span>',
+            '<span class="mvr-song" id="mvr-song"></span>',            '<span class="mvr-sep">·</span>' +            '<span class="mvr-artist" id="mvr-artist"></span>',
           '</div>',
           '<div class="mvr-actions">',
             '<a class="mvr-yt" id="mvr-yt" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube</a>',
