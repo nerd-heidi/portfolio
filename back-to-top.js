@@ -29,7 +29,7 @@
   var btn = document.createElement('button');
   btn.id = 'btt-btn';
   btn.setAttribute('aria-label', 'ページトップへ戻る');
-  btn.innerHTML = '<img src="/images/move-top.png" alt="ページトップへ" style="width:100%;display:block;" />';
+  btn.innerHTML = '<img src="/images/move-top.png?v=3" alt="ページトップへ" style="width:100%;display:block;" />';
 
   function inject() { document.body.appendChild(btn); }
   if (document.body) inject();
