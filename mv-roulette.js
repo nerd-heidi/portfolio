@@ -15,27 +15,27 @@
     '.mvr-banner-wrap:hover{filter:brightness(1.07);}' +
     '.mvr-banner-wrap:active{filter:brightness(.95);}' +
     '.mvr-banner-wrap>img{width:100%;display:block;border-radius:18px;}' +
-    /* バナー枠内オーバーレイ（% は画像内の枠位置に合わせた値） */
+    /* バナー枠内オーバーレイ（1983×793画像の枠座標から計算） */
     '.mvr-overlay{' +
       'position:absolute;' +
-      'top:28%;bottom:24%;left:37%;right:19%;' +
-      'display:flex;align-items:center;gap:2%;' +
+      'top:33%;bottom:15%;left:22%;right:22%;' +
+      'display:flex;align-items:center;gap:3%;padding:0 1%;' +
       'pointer-events:none;}' +
     /* サムネ */
     '.mvr-ov-thumb{' +
-      'width:28%;aspect-ratio:16/9;flex-shrink:0;' +
+      'width:24%;aspect-ratio:16/9;flex-shrink:0;' +
       'border-radius:8px;overflow:hidden;background:#111;}' +
     '.mvr-ov-thumb img{width:100%;height:100%;object-fit:cover;display:block;}' +
     /* テキスト情報 */
     '.mvr-ov-info{flex:1;min-width:0;text-align:left;}' +
     '.mvr-ov-song{' +
-      'display:block;font-size:clamp(11px,1.8vw,20px);font-weight:700;' +
+      'display:block;font-size:clamp(11px,1.6vw,18px);font-weight:700;' +
       'color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
       'text-shadow:0 1px 6px rgba(0,0,0,.8);}' +
     '.mvr-ov-artist{' +
-      'display:block;font-size:clamp(9px,1.4vw,16px);' +
-      'color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
-      'margin-top:.25em;text-shadow:0 1px 4px rgba(0,0,0,.8);}' +
+      'display:block;font-size:clamp(11px,1.6vw,18px);' +
+      'color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
+      'margin-top:.3em;text-shadow:0 1px 4px rgba(0,0,0,.8);}' +
     /* YouTube ボタン */
     '.mvr-yt-wrap{display:flex;justify-content:flex-end;margin-top:8px;}' +
     '.mvr-yt{padding:7px 16px;border-radius:100px;' +
