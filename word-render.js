@@ -103,7 +103,7 @@
     align-self: center;
   }
   .word-text {
-    font-size: 1.3rem;
+    font-size: 1.95rem;
     line-height: 2;
     color: #f5f5f5;
     font-style: italic;
@@ -130,7 +130,7 @@
     background: rgba(167,128,255,0.8);
   }
   .word-src-text {
-    font-size: 0.95rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: #d5d5d5;
     overflow: hidden;
