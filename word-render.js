@@ -1,131 +1,142 @@
 (function () {
   var css = `
   #word-section { padding: 0 0 5rem }
-  .word-scroll-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 1.5rem 2.5rem;
-    cursor: grab;
-    scrollbar-width: thin;
-    scrollbar-color: #222 transparent;
-  }
-  .word-scroll-wrap:active { cursor: grabbing }
-  .word-scroll-wrap::-webkit-scrollbar { height: 3px }
-  .word-scroll-wrap::-webkit-scrollbar-thumb { background: #222; border-radius: 2px }
-  .word-scroll {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 3rem;
-    width: max-content;
-    padding: 1.5rem 1rem;
-  }
-  .word-item {
-    writing-mode: vertical-rl;
-    font-size: 1.3rem;
-    line-height: 2.4;
-    color: #aaa;
-    cursor: pointer;
-    max-height: 58vh;
-    overflow: hidden;
-    transition: color 0.2s, text-shadow 0.2s;
-    user-select: none;
-    letter-spacing: 0.07em;
-    position: relative;
-    flex-shrink: 0;
-  }
-  .word-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4rem;
-    background: linear-gradient(transparent, #050505);
-    pointer-events: none;
-  }
-  .word-item:hover {
-    color: #d4b8ff;
-    text-shadow: 0 0 28px rgba(167,128,255,0.4);
-  }
-  .word-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0.80);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+  .word-hd {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.22s;
-  }
-  .word-overlay.open { opacity: 1; pointer-events: all }
-  .word-modal {
-    background: #111;
-    border: 1px solid #232323;
-    border-radius: 20px;
-    padding: 2.5rem 2.25rem 2.25rem;
-    max-width: 460px;
-    width: 100%;
-    position: relative;
-    max-height: 88vh;
-    overflow-y: auto;
-    transform: translateY(16px) scale(0.97);
-    transition: transform 0.22s;
-  }
-  .word-overlay.open .word-modal { transform: none }
-  .word-modal-close {
-    position: absolute; top: 1rem; right: 1.25rem;
-    background: none; border: none; color: #555;
-    font-size: 1.5rem; line-height: 1; cursor: pointer;
-    padding: 0.2rem; transition: color 0.15s;
-  }
-  .word-modal-close:hover { color: #ddd }
-  .word-modal-img {
-    display: block; width: 72px; height: 72px;
-    object-fit: cover; border-radius: 10px;
-    margin-bottom: 1.25rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  }
-  .word-modal-tag {
-    display: inline-block;
-    font-size: 0.62rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 0.18rem 0.6rem; border-radius: 999px;
-    background: rgba(167,128,255,0.12); color: #a780ff;
-    margin-bottom: 0.9rem;
-  }
-  .word-modal-text {
-    font-size: 1.1rem; line-height: 1.95;
-    color: #eee; font-style: italic;
-    margin-bottom: 1.5rem;
-    word-break: break-word; white-space: pre-wrap;
-  }
-  .word-modal-source {
-    display: flex; align-items: center; gap: 0.65rem;
-    font-size: 0.83rem; color: #777;
+    justify-content: space-between;
+    gap: 1rem;
     margin-bottom: 1.75rem;
+    flex-wrap: wrap;
   }
-  .word-modal-dash {
-    flex-shrink: 0; width: 1.5rem; height: 1px;
-    background: linear-gradient(to right, #a780ff, transparent);
+  .word-hd-sub { font-size: 0.8rem; color: #666; letter-spacing: 0.06em }
+  .word-refresh {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background: rgba(167,128,255,0.15);
+    border: 1px solid rgba(167,128,255,0.45);
+    color: #c4a8ff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    white-space: nowrap;
   }
-  .word-modal-btns { display: flex; gap: 0.7rem; flex-wrap: wrap }
-  .word-modal-btn {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    padding: 0.55rem 1.1rem; border-radius: 8px;
-    font-size: 0.8rem; font-weight: 600;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: opacity 0.15s; white-space: nowrap;
+  .word-refresh:hover {
+    background: rgba(167,128,255,0.28);
+    border-color: rgba(167,128,255,0.7);
+    color: #ddd0ff;
   }
-  .word-modal-btn:hover { opacity: 0.75 }
-  .word-btn-x { background: #0d0d0d; color: #fff; border: 1px solid #2e2e2e }
-  .word-btn-link { background: rgba(167,128,255,0.12); color: #a780ff; border: 1px solid rgba(167,128,255,0.2) }
-  .word-hint { text-align: center; color: #333; font-size: 0.75rem; letter-spacing: 0.1em; padding: 0.5rem 1.25rem 1rem }
-  .word-empty { text-align: center; color: #444; padding: 5rem 1.25rem; font-size: 0.9rem; letter-spacing: 0.08em }
+  .word-refresh svg { transition: transform 0.5s ease }
+  .word-refresh.spin svg { transform: rotate(360deg) }
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+  @media (max-width: 640px) { .word-grid { grid-template-columns: 1fr } }
+  .word-card {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 1.5rem 1.5rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .word-card:hover {
+    border-color: rgba(167,128,255,0.4);
+    transform: translateY(-3px);
+  }
+  .word-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
+  }
+  .word-qmark {
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    line-height: 0.75;
+    color: rgba(167,128,255,0.28);
+    flex-shrink: 0;
+  }
+  .word-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(167,128,255,0.16);
+    color: #b899ff;
+    align-self: center;
+  }
+  .word-text {
+    font-size: 1rem;
+    line-height: 1.88;
+    color: #f0f0f0;
+    font-style: italic;
+    margin: 0 0 1.1rem;
+    flex: 1;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+  .word-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .word-src {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+  .word-src-line {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1px;
+    background: rgba(167,128,255,0.55);
+  }
+  .word-src-text {
+    font-size: 0.78rem;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .word-x-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .word-x-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.28);
+  }
+  .word-empty {
+    text-align: center; color: #444;
+    padding: 5rem 1.25rem;
+    font-size: 0.9rem; letter-spacing: 0.08em;
+  }
   `;
   var style = document.createElement("style");
   style.textContent = css;
@@ -137,49 +148,36 @@
     return s ? String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;") : "";
   }
 
-  var overlay = document.createElement("div");
-  overlay.className = "word-overlay";
-  overlay.setAttribute("role", "dialog");
-  overlay.setAttribute("aria-modal", "true");
-  var modal = document.createElement("div");
-  modal.className = "word-modal";
-  var closeBtn = document.createElement("button");
-  closeBtn.className = "word-modal-close";
-  closeBtn.setAttribute("aria-label", "閉じる");
-  closeBtn.textContent = "×";
-  var inner = document.createElement("div");
-  modal.appendChild(closeBtn);
-  modal.appendChild(inner);
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
 
-  function openModal(item) {
-    var imgHtml = item.image ? "<img class=\"word-modal-img\" src=\"" + esc(item.image) + "\" alt=\"\" loading=\"lazy\">" : "";
-    var tagHtml = (item.tag && TAG_LABEL[item.tag]) ? "<div><span class=\"word-modal-tag\">" + TAG_LABEL[item.tag] + "</span></div>" : "";
-    var srcHtml = item.source ? "<div class=\"word-modal-source\"><span class=\"word-modal-dash\"></span><span>" + esc(item.source) + "</span></div>" : "";
-    var shareText = item.source ? "\u300C" + item.text + "\u300D\n\u2014 " + item.source : "\u300C" + item.text + "\u300D";
+  function makeCard(item) {
+    var tagHtml = (item.tag && TAG_LABEL[item.tag])
+      ? "<span class=\"word-tag\">" + TAG_LABEL[item.tag] + "</span>"
+      : "";
+    var shareText = item.source
+      ? "\u300C" + item.text + "\u300D\n\u2014 " + item.source
+      : "\u300C" + item.text + "\u300D";
     var tweetHref = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent("https://nerd-heidi.com/word/");
-    var linkBtn = item.link_url ? "<a class=\"word-modal-btn word-btn-link\" href=\"" + esc(item.link_url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(item.link_label || "Link") + "</a>" : "";
-    inner.innerHTML = imgHtml + tagHtml +
-      "<p class=\"word-modal-text\">" + esc(item.text) + "</p>" +
-      srcHtml +
-      "<div class=\"word-modal-btns\">" +
-        "<a class=\"word-modal-btn word-btn-x\" href=\"" + tweetHref + "\" target=\"_blank\" rel=\"noopener noreferrer\">" +
-        "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"/></svg>" +
-        "X\u3067\u30b7\u30a7\u30a2</a>" + linkBtn +
-      "</div>";
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
+    var srcHtml = item.source
+      ? "<div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div>"
+      : "<span></span>";
+    return "<div class=\"word-card\">" +
+      "<div class=\"word-card-head\"><span class=\"word-qmark\">\u201C</span>" + tagHtml + "</div>" +
+      "<p class=\"word-text\">" + esc(item.text) + "</p>" +
+      "<div class=\"word-foot\">" + srcHtml +
+        "<a class=\"word-x-btn\" href=\"" + tweetHref + "\" target=\"_blank\" rel=\"noopener noreferrer\" title=\"X\u3067\u30b7\u30a7\u30a2\">" +
+          "<svg width=\"11\" height=\"11\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"/></svg>" +
+        "</a>" +
+      "</div>" +
+    "</div>";
   }
-
-  function closeModal() {
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  closeBtn.addEventListener("click", closeModal);
-  overlay.addEventListener("click", function(e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeModal(); });
 
   async function load() {
     var section = document.getElementById("word-section");
@@ -198,32 +196,24 @@
       section.innerHTML = "<p class=\"word-empty\">\u2014 \u307e\u3060\u767b\u9332\u3055\u308c\u3066\u3044\u307e\u305b\u3093 \u2014</p>";
       return;
     }
-    var wrap = document.createElement("div");
-    wrap.className = "word-scroll-wrap";
-    var scroll = document.createElement("div");
-    scroll.className = "word-scroll";
-    items.forEach(function(item) {
-      var p = document.createElement("p");
-      p.className = "word-item";
-      p.textContent = item.text;
-      p.tabIndex = 0;
-      p.setAttribute("role", "button");
-      p.addEventListener("click", function() { openModal(item); });
-      p.addEventListener("keydown", function(e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(item); } });
-      scroll.appendChild(p);
+    section.innerHTML =
+      "<div class=\"word-hd\">" +
+        "<span class=\"word-hd-sub\">" + items.length + " words</span>" +
+        "<button class=\"word-refresh\" id=\"word-refresh\">" +
+          "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"1 4 1 10 7 10\"/><path d=\"M3.51 15a9 9 0 1 0 .49-4.95\"/></svg>" +
+          "Shuffle" +
+        "</button>" +
+      "</div>" +
+      "<div class=\"word-grid\" id=\"word-grid\"></div>";
+    var grid = document.getElementById("word-grid");
+    function renderGrid() { grid.innerHTML = shuffle(items).map(makeCard).join(""); }
+    renderGrid();
+    document.getElementById("word-refresh").addEventListener("click", function() {
+      var btn = this;
+      btn.classList.add("spin");
+      renderGrid();
+      setTimeout(function() { btn.classList.remove("spin"); }, 500);
     });
-    var isDown = false, startX = 0, scrollX = 0;
-    wrap.addEventListener("mousedown", function(e) { isDown = true; startX = e.pageX; scrollX = wrap.scrollLeft; wrap.style.cursor = "grabbing"; });
-    wrap.addEventListener("mouseleave", function() { isDown = false; wrap.style.cursor = "grab"; });
-    wrap.addEventListener("mouseup", function() { isDown = false; wrap.style.cursor = "grab"; });
-    wrap.addEventListener("mousemove", function(e) { if (!isDown) return; e.preventDefault(); wrap.scrollLeft = scrollX - (e.pageX - startX); });
-    wrap.appendChild(scroll);
-    var hint = document.createElement("p");
-    hint.className = "word-hint";
-    hint.textContent = "\u2190 scroll \u2192  \u30af\u30ea\u30c3\u30af\u3067\u51fa\u5178\u3092\u898b\u308b";
-    section.innerHTML = "";
-    section.appendChild(hint);
-    section.appendChild(wrap);
   }
 
   load();
