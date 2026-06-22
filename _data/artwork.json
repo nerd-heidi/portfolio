@@ -1,1 +1,19 @@
-{"items": []}
+{
+  "items": [
+    {
+      "apple_music_url": "https://music.apple.com/jp/album/advisory/1481408325",
+      "title": "ADVISORY",
+      "artist": "KANDYTOWN"
+    },
+    {
+      "apple_music_url": "https://music.apple.com/jp/album/adieu-1-ep/1538276480",
+      "title": "adieu 1 - EP",
+      "artist": "adieu"
+    },
+    {
+      "apple_music_url": "https://music.apple.com/jp/album/mos-def-talib-kweli-are-black-star/1440799801",
+      "title": "Mos Def & Talib Kweli Are Black Star",
+      "artist": "Black Star"
+    }
+  ]
+}
