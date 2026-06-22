@@ -36,6 +36,28 @@
           "youtube_id": "",
           "comment": "",
           "character": "melody"
+        },
+        {
+          "track_title": "That's All I Wish",
+          "artist": "OKAMOTO'S",
+          "genres": [
+            "rock"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/thats-all-i-wish/6773687891?i=6773687892",
+          "youtube_id": "",
+          "comment": "",
+          "character": "melody"
+        },
+        {
+          "track_title": "Furaibo",
+          "artist": "TOKYO世界",
+          "genres": [
+            "hip-hop"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/furaibou-single/6781932241",
+          "youtube_id": "",
+          "comment": "",
+          "character": "melody"
         }
       ]
     }
