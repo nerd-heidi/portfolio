@@ -3,6 +3,8 @@
   #word-section { padding: 0 0 5rem; overflow: visible; }
   /* word page: close the gap so hero image can straddle the divider */
   .page-hero { margin-bottom: 0 !important; }
+  /* ensure back-link stays clickable above the overlapping hero image */
+  .back-link { position: relative; z-index: 10; }
   /* ── hero ── */
   .word-hero {
     display: flex;
