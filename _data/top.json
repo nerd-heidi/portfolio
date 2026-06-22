@@ -19,9 +19,9 @@
     },
     {
       "number": "03",
-      "title": "新譜ピックアップ",
+      "title": "New Release",
       "description": "その月に聴いた新曲・MV・気になった音楽を毎月更新。",
-      "image": "/images/music.png",
+      "image": "/images/pickup.png",
       "url": "/picks/",
       "size": "regular"
     },
