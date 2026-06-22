@@ -106,7 +106,9 @@
     font-size: 1.95rem;
     line-height: 2;
     color: #f5f5f5;
-    font-style: italic;
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, sans-serif;
+    font-weight: bold;
+    font-style: normal;
     margin: 0 0 1.2rem;
     word-break: break-word;
     white-space: pre-wrap;
@@ -114,8 +116,8 @@
   .word-foot {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 0.5rem;
+    margin-top: 1rem;
   }
   .word-src {
     display: flex;
@@ -133,28 +135,6 @@
     font-size: 1.4rem;
     font-weight: 500;
     color: #d5d5d5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .word-x-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 7px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.14);
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    flex-shrink: 0;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .word-x-btn:hover {
-    background: rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.85);
-    border-color: rgba(255,255,255,0.3);
   }
   .word-empty {
     text-align: center; color: #555;
@@ -185,21 +165,13 @@
     var tagHtml = (item.tag && TAG_LABEL[item.tag])
       ? "<span class=\"word-tag\">" + TAG_LABEL[item.tag] + "</span>"
       : "";
-    var shareText = item.source
-      ? "\u300C" + item.text + "\u300D\n\u2014 " + item.source
-      : "\u300C" + item.text + "\u300D";
-    var tweetHref = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent("https://nerd-heidi.com/word/");
     var srcHtml = item.source
-      ? "<div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div>"
-      : "<span></span>";
+      ? "<div class=\"word-foot\"><div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div></div>"
+      : "";
     return "<div class=\"word-card\">" +
       "<div class=\"word-card-head\"><span class=\"word-qmark\">\u201C</span>" + tagHtml + "</div>" +
       "<p class=\"word-text\">" + esc(item.text) + "</p>" +
-      "<div class=\"word-foot\">" + srcHtml +
-        "<a class=\"word-x-btn\" href=\"" + tweetHref + "\" target=\"_blank\" rel=\"noopener noreferrer\" title=\"X\u3067\u30b7\u30a7\u30a2\">" +
-          "<svg width=\"11\" height=\"11\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"/></svg>" +
-        "</a>" +
-      "</div>" +
+      srcHtml +
     "</div>";
   }
 
