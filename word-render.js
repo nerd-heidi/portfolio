@@ -159,6 +159,24 @@
     padding: 5rem 1.25rem;
     font-size: 0.9rem; letter-spacing: 0.08em;
   }
+  .word-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    color: #c4a8ff;
+    text-decoration: none;
+    margin-top: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(167,128,255,0.35);
+    background: rgba(167,128,255,0.08);
+    transition: background 0.2s, color 0.2s;
+  }
+  .word-link:hover {
+    background: rgba(167,128,255,0.2);
+    color: #d4bcff;
+  }
   `;
   var style = document.createElement("style");
   style.textContent = css;
@@ -187,10 +205,14 @@
     var srcHtml = item.source
       ? "<div class=\"word-foot\"><div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div></div>"
       : "";
+    var linkHtml = item.link_url
+      ? "<a class=\"word-link\" href=\"" + esc(item.link_url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(item.link_label || item.link_url) + "</a>"
+      : "";
     return "<div class=\"" + cardClass + "\">" +
       "<div class=\"word-card-head\"><span class=\"word-qmark\">\u201C</span>" + tagHtml + "</div>" +
       "<p class=\"word-text\">" + esc(item.text) + "</p>" +
       srcHtml +
+      linkHtml +
     "</div>";
   }
 
