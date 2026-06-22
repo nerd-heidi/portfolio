@@ -309,6 +309,56 @@ collections:
               - {name: artist,     label: アーティスト名,  widget: string}
               - {name: youtube_id, label: YouTube 動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
 
+  - name: picks
+    label: "🎵 新譜ピックアップ"
+    files:
+      - name: picks_data
+        label: ピックアップを編集
+        file: _data/picks.json
+        format: json
+        fields:
+          - name: issues
+            label: 号一覧
+            widget: list
+            label_singular: 号
+            summary: "{{fields.title}}"
+            fields:
+              - {name: id,    label: "ID (例: 2026-06)",      widget: string, hint: "年月をハイフンでつないだ形式（例: 2026-06）"}
+              - {name: title, label: "タイトル (例: 2026年6月号)", widget: string}
+              - name: items
+                label: 楽曲・MV
+                widget: list
+                label_singular: エントリー
+                summary: "{{fields.artist}} — {{fields.track_title}}"
+                fields:
+                  - {name: track_title,      label: 曲名,              widget: string,   required: false}
+                  - {name: artist,           label: アーティスト,       widget: string}
+                  - name: genres
+                    label: ジャンル
+                    widget: select
+                    multiple: true
+                    required: false
+                    options:
+                      - {label: "J-Pop",       value: "j-pop"}
+                      - {label: "Hip-Hop",     value: "hip-hop"}
+                      - {label: "R&B",         value: "r-b"}
+                      - {label: "Rock",        value: "rock"}
+                      - {label: "Electronic",  value: "electronic"}
+                      - {label: "Idol",        value: "idol"}
+                      - {label: "Anime",       value: "anime"}
+                      - {label: "その他",      value: "other"}
+                  - {name: apple_music_url, label: "Apple Music URL", widget: string, required: false, hint: "Apple MusicのシェアURL"}
+                  - {name: youtube_id,      label: "YouTube ID",      widget: string, required: false, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
+                  - {name: comment,         label: "コメント",         widget: text,   required: false}
+                  - name: character
+                    label: キャラクター
+                    widget: select
+                    required: false
+                    default: "melody"
+                    options:
+                      - {label: "Melody", value: "melody"}
+                      - {label: "Seeno",  value: "seeno"}
+
   - name: youtube
     label: "▶️ YouTube"
     files:
