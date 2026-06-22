@@ -404,6 +404,9 @@ collections:
                   - {label: "本 (Book)",     value: "book"}
                   - {label: "アニメ (Anime)", value: "anime"}
                   - {label: "その他 (Other)", value: "other"}
+              - {name: image,      label: "画像URL",        widget: string, required: false, hint: "アーティスト・ジャケット画像のURL（任意）"}
+              - {name: link_url,   label: "リンクURL",       widget: string, required: false, hint: "Apple Music / Amazon などのURL（任意）"}
+              - {name: link_label, label: "リンクテキスト",  widget: string, required: false, hint: "ボタン表示テキスト（例: Apple Music）"}
 
   - name: cm
     label: "🎥 CM"
