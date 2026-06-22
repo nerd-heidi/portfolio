@@ -58,6 +58,17 @@
           "youtube_id": "",
           "comment": "",
           "character": "melody"
+        },
+        {
+          "track_title": "DEKABAKO",
+          "artist": "Tokyo Young Vision",
+          "genres": [
+            "hip-hop"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/dekabako-feat-osami-big-mike-dalu-single/6773551184",
+          "youtube_id": "",
+          "comment": "",
+          "character": "melody"
         }
       ]
     }
