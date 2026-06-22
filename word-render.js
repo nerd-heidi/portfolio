@@ -1,56 +1,98 @@
 (function () {
   var css = `
   #word-section { padding: 0 0 5rem }
-  .word-hd {
+  /* shuffle hero */
+  .word-shuffle-hero {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-    flex-wrap: wrap;
+    align-items: stretch;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(167,128,255,0.25);
   }
-  .word-hd-sub { font-size: 0.8rem; color: #666; letter-spacing: 0.06em }
+  .word-melody-panel {
+    background: rgba(255,255,255,0.93);
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0.5rem 0.5rem 0;
+  }
+  .word-melody-img {
+    width: 100px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  .word-shuffle-content {
+    flex: 1;
+    background: rgba(167,128,255,0.08);
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+  .word-shuffle-count {
+    font-size: 0.8rem;
+    color: #aaa;
+    letter-spacing: 0.06em;
+  }
   .word-refresh {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.4rem;
+    gap: 0.65rem;
+    padding: 0.8rem 2rem;
     border-radius: 999px;
-    background: rgba(167,128,255,0.15);
-    border: 1px solid rgba(167,128,255,0.45);
-    color: #c4a8ff;
-    font-size: 0.85rem;
+    background: rgba(167,128,255,0.2);
+    border: 1.5px solid rgba(167,128,255,0.55);
+    color: #d4bcff;
+    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
+    width: fit-content;
     white-space: nowrap;
   }
   .word-refresh:hover {
-    background: rgba(167,128,255,0.28);
-    border-color: rgba(167,128,255,0.7);
-    color: #ddd0ff;
+    background: rgba(167,128,255,0.35);
+    border-color: rgba(167,128,255,0.8);
+    color: #ecdeff;
   }
   .word-refresh svg { transition: transform 0.5s ease }
   .word-refresh.spin svg { transform: rotate(360deg) }
-  .word-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    align-items: start;
+  .word-shuffle-hint {
+    font-size: 0.73rem;
+    color: #888;
+    letter-spacing: 0.04em;
   }
-  @media (max-width: 640px) { .word-grid { grid-template-columns: 1fr } }
+  @media (max-width: 480px) {
+    .word-melody-panel { width: 86px }
+    .word-melody-img { width: 74px }
+    .word-shuffle-content { padding: 1.25rem 1.25rem }
+    .word-refresh { font-size: 0.88rem; padding: 0.7rem 1.4rem }
+  }
+  /* grid: CSS columns for natural height per card */
+  .word-grid {
+    columns: 2;
+    column-gap: 1.25rem;
+  }
+  @media (max-width: 640px) { .word-grid { columns: 1 } }
+  /* card */
   .word-card {
-    background: #111;
-    border: 1px solid #2a2a2a;
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+    background: #1a1a1a;
+    border: 1px solid #3d3d3d;
     border-radius: 14px;
     padding: 1.5rem 1.5rem 1.2rem;
-    display: flex;
-    flex-direction: column;
+    display: block;
     transition: border-color 0.25s, transform 0.25s;
   }
   .word-card:hover {
-    border-color: rgba(167,128,255,0.4);
+    border-color: rgba(167,128,255,0.45);
     transform: translateY(-3px);
   }
   .word-card-head {
@@ -63,28 +105,27 @@
     font-family: Georgia, serif;
     font-size: 3rem;
     line-height: 0.75;
-    color: rgba(167,128,255,0.28);
+    color: rgba(167,128,255,0.32);
     flex-shrink: 0;
   }
   .word-tag {
     display: inline-block;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 0.2rem 0.6rem;
     border-radius: 999px;
-    background: rgba(167,128,255,0.16);
-    color: #b899ff;
+    background: rgba(167,128,255,0.18);
+    color: #c0a0ff;
     align-self: center;
   }
   .word-text {
-    font-size: 1rem;
-    line-height: 1.88;
-    color: #f0f0f0;
+    font-size: 1.15rem;
+    line-height: 1.95;
+    color: #f5f5f5;
     font-style: italic;
-    margin: 0 0 1.1rem;
-    flex: 1;
+    margin: 0 0 1.2rem;
     word-break: break-word;
     white-space: pre-wrap;
   }
@@ -102,14 +143,14 @@
   }
   .word-src-line {
     flex-shrink: 0;
-    width: 1.1rem;
+    width: 1.2rem;
     height: 1px;
-    background: rgba(167,128,255,0.75);
+    background: rgba(167,128,255,0.8);
   }
   .word-src-text {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 500;
-    color: #c0c0c0;
+    color: #d0d0d0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -121,20 +162,20 @@
     width: 28px;
     height: 28px;
     border-radius: 7px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.4);
     text-decoration: none;
     flex-shrink: 0;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
   .word-x-btn:hover {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.8);
-    border-color: rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    border-color: rgba(255,255,255,0.3);
   }
   .word-empty {
-    text-align: center; color: #444;
+    text-align: center; color: #555;
     padding: 5rem 1.25rem;
     font-size: 0.9rem; letter-spacing: 0.08em;
   }
@@ -189,7 +230,7 @@
       if (!res.ok) throw new Error();
       data = await res.json();
     } catch (_) {
-      section.innerHTML = "<p style=\"color:#444;text-align:center;padding:4rem 0\">\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u8fbc\u3081\u307e\u305b\u3093\u3067\u3057\u305f</p>";
+      section.innerHTML = "<p style=\"color:#555;text-align:center;padding:4rem 0\">\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u8fbc\u3081\u307e\u305b\u3093\u3067\u3057\u305f</p>";
       return;
     }
     var items = Array.isArray(data.items) ? data.items : [];
@@ -198,16 +239,25 @@
       return;
     }
     section.innerHTML =
-      "<div class=\"word-hd\">" +
-        "<span class=\"word-hd-sub\">" + items.length + " words</span>" +
-        "<button class=\"word-refresh\" id=\"word-refresh\">" +
-          "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"1 4 1 10 7 10\"/><path d=\"M3.51 15a9 9 0 1 0 .49-4.95\"/></svg>" +
-          "Shuffle" +
-        "</button>" +
+      "<div class=\"word-shuffle-hero\">" +
+        "<div class=\"word-melody-panel\">" +
+          "<img class=\"word-melody-img\" src=\"/images/chatbot-char.png\" alt=\"Melody\" />" +
+        "</div>" +
+        "<div class=\"word-shuffle-content\">" +
+          "<span class=\"word-shuffle-count\">" + items.length + " words</span>" +
+          "<button class=\"word-refresh\" id=\"word-refresh\">" +
+            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"1 4 1 10 7 10\"/><path d=\"M3.51 15a9 9 0 1 0 .49-4.95\"/></svg>" +
+            "Shuffle" +
+          "</button>" +
+          "<span class=\"word-shuffle-hint\">\u6700\u592710\u4ef6\u3092\u30e9\u30f3\u30c0\u30e0\u8868\u793a</span>" +
+        "</div>" +
       "</div>" +
       "<div class=\"word-grid\" id=\"word-grid\"></div>";
     var grid = document.getElementById("word-grid");
-    function renderGrid() { grid.innerHTML = shuffle(items).map(makeCard).join(""); }
+    function renderGrid() {
+      var shown = shuffle(items).slice(0, Math.min(10, items.length));
+      grid.innerHTML = shown.map(makeCard).join("");
+    }
     renderGrid();
     document.getElementById("word-refresh").addEventListener("click", function() {
       var btn = this;
