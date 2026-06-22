@@ -1,13 +1,18 @@
 (function () {
   var css = `
-  #word-section { padding: 0 0 5rem }
+  #word-section { padding: 0 0 5rem; overflow: visible; }
+  /* word page: close the gap so hero image can straddle the divider */
+  .page-hero { margin-bottom: 0 !important; }
   /* ── hero ── */
   .word-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2.5rem;
-    gap: 0.55rem;
+    margin-top: -130px;
+    margin-bottom: 1.5rem;
+    gap: 0.3rem;
+    position: relative;
+    z-index: 2;
   }
   .word-melody-btn {
     background: none;
@@ -20,7 +25,7 @@
   .word-melody-btn:hover { transform: scale(1.06) translateY(-5px) }
   .word-melody-btn:active { transform: scale(0.95) }
   .word-melody-img {
-    width: 220px;
+    width: 260px;
     height: auto;
     display: block;
   }
@@ -67,7 +72,7 @@
     break-inside: avoid;
     margin-bottom: 1.25rem;
     background: #1a1a1a;
-    border: 1px solid #3d3d3d;
+    border: 2px solid #3d3d3d;
     border-radius: 14px;
     padding: 1.5rem 1.5rem 1.2rem;
     display: block;
