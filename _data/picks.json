@@ -1,1 +1,32 @@
-{"issues":[]}
+{
+  "issues": [
+    {
+      "id": "2026-06",
+      "title": "2026-06じょがにぼーと",
+      "items": [
+        {
+          "track_title": "Driving",
+          "artist": "16",
+          "genres": [
+            "hip-hop"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/driving/6775680241?i=6775680244",
+          "youtube_id": "",
+          "comment": "",
+          "character": "melody"
+        },
+        {
+          "track_title": "ジョガボニート",
+          "artist": "JUMADIBA",
+          "genres": [
+            "hip-hop"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/%E3%82%B8%E3%83%A7%E3%82%AC%E3%83%9C%E3%83%8B%E3%83%BC%E3%83%88/6772065670?i=6772066005",
+          "youtube_id": "",
+          "comment": "",
+          "character": "seeno"
+        }
+      ]
+    }
+  ]
+}
