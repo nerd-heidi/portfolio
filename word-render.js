@@ -63,14 +63,24 @@
   }
   /* ── grid ── */
   .word-grid {
-    columns: 2;
-    column-gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    align-items: start;
   }
-  @media (max-width: 640px) { .word-grid { columns: 1 } }
+  .word-card--span2 { grid-column: span 2; }
+  .word-card--span3 { grid-column: span 3; }
+  @media (max-width: 900px) {
+    .word-grid { grid-template-columns: repeat(2, 1fr); }
+    .word-card--span2 { grid-column: span 2; }
+    .word-card--span3 { grid-column: span 2; }
+  }
+  @media (max-width: 600px) {
+    .word-grid { grid-template-columns: 1fr; }
+    .word-card--span2, .word-card--span3 { grid-column: span 1; }
+  }
   /* ── card ── */
   .word-card {
-    break-inside: avoid;
-    margin-bottom: 1.25rem;
     background: #1a1a1a;
     border: 2px solid #3d3d3d;
     border-radius: 14px;
@@ -201,7 +211,8 @@
     var tagHtml = (item.tag && TAG_LABEL[item.tag])
       ? "<span class=\"word-tag word-tag--" + item.tag + "\">" + TAG_LABEL[item.tag] + "</span>"
       : "";
-    var cardClass = "word-card" + (item.tag ? " word-card--" + item.tag : "");
+    var cardClass = "word-card" + (item.tag ? " word-card--" + item.tag : "") +
+      (item.text && item.text.length >= 80 ? " word-card--span3" : item.text && item.text.length >= 30 ? " word-card--span2" : "");
     var srcHtml = item.source
       ? "<div class=\"word-foot\"><div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div></div>"
       : "";
