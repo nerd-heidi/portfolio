@@ -62,16 +62,20 @@
     letter-spacing: 0.05em;
   }
   /* ── grid ── */
-  .word-grid {
-    columns: 3;
-    column-gap: 1.25rem;
+  .word-cols {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
   }
-  @media (max-width: 900px) { .word-grid { columns: 2 } }
-  @media (max-width: 600px) { .word-grid { columns: 1 } }
+  .word-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
   /* ── card ── */
   .word-card {
-    break-inside: avoid;
-    margin-bottom: 1.25rem;
     background: #1a1a1a;
     border: 2px solid #3d3d3d;
     border-radius: 14px;
@@ -245,13 +249,30 @@
           "<span class=\"word-shuffle-count\">" + items.length + " words</span>" +
         "</div>" +
       "</div>" +
-      "<div class=\"word-grid\" id=\"word-grid\"></div>";
-    var grid = document.getElementById("word-grid");
+      "<div id=\"word-cols-wrap\"></div>";
+    var wrap = document.getElementById("word-cols-wrap");
+    var resizeTimer;
+    function getNumCols() {
+      return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+    }
     function renderGrid() {
       var shown = shuffle(items).slice(0, Math.min(10, items.length));
-      grid.innerHTML = shown.map(makeCard).join("");
+      var n = getNumCols();
+      var cols = [];
+      for (var c = 0; c < n; c++) cols.push([]);
+      shown.forEach(function (item, i) { cols[i % n].push(item); });
+      var html = "<div class=\"word-cols\">";
+      cols.forEach(function (col) {
+        html += "<div class=\"word-col\">" + col.map(makeCard).join("") + "</div>";
+      });
+      html += "</div>";
+      wrap.innerHTML = html;
     }
     renderGrid();
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderGrid, 150);
+    });
     document.getElementById("word-refresh").addEventListener("click", function () {
       var btn = this;
       btn.classList.add("spin");
