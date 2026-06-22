@@ -6,7 +6,7 @@
       "tag": "book",
       "image": "",
       "link_url": "https://www.amazon.co.jp/%E9%87%8D%E5%8A%9B%E3%83%94%E3%82%A8%E3%83%AD-%E6%96%B0%E6%BD%AE%E6%96%87%E5%BA%AB-%E4%BC%8A%E5%9D%82%E5%B9%B8%E5%A4%AA%E9%83%8E-ebook/dp/B0096PE3MQ/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=147Y86VUYD1QT&dib=eyJ2IjoiMSJ9.T42FA3PxPqEyiliSkrNTCJFO176T02uqDWppHIkO0zytIuUdAZxyeWOADuROi7UOgvin5wWcMGUz0emF_x2GocyCKKY4dscC5dfjvfEQhwZR5n4Th0af0wvjBHSslbUbmN1vG98GNPrcMC8F0Tej5UACqhsxq7Wio2_0hHH-tr4yvJlQypn6KzJ6syT179Av10GZbG64C16-73TRZzHZ4tkMklLwh8hm1ega_2FsYb0._B3BB2ZD5v8h_9HtEsxmq5B-YR5EDzhsJ1qkSHObfyc&dib_tag=se&keywords=%E9%87%8D%E5%8A%9B%E3%83%94%E3%82%A8%E3%83%AD&qid=1782132901&s=books&sprefix=%E9%87%8D%E5%8A%9B%E3%83%94%E3%82%A8%E3%83%AD%2Cstripbooks%2C164&sr=1-1",
-      "link_label": ""
+      "link_label": "Amazon"
     },
     {
       "text": "この世の中で一番贅沢な娯楽は、誰かを赦すことだ",
@@ -14,7 +14,15 @@
       "tag": "book",
       "image": "",
       "link_url": "https://www.amazon.co.jp/%E9%AD%94%E7%8E%8B-%E8%AC%9B%E8%AB%87%E7%A4%BE%E6%96%87%E5%BA%AB-%E4%BC%8A%E5%9D%82-%E5%B9%B8%E5%A4%AA%E9%83%8E/dp/4062761424",
-      "link_label": ""
+      "link_label": "Amazon"
+    },
+    {
+      "text": "算数は苦手なんだ いまだに大事なとこわかんない だけど言われた通り いつも頭下げて 反対みたいな見た目の人 とも話してしてる乾杯",
+      "source": "Mama's Boy (feat.LEX & 7) - Keiju",
+      "tag": "lyric",
+      "image": "",
+      "link_url": "https://music.apple.com/jp/album/mamas-boy-feat-lex-7-single/1744486079",
+      "link_label": "Apple Music"
     }
   ]
 }
