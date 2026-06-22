@@ -22,9 +22,10 @@
   .picks-filter{padding:5px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;letter-spacing:.03em}
   .picks-filter:hover{background:rgba(255,255,255,.08);color:#fff}
   .picks-filter.active{background:rgba(150,70,180,.22);border-color:rgba(150,70,180,.6);color:#fff}
-  .picks-art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media(max-width:720px){.picks-art-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:400px){.picks-art-grid{grid-template-columns:1fr}}
+  .picks-art-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:900px){.picks-art-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:600px){.picks-art-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:360px){.picks-art-grid{grid-template-columns:1fr}}
   .pick-art-card{display:flex;flex-direction:column}
   .pick-art-link{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:12px;background:#1a1a2e;transition:box-shadow .25s}
   .pick-art-link:hover{box-shadow:0 4px 24px rgba(167,128,255,.3)}
@@ -71,17 +72,14 @@
 
   function getHash() { return location.hash.replace('#', ''); }
 
-  function getTrackId(url) {
-    if (!url) return null;
-    var m = url.match(/[?&]i=(\d+)/);
-    return m ? m[1] : null;
-  }
-
   async function getArtwork(url) {
-    var id = getTrackId(url);
+    if (!url) return null;
+    var trackMatch = url.match(/[?&]i=(\d+)/);
+    var albumMatch = url.match(/\/album\/[^/]+\/(\d+)/);
+    var id = trackMatch ? trackMatch[1] : (albumMatch ? albumMatch[1] : null);
     if (!id) return null;
     try {
-      var r = await fetch('https://itunes.apple.com/lookup?id=' + id);
+      var r = await fetch('https://itunes.apple.com/lookup?id=' + id + '&country=jp');
       var d = await r.json();
       if (d.results && d.results[0]) {
         var art = d.results[0].artworkUrl100 || null;
