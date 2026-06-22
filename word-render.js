@@ -256,7 +256,7 @@
       return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
     }
     function renderGrid() {
-      var shown = shuffle(items).slice(0, Math.min(10, items.length));
+      var shown = shuffle(items).slice(0, Math.min(15, items.length));
       var n = getNumCols();
       var cols = [];
       for (var c = 0; c < n; c++) cols.push([]);
