@@ -92,18 +92,31 @@
   }
   .word-tag {
     display: inline-block;
-    font-size: 0.62rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.2rem 0.6rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 999px;
+    border: 1px solid rgba(167,128,255,0.4);
     background: rgba(167,128,255,0.18);
     color: #c0a0ff;
     align-self: center;
   }
+  .word-tag--lyric { background: rgba(167,128,255,0.22); color: #c8aaff; border-color: rgba(167,128,255,0.55); }
+  .word-tag--quote { background: rgba(255,195,80,0.18);  color: #ffc84a; border-color: rgba(255,195,80,0.5); }
+  .word-tag--movie { background: rgba(255,95,85,0.18);   color: #ff8878; border-color: rgba(255,95,85,0.5); }
+  .word-tag--book  { background: rgba(65,200,145,0.18);  color: #4ed49a; border-color: rgba(65,200,145,0.5); }
+  .word-tag--anime { background: rgba(75,165,255,0.18);  color: #66b3ff; border-color: rgba(75,165,255,0.5); }
+  .word-tag--other { background: rgba(155,155,155,0.15); color: #b5b5b5; border-color: rgba(155,155,155,0.45); }
+  .word-card--lyric { border-color: rgba(167,128,255,0.45); }
+  .word-card--quote { border-color: rgba(255,195,80,0.4); }
+  .word-card--movie { border-color: rgba(255,95,85,0.4); }
+  .word-card--book  { border-color: rgba(65,200,145,0.4); }
+  .word-card--anime { border-color: rgba(75,165,255,0.4); }
+  .word-card--other { border-color: rgba(155,155,155,0.38); }
   .word-text {
-    font-size: 1.95rem;
+    font-size: 1.56rem;
     line-height: 2;
     color: #f5f5f5;
     font-family: "Yu Gothic", "游ゴシック", YuGothic, sans-serif;
@@ -163,12 +176,13 @@
 
   function makeCard(item) {
     var tagHtml = (item.tag && TAG_LABEL[item.tag])
-      ? "<span class=\"word-tag\">" + TAG_LABEL[item.tag] + "</span>"
+      ? "<span class=\"word-tag word-tag--" + item.tag + "\">" + TAG_LABEL[item.tag] + "</span>"
       : "";
+    var cardClass = "word-card" + (item.tag ? " word-card--" + item.tag : "");
     var srcHtml = item.source
       ? "<div class=\"word-foot\"><div class=\"word-src\"><span class=\"word-src-line\"></span><span class=\"word-src-text\">" + esc(item.source) + "</span></div></div>"
       : "";
-    return "<div class=\"word-card\">" +
+    return "<div class=\"" + cardClass + "\">" +
       "<div class=\"word-card-head\"><span class=\"word-qmark\">\u201C</span>" + tagHtml + "</div>" +
       "<p class=\"word-text\">" + esc(item.text) + "</p>" +
       srcHtml +
