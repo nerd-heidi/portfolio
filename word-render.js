@@ -104,11 +104,12 @@
     flex-shrink: 0;
     width: 1.1rem;
     height: 1px;
-    background: rgba(167,128,255,0.55);
+    background: rgba(167,128,255,0.75);
   }
   .word-src-text {
-    font-size: 0.78rem;
-    color: #999;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #c0c0c0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
