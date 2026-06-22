@@ -228,7 +228,7 @@
     if (!section) return;
     var data;
     try {
-      var res = await fetch("/_data/word.json?v=" + Date.now());
+      var res = await fetch("/_data/word.json");
       if (!res.ok) throw new Error();
       data = await res.json();
     } catch (_) {
@@ -243,7 +243,7 @@
     section.innerHTML =
       "<div class=\"word-hero\">" +
         "<button class=\"word-melody-btn\" id=\"word-refresh\" aria-label=\"Shuffle\">" +
-          "<img class=\"word-melody-img\" src=\"/images/Melody-shuffle.png\" alt=\"Melody\" />" +
+          "<img class=\"word-melody-img\" src=\"/images/Melody-shuffle.png\" alt=\"Melody\" decoding=\"async\" width=\"260\" />" +
         "</button>" +
         "<div class=\"word-hero-meta\">" +
           "<span class=\"word-shuffle-label\">Shuffle</span>" +

@@ -6,6 +6,8 @@
   <title>Word | NERD Life</title>
   <meta name="description" content="好きな言葉・歌詞のコレクション。心に刺さったフレーズをジャンルごとに。" />
   <link rel="stylesheet" href="/style.css" />
+  <link rel="preload" href="/_data/word.json" as="fetch" crossorigin />
+  <link rel="preload" href="/images/Melody-shuffle.png" as="image" />
   <script src="/loader.js"></script>
   <link rel="icon" type="image/png" href="/images/favicon2.png" />
   <link rel="apple-touch-icon" href="/images/favicon2.png" />
@@ -63,10 +65,10 @@
   <p class="footer-copy">&#169; 2026 NERD Life. All Rights Reserved.</p>
 </footer>
 
-  <script src="/word-render.js"></script>
-  <script src="/script.js"></script>
-  <script src="/chatbot.js"></script>
-  <script src="/chatbot-seeno.js"></script>
-  <script src="/back-to-top.js"></script>
+  <script src="/word-render.js" defer></script>
+  <script src="/script.js" defer></script>
+  <script src="/chatbot.js" defer></script>
+  <script src="/chatbot-seeno.js" defer></script>
+  <script src="/back-to-top.js" defer></script>
 </body>
 </html>
