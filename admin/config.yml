@@ -408,6 +408,23 @@ collections:
               - {name: link_url,   label: "リンクURL",       widget: string, required: false, hint: "Apple Music / Amazon などのURL（任意）"}
               - {name: link_label, label: "リンクテキスト",  widget: string, required: false, hint: "ボタン表示テキスト（例: Apple Music）"}
 
+  - name: artwork
+    label: "🎨 Artwork Shuffle"
+    files:
+      - name: artwork_data
+        label: アートワークを編集
+        file: _data/artwork.json
+        format: json
+        fields:
+          - name: items
+            label: アートワークリスト
+            widget: list
+            label_singular: アートワーク
+            fields:
+              - {name: apple_music_url, label: "Apple Music URL", widget: string}
+              - {name: title,  label: "タイトル（任意）", widget: string, required: false}
+              - {name: artist, label: "アーティスト（任意）", widget: string, required: false}
+
   - name: cm
     label: "🎥 CM"
     files:

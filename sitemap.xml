@@ -24,4 +24,5 @@
   <url><loc>https://nerd-heidi.com/quiz/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nerd-heidi.com/picks/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://nerd-heidi.com/word/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nerd-heidi.com/artwork-shuffle/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
