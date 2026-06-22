@@ -19,6 +19,14 @@
     },
     {
       "number": "03",
+      "title": "新譜ピックアップ",
+      "description": "その月に聴いた新曲・MV・気になった音楽を毎月更新。",
+      "image": "/images/music.png",
+      "url": "/picks/",
+      "size": "regular"
+    },
+    {
+      "number": "04",
       "title": "My Beat (FL Studio)",
       "description": "自作ビート",
       "image": "/images/My Beat.png",
@@ -26,7 +34,7 @@
       "size": "regular"
     },
     {
-      "number": "04",
+      "number": "05",
       "title": "Anime",
       "description": "好きなアニメ、キャラクター、感想。",
       "image": "/images/anime.png",
@@ -34,7 +42,7 @@
       "size": "regular"
     },
     {
-      "number": "05",
+      "number": "06",
       "title": "My Photo",
       "description": "日常、街、ライブ、記録としての写真。",
       "image": "/images/Photo.png",
@@ -42,7 +50,7 @@
       "size": "wide"
     },
     {
-      "number": "06",
+      "number": "07",
       "title": "Book",
       "description": "好きな本、影響を受けた言葉、読書メモ。",
       "image": "/images/book.png",
@@ -50,7 +58,7 @@
       "size": "regular"
     },
     {
-      "number": "07",
+      "number": "08",
       "title": "Work",
       "description": "仕事、経験、スキル、プロジェクト。",
       "image": "/images/work.png",
@@ -58,7 +66,7 @@
       "size": "regular"
     },
     {
-      "number": "08",
+      "number": "09",
       "title": "AI 実験室",
       "description": "AI 実験",
       "image": "/images/AI.png",
@@ -66,7 +74,7 @@
       "size": "regular"
     },
     {
-      "number": "09",
+      "number": "10",
       "title": "Idol",
       "description": "推し、楽曲、MV、ライブ感想。",
       "image": "/images/idol.png",
@@ -74,7 +82,7 @@
       "size": "regular"
     },
     {
-      "number": "10",
+      "number": "11",
       "title": "Game",
       "description": "好きなゲーム、思い出、実績、プレイ記録。",
       "image": "/images/Game.png",
@@ -82,7 +90,7 @@
       "size": "wide"
     },
     {
-      "number": "11",
+      "number": "12",
       "title": "Movie",
       "description": "好きな映画、レビュー、ランキング。",
       "image": "/images/movie.png",
@@ -90,7 +98,7 @@
       "size": "regular"
     },
     {
-      "number": "12",
+      "number": "13",
       "title": "Food",
       "description": "グルメ、好きな料理、お店の記録。",
       "image": "/images/food.png",
@@ -98,7 +106,7 @@
       "size": "regular"
     },
     {
-      "number": "13",
+      "number": "14",
       "title": "YouTube",
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
@@ -106,7 +114,7 @@
       "size": "wide"
     },
     {
-      "number": "14",
+      "number": "15",
       "title": "CM",
       "description": "好きなCM、映像表現、印象に残ったビ芸。",
       "image": "/images/cm.png",
@@ -114,7 +122,7 @@
       "size": "regular"
     },
     {
-      "number": "15",
+      "number": "16",
       "title": "About ChatBot Character",
       "description": "MelodyとSeenoのAIミュージックコンパニオン。",
       "image": "/images/Character.png",
@@ -122,7 +130,7 @@
       "size": "regular"
     },
     {
-      "number": "16",
+      "number": "17",
       "title": "Music Choice",
       "description": "気分診断。MelodyかSeenoがぴったりの音楽を提案します。",
       "image": "/images/choice.png",
