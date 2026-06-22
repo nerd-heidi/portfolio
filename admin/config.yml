@@ -376,6 +376,35 @@ collections:
               - {name: youtube_id,  label: YouTube動画ID,  widget: string, hint: "URLの ?v= 以降（例: dQw4w9WgXcQ）"}
               - {name: description, label: 説明文,          widget: text, required: false}
 
+  - name: word
+    label: "✍️ Word"
+    files:
+      - name: word_data
+        label: 言葉・歌詞を編集
+        file: _data/word.json
+        format: json
+        fields:
+          - name: items
+            label: 言葉・歌詞リスト
+            widget: list
+            label_singular: エントリー
+            summary: "{{fields.source}} — {{fields.text}}"
+            fields:
+              - {name: text,   label: "言葉・歌詞",  widget: text}
+              - {name: source, label: "出典（例: アーティスト名 / 曲名）", widget: string, required: false}
+              - name: tag
+                label: カテゴリ
+                widget: select
+                required: false
+                default: "lyric"
+                options:
+                  - {label: "歌詞 (Lyric)",  value: "lyric"}
+                  - {label: "名言 (Quote)",  value: "quote"}
+                  - {label: "映画 (Movie)",  value: "movie"}
+                  - {label: "本 (Book)",     value: "book"}
+                  - {label: "アニメ (Anime)", value: "anime"}
+                  - {label: "その他 (Other)", value: "other"}
+
   - name: cm
     label: "🎥 CM"
     files:
