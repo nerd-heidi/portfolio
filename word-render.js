@@ -1,86 +1,68 @@
 (function () {
   var css = `
   #word-section { padding: 0 0 5rem }
-  /* shuffle hero */
-  .word-shuffle-hero {
-    display: flex;
-    align-items: stretch;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(167,128,255,0.25);
-  }
-  .word-melody-panel {
-    background: rgba(255,255,255,0.93);
-    width: 120px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 0.5rem 0.5rem 0;
-  }
-  .word-melody-img {
-    width: 100px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-  .word-shuffle-content {
-    flex: 1;
-    background: rgba(167,128,255,0.08);
-    padding: 1.75rem 2rem;
+  /* ── hero ── */
+  .word-hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 0.65rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 0.55rem;
   }
-  .word-shuffle-count {
-    font-size: 0.8rem;
-    color: #aaa;
-    letter-spacing: 0.06em;
+  .word-melody-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+    transition: transform 0.25s ease;
   }
-  .word-refresh {
-    display: inline-flex;
+  .word-melody-btn:hover { transform: scale(1.06) translateY(-5px) }
+  .word-melody-btn:active { transform: scale(0.95) }
+  .word-melody-img {
+    width: 220px;
+    height: auto;
+    display: block;
+  }
+  @keyframes melody-bounce {
+    0%   { transform: scale(1) rotate(0deg) }
+    30%  { transform: scale(0.91) rotate(-7deg) }
+    65%  { transform: scale(1.09) rotate(3deg) }
+    100% { transform: scale(1) rotate(0deg) }
+  }
+  .word-melody-btn.spin .word-melody-img {
+    animation: melody-bounce 0.5s ease;
+  }
+  .word-hero-meta {
+    display: flex;
     align-items: center;
     gap: 0.65rem;
-    padding: 0.8rem 2rem;
-    border-radius: 999px;
-    background: rgba(167,128,255,0.2);
-    border: 1.5px solid rgba(167,128,255,0.55);
-    color: #d4bcff;
-    font-size: 1rem;
+  }
+  .word-shuffle-label {
+    font-size: 0.78rem;
     font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 0.04em;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-    width: fit-content;
-    white-space: nowrap;
+    letter-spacing: 0.12em;
+    color: #c4a8ff;
+    text-transform: uppercase;
   }
-  .word-refresh:hover {
-    background: rgba(167,128,255,0.35);
-    border-color: rgba(167,128,255,0.8);
-    color: #ecdeff;
+  .word-hero-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #555;
   }
-  .word-refresh svg { transition: transform 0.5s ease }
-  .word-refresh.spin svg { transform: rotate(360deg) }
-  .word-shuffle-hint {
-    font-size: 0.73rem;
-    color: #888;
-    letter-spacing: 0.04em;
+  .word-shuffle-count {
+    font-size: 0.78rem;
+    color: #777;
+    letter-spacing: 0.05em;
   }
-  @media (max-width: 480px) {
-    .word-melody-panel { width: 86px }
-    .word-melody-img { width: 74px }
-    .word-shuffle-content { padding: 1.25rem 1.25rem }
-    .word-refresh { font-size: 0.88rem; padding: 0.7rem 1.4rem }
-  }
-  /* grid: CSS columns for natural height per card */
+  /* ── grid ── */
   .word-grid {
     columns: 2;
     column-gap: 1.25rem;
   }
   @media (max-width: 640px) { .word-grid { columns: 1 } }
-  /* card */
+  /* ── card ── */
   .word-card {
     break-inside: avoid;
     margin-bottom: 1.25rem;
@@ -121,8 +103,8 @@
     align-self: center;
   }
   .word-text {
-    font-size: 1.15rem;
-    line-height: 1.95;
+    font-size: 1.3rem;
+    line-height: 2;
     color: #f5f5f5;
     font-style: italic;
     margin: 0 0 1.2rem;
@@ -138,7 +120,7 @@
   .word-src {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.5rem;
     min-width: 0;
   }
   .word-src-line {
@@ -148,9 +130,9 @@
     background: rgba(167,128,255,0.8);
   }
   .word-src-text {
-    font-size: 0.84rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    color: #d0d0d0;
+    color: #d5d5d5;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -239,17 +221,14 @@
       return;
     }
     section.innerHTML =
-      "<div class=\"word-shuffle-hero\">" +
-        "<div class=\"word-melody-panel\">" +
-          "<img class=\"word-melody-img\" src=\"/images/chatbot-char.png\" alt=\"Melody\" />" +
-        "</div>" +
-        "<div class=\"word-shuffle-content\">" +
+      "<div class=\"word-hero\">" +
+        "<button class=\"word-melody-btn\" id=\"word-refresh\" aria-label=\"Shuffle\">" +
+          "<img class=\"word-melody-img\" src=\"/images/Melody-shuffle.png\" alt=\"Melody\" />" +
+        "</button>" +
+        "<div class=\"word-hero-meta\">" +
+          "<span class=\"word-shuffle-label\">Shuffle</span>" +
+          "<span class=\"word-hero-dot\"></span>" +
           "<span class=\"word-shuffle-count\">" + items.length + " words</span>" +
-          "<button class=\"word-refresh\" id=\"word-refresh\">" +
-            "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"1 4 1 10 7 10\"/><path d=\"M3.51 15a9 9 0 1 0 .49-4.95\"/></svg>" +
-            "Shuffle" +
-          "</button>" +
-          "<span class=\"word-shuffle-hint\">\u6700\u592710\u4ef6\u3092\u30e9\u30f3\u30c0\u30e0\u8868\u793a</span>" +
         "</div>" +
       "</div>" +
       "<div class=\"word-grid\" id=\"word-grid\"></div>";
@@ -259,11 +238,11 @@
       grid.innerHTML = shown.map(makeCard).join("");
     }
     renderGrid();
-    document.getElementById("word-refresh").addEventListener("click", function() {
+    document.getElementById("word-refresh").addEventListener("click", function () {
       var btn = this;
       btn.classList.add("spin");
       renderGrid();
-      setTimeout(function() { btn.classList.remove("spin"); }, 500);
+      setTimeout(function () { btn.classList.remove("spin"); }, 500);
     });
   }
 
