@@ -211,6 +211,28 @@ footer {
   z-index: 1;
 }
 
+.hero-video-float {
+  position: absolute;
+  right: clamp(48px, 8vw, 140px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 24vw, 380px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.12);
+  z-index: 2;
+}
+
+.hero-video-float video {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .hero-video-float { display: none; }
+}
+
 .eyebrow {
   margin: 0 0 24px;
   color: #a780ff;
