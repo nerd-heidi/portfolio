@@ -144,14 +144,6 @@
       "image": "/images/choice.png",
       "url": "/quiz/",
       "size": "wide"
-    },
-    {
-      "number": "19",
-      "title": "Artwork Shuffle",
-      "description": "お気に入りのアルバムアートワークをランダムに表示。",
-      "image": "/images/Shuffle3.png",
-      "url": "/artwork-shuffle/",
-      "size": "wide"
     }
   ]
 }
