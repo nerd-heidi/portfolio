@@ -214,8 +214,7 @@ footer {
 .hero-video-float {
   position: absolute;
   right: 220px;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 32px;
   width: clamp(240px, 22vw, 360px);
   border-radius: 16px;
   overflow: hidden;
@@ -230,7 +229,16 @@ footer {
 }
 
 @media (max-width: 860px) {
-  .hero-video-float { display: none; }
+  .hero {
+    padding-bottom: 220px;
+  }
+  .hero-video-float {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    width: min(300px, 80vw);
+  }
 }
 
 .eyebrow {
