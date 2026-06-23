@@ -69,6 +69,17 @@
           "youtube_id": "",
           "comment": "",
           "character": "melody"
+        },
+        {
+          "track_title": "Lazy",
+          "artist": "J",
+          "genres": [
+            "hip-hop"
+          ],
+          "apple_music_url": "https://music.apple.com/jp/album/lazy-single/6774020553",
+          "youtube_id": "",
+          "comment": "",
+          "character": "melody"
         }
       ]
     }
