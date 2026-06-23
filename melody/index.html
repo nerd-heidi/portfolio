@@ -273,12 +273,16 @@
     }
     .comp-video-wrap {
       position: relative;
+      aspect-ratio: 16 / 9;
       border-radius: 20px; overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,.7);
       border: 1px solid rgba(255,255,255,.1);
+      background: #000;
     }
     .comp-video-wrap video {
-      width: 100%; display: block;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; display: block;
     }
     .comp-video-label {
       text-align: center; margin-top: 16px;
