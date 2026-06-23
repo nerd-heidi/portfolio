@@ -264,9 +264,16 @@
     .comp-video-section {
       padding: 0 24px 80px;
     }
+    .comp-video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
     .comp-video-wrap {
-      max-width: 860px; margin: 0 auto; position: relative;
-      border-radius: 24px; overflow: hidden;
+      position: relative;
+      border-radius: 20px; overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,.7);
       border: 1px solid rgba(255,255,255,.1);
     }
@@ -277,6 +284,9 @@
       text-align: center; margin-top: 16px;
       font-size: 11px; font-weight: 700; letter-spacing: .16em;
       text-transform: uppercase; color: rgba(255,255,255,.3);
+    }
+    @media (max-width: 680px) {
+      .comp-video-grid { grid-template-columns: 1fr; }
     }
 
     /* ===== RESPONSIVE ===== */
@@ -341,8 +351,13 @@
 
     <!-- ── VIDEO SHOWCASE ── -->
     <div class="comp-video-section">
-      <div class="comp-video-wrap">
-        <video src="/images/melody and seeno.mp4" controls autoplay muted loop playsinline></video>
+      <div class="comp-video-grid">
+        <div class="comp-video-wrap">
+          <video src="/images/melody and seeno.mp4" controls autoplay muted loop playsinline></video>
+        </div>
+        <div class="comp-video-wrap">
+          <video src="/images/melody &amp; seeno2.mp4" controls muted loop playsinline></video>
+        </div>
       </div>
       <p class="comp-video-label">✦ Melody &amp; Seeno — AI Music Companions</p>
     </div>
