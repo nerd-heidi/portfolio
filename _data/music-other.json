@@ -6,30 +6,35 @@
       "description": ""
     },
     {
-      "title": "BOOM BOOM SATELLITES / BACK ON MY FEET",
+      "title": "嚩ᴴᴬᴷᵁ - Traveling Night",
+      "youtube_id": "a8DGtuF9ng",
+      "description": ""
+    },
+    {
+      "title": "BOOM BOOM SATELLITES - BACK ON MY FEET",
       "youtube_id": "SpT5PXTgQHo",
       "description": ""
     },
     {
-      "title": "粛聖!! ロリ神レクイエム☆ / しぐれうい（9さい）",
+      "title": "粛聖!! ロリ神レクイエム☆ - しぐれうい（9さい）",
       "youtube_id": "Ci_zad39Uhw",
       "description": ""
     }
   ],
-  "artists": [
-    {
-      "title": "アーティスト名",
-      "description": "説明文をここに書いてください。",
-      "image": "",
-      "tags": []
-    }
-  ],
   "albums": [
     {
-      "title": "アルバム名",
-      "description": "アルバムの説明や感想。",
+      "tags": [],
       "image": "",
-      "tags": []
+      "description": "アルバムの説明や感想。",
+      "title": "アルバム名"
+    }
+  ],
+  "artists": [
+    {
+      "tags": [],
+      "image": "",
+      "description": "説明文をここに書いてください。",
+      "title": "アーティスト名"
     }
   ]
 }
