@@ -1,20 +1,20 @@
 {
   "beats": [
     {
-      "title": "0607",
-      "audio": "/audio/0607.mp3"
-    },
-    {
-      "title": "0620",
-      "audio": "/audio/0623.mp3"
+      "title": "0000",
+      "audio": "/audio/Bubble Bubble.wav"
     },
     {
       "title": "0621",
       "audio": "/audio/0624.mp3"
     },
     {
-      "title": "0000",
-      "audio": "/audio/Bubble Bubble.wav"
+      "title": "0607",
+      "audio": "/audio/0607.mp3"
+    },
+    {
+      "title": "0620",
+      "audio": "/audio/0623.mp3"
     }
   ]
 }
