@@ -10,24 +10,25 @@
   transform: translateX(-50%);\
   display: flex;\
   align-items: center;\
-  gap: 6px;\
-  background: rgba(167,128,255,0.08);\
-  border: 1px solid rgba(167,128,255,0.22);\
+  gap: 10px;\
+  background: rgba(255,255,255,0.06);\
+  border: 1px solid rgba(255,255,255,0.2);\
   border-radius: 999px;\
-  padding: 7px 18px 7px 10px;\
+  padding: 8px 24px 8px 12px;\
+  min-width: 320px;\
   transition: border-color 0.2s ease;\
 }\
 #header-player.hp-playing {\
-  border-color: rgba(167,128,255,0.55);\
+  border-color: rgba(255,255,255,0.45);\
 }\
 .hp-btn {\
   flex-shrink: 0;\
   width: 36px;\
   height: 36px;\
   border-radius: 50%;\
-  border: 1px solid rgba(167,128,255,0.4);\
-  background: rgba(167,128,255,0.18);\
-  color: #e0cfff;\
+  border: 1px solid rgba(255,255,255,0.35);\
+  background: rgba(255,255,255,0.1);\
+  color: #fff;\
   cursor: pointer;\
   display: flex;\
   align-items: center;\
@@ -36,8 +37,8 @@
   padding: 0;\
 }\
 .hp-btn:hover {\
-  background: rgba(167,128,255,0.38);\
-  border-color: rgba(167,128,255,0.8);\
+  background: rgba(255,255,255,0.25);\
+  border-color: rgba(255,255,255,0.7);\
   transform: scale(1.12);\
 }\
 .hp-btn svg {\
@@ -48,13 +49,13 @@
 #hp-play {\
   width: 44px;\
   height: 44px;\
-  background: rgba(167,128,255,0.35);\
-  border-color: rgba(167,128,255,0.7);\
+  background: rgba(255,255,255,0.22);\
+  border-color: rgba(255,255,255,0.6);\
   color: #fff;\
 }\
 #hp-play:hover {\
-  background: rgba(167,128,255,0.6);\
-  border-color: #a780ff;\
+  background: rgba(255,255,255,0.38);\
+  border-color: #fff;\
 }\
 #hp-play svg {\
   width: 17px;\
@@ -67,19 +68,19 @@
 }\
 #hp-title {\
   display: block;\
-  font-size: 11px;\
+  font-size: 26px;\
   font-weight: 700;\
-  color: #c9a8ff;\
+  color: #fff;\
   white-space: nowrap;\
   overflow: hidden;\
   text-overflow: ellipsis;\
-  letter-spacing: 0.01em;\
-  line-height: 1.3;\
+  letter-spacing: -0.02em;\
+  line-height: 1.2;\
 }\
 #hp-artist {\
   display: block;\
-  font-size: 10px;\
-  color: rgba(255,255,255,0.38);\
+  font-size: 13px;\
+  color: rgba(255,255,255,0.5);\
   white-space: nowrap;\
   overflow: hidden;\
   text-overflow: ellipsis;\
