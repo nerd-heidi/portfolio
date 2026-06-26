@@ -51,3 +51,10 @@ document.addEventListener('click', function(e) {
     });
   });
 })();
+
+// Header player（Concept Music）
+(function () {
+  var s = document.createElement('script');
+  s.src = '/header-player.js';
+  document.head.appendChild(s);
+})();
