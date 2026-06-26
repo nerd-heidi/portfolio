@@ -29,7 +29,7 @@ async function renderTopPage() {
   if (!grid || !data.cards) return;
 
   grid.innerHTML = data.cards.map(card => {
-    const sizeClass = card.size === 'large' ? 'large' : card.size === 'wide' ? 'wide' : '';
+    const sizeClass = card.size === 'large' ? 'large' : card.size === 'wide' ? 'wide' : card.size === 'full' ? 'full' : '';
     return `
       <a class="topic-card${sizeClass ? ' ' + sizeClass : ''}" href="${escapeHtml(safeUrl(card.url))}">
         <img src="${escapeHtml(safeUrl(card.image))}" alt="${escapeHtml(card.title)}" loading="lazy">

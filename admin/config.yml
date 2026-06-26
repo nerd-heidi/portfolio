@@ -37,6 +37,7 @@ collections:
                   - {label: "通常", value: "regular"}
                   - {label: "大（2×2）", value: "large"}
                   - {label: "横長（2×1）", value: "wide"}
+                  - {label: "全幅（4×2）", value: "full"}
 
   - name: music
     label: "🎵 Favorite Music"

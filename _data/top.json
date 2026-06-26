@@ -10,20 +10,20 @@
       "size": "large"
     },
     {
-      "number": "00",
-      "title": "Concept Music",
-      "description": "自作の楽曲とイラストワーク。音楽とビジュアルで表現するオリジナル世界観。",
-      "image": "/images/concept-music.png",
-      "url": "/concept-music/",
-      "size": "large"
-    },
-    {
       "number": "02",
       "title": "Playlist",
       "description": "Apple Music で公開しているプレイリストのアートワークギャラリー。",
       "image": "/images/Playlist.png",
       "url": "/playlist/",
       "size": "large"
+    },
+    {
+      "number": "00",
+      "title": "Concept Music",
+      "description": "自作の楽曲とイラストワーク。音楽とビジュアルで表現するオリジナル世界観。",
+      "image": "/images/concept-music.png",
+      "url": "/concept-music/",
+      "size": "full"
     },
     {
       "number": "03",
