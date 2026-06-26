@@ -29,7 +29,7 @@ a {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 10;
-  height: 82px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,16 +41,16 @@ a {
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 42px;
   font-weight: 900;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   white-space: nowrap;
 }
 
 nav {
   display: flex;
-  gap: 28px;
-  font-size: 14px;
+  gap: 36px;
+  font-size: 26px;
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -117,7 +117,7 @@ nav a.current::after {
 main {
   width: min(1800px, calc(100% - 96px));
   margin: 0 auto;
-  padding-top: 130px;
+  padding-top: 148px;
 }
 
 footer {
@@ -1081,7 +1081,7 @@ h1 {
   nav {
     display: none;
     position: fixed;
-    top: 82px;
+    top: 100px;
     left: 0;
     right: 0;
     flex-direction: column;

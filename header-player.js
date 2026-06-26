@@ -5,16 +5,16 @@
   var style = document.createElement('style');
   style.textContent = '\
 #header-player {\
+  position: absolute;\
+  left: 50%;\
+  transform: translateX(-50%);\
   display: flex;\
   align-items: center;\
   gap: 6px;\
   background: rgba(167,128,255,0.08);\
   border: 1px solid rgba(167,128,255,0.22);\
   border-radius: 999px;\
-  padding: 5px 14px 5px 8px;\
-  flex-shrink: 1;\
-  min-width: 0;\
-  max-width: 240px;\
+  padding: 7px 18px 7px 10px;\
   transition: border-color 0.2s ease;\
 }\
 #header-player.hp-playing {\
@@ -119,11 +119,8 @@
         '<span id="hp-artist"></span>' +
       '</div>';
 
-    if (menuToggle) {
-      header.insertBefore(player, menuToggle);
-    } else {
-      header.appendChild(player);
-    }
+    // 絶対中央配置のため DOM の末尾に追加
+    header.appendChild(player);
 
     var tracks = [];
     var current = 0;
