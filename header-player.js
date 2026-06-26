@@ -22,27 +22,43 @@
 }\
 .hp-btn {\
   flex-shrink: 0;\
-  width: 28px;\
-  height: 28px;\
+  width: 36px;\
+  height: 36px;\
   border-radius: 50%;\
-  border: none;\
-  background: rgba(167,128,255,0.12);\
-  color: #a780ff;\
+  border: 1px solid rgba(167,128,255,0.4);\
+  background: rgba(167,128,255,0.18);\
+  color: #e0cfff;\
   cursor: pointer;\
   display: flex;\
   align-items: center;\
   justify-content: center;\
-  transition: background 0.18s ease, transform 0.15s ease;\
+  transition: background 0.18s ease, transform 0.15s ease, border-color 0.18s ease;\
   padding: 0;\
 }\
 .hp-btn:hover {\
-  background: rgba(167,128,255,0.3);\
-  transform: scale(1.1);\
+  background: rgba(167,128,255,0.38);\
+  border-color: rgba(167,128,255,0.8);\
+  transform: scale(1.12);\
 }\
 .hp-btn svg {\
-  width: 11px;\
-  height: 11px;\
+  width: 14px;\
+  height: 14px;\
   display: block;\
+}\
+#hp-play {\
+  width: 44px;\
+  height: 44px;\
+  background: rgba(167,128,255,0.35);\
+  border-color: rgba(167,128,255,0.7);\
+  color: #fff;\
+}\
+#hp-play:hover {\
+  background: rgba(167,128,255,0.6);\
+  border-color: #a780ff;\
+}\
+#hp-play svg {\
+  width: 17px;\
+  height: 17px;\
 }\
 #hp-info {\
   flex: 1;\
