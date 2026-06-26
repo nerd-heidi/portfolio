@@ -20,6 +20,13 @@
       "audio": "/audio/朝焼けの川沿い.wav",
       "artwork": "/images/yukka morning.png",
       "description": ""
+    },
+    {
+      "title": "reocrds shop",
+      "artist": "",
+      "audio": "/audio/午後のレコード屋.wav",
+      "artwork": "/images/yukka tower records.png",
+      "description": ""
     }
   ]
 }
