@@ -2,6 +2,14 @@
   "hero_image": "/images/HIPHOP.png",
   "cards": [
     {
+      "number": "00",
+      "title": "Concept Music",
+      "description": "自作の楽曲とイラストワーク。音楽とビジュアルで表現するオリジナル世界観。",
+      "image": "/images/yukka2.png",
+      "url": "/concept-music/",
+      "size": "full"
+    },
+    {
       "number": "01",
       "title": "Music",
       "description": "好きな音楽、アーティスト、アルバム、プレイリスト。",
@@ -16,14 +24,6 @@
       "image": "/images/Playlist.png",
       "url": "/playlist/",
       "size": "large"
-    },
-    {
-      "number": "00",
-      "title": "Concept Music",
-      "description": "自作の楽曲とイラストワーク。音楽とビジュアルで表現するオリジナル世界観。",
-      "image": "/images/yukka2.png",
-      "url": "/concept-music/",
-      "size": "full"
     },
     {
       "number": "03",
