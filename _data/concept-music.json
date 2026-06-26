@@ -1,11 +1,11 @@
 {
   "tracks": [
     {
-      "title": "Sample Track",
+      "title": "Midnight Window",
       "artist": "",
-      "audio": "/audio/sample.wav",
-      "artwork": "/images/concept-music/sample.png",
-      "description": "ここに曲の説明やコンセプトを入力してください。"
+      "audio": "/audio/今日もまた針が落ちる.wav",
+      "artwork": "/images/yukka03.png",
+      "description": ""
     }
   ]
 }
