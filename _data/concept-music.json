@@ -2,9 +2,14 @@
   "tracks": [
     {
       "title": "Midnight Window",
-      "artist": "",
       "audio": "/audio/今日もまた針が落ちる.wav",
       "artwork": "/images/yukka03.png",
+      "description": ""
+    },
+    {
+      "title": "Crossing Lights",
+      "audio": "/audio/ネオン・レコード・ナイト.wav",
+      "artwork": "/images/yukka5.png",
       "description": ""
     }
   ]
