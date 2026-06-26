@@ -191,7 +191,7 @@ footer {
   position: relative;
   background-image: url('/images/hero-bg.png');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   padding-left: calc(50vw - min(900px, 50vw - 48px));
