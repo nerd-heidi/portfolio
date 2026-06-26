@@ -111,7 +111,7 @@
       "description": "好きな映画、レビュー、ランキング。",
       "image": "/images/movie.png",
       "url": "/movie/",
-      "size": "regular"
+      "size": "wide"
     },
     {
       "number": "14",
@@ -127,7 +127,7 @@
       "description": "お気に入りの動画、チャンネル、ループ再生している映像。",
       "image": "/images/youtube.png",
       "url": "/youtube/",
-      "size": "wide"
+      "size": "regular"
     },
     {
       "number": "16",
