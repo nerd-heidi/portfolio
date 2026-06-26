@@ -768,22 +768,21 @@ h1 {
 }
 
 /* ===== CONCEPT MUSIC ===== */
-.cm-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.cm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   margin-bottom: 80px;
 }
 
 .cm-track {
-  display: flex;
-  gap: 24px;
-  padding: 20px;
   background: #0e0e0e;
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 18px;
+  border-radius: 20px;
+  overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 
 .cm-track:hover {
@@ -795,35 +794,47 @@ h1 {
   box-shadow: 0 0 32px rgba(120, 70, 255, 0.15);
 }
 
-.cm-artwork {
-  flex-shrink: 0;
-  width: 160px;
-  height: 160px;
-  border-radius: 12px;
-  object-fit: cover;
+.cm-artwork-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   background: #1a1a1a;
 }
 
+.cm-artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.cm-track:hover .cm-artwork {
+  transform: scale(1.04);
+}
+
 .cm-artwork--placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .cm-artwork--placeholder svg {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
 }
 
 .cm-info {
-  flex: 1;
-  min-width: 0;
+  padding: 18px 20px 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-top: 4px;
+  gap: 3px;
+  flex: 1;
 }
 
 .cm-track-number {
@@ -836,24 +847,32 @@ h1 {
 
 .cm-title {
   display: block;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.2;
+  margin: 2px 0 0;
+}
+
+.cm-artist {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 2px 0 4px;
 }
 
 .cm-desc {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.38);
   line-height: 1.65;
-  margin: 4px 0 8px;
+  margin: 6px 0 10px;
 }
 
 .cm-player {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin-top: auto;
+  padding-top: 14px;
 }
 
 .cm-play {
@@ -888,7 +907,7 @@ h1 {
 .cm-progress-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex: 1;
 }
 
@@ -922,16 +941,9 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 600px) {
-  .cm-track {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .cm-artwork {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
+@media (max-width: 700px) {
+  .cm-grid {
+    grid-template-columns: 1fr;
   }
 }
 

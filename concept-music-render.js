@@ -37,7 +37,11 @@ async function renderConceptMusicPage() {
     const hasArtwork = t.artwork && t.artwork.trim();
     const artworkHtml = hasArtwork
       ? `<img class="cm-artwork" src="${escapeHtml(t.artwork)}" alt="${escapeHtml(t.title)}" loading="lazy" />`
-      : `<div class="cm-artwork cm-artwork--placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12-3c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg></div>`;
+      : `<div class="cm-artwork--placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12-3c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg></div>`;
+
+    const artistHtml = t.artist
+      ? `<span class="cm-artist">${escapeHtml(t.artist)}</span>`
+      : '';
 
     const descHtml = t.description
       ? `<p class="cm-desc">${escapeHtml(t.description)}</p>`
@@ -45,10 +49,11 @@ async function renderConceptMusicPage() {
 
     return `
     <div class="cm-track" data-index="${i}">
-      ${artworkHtml}
+      <div class="cm-artwork-wrap">${artworkHtml}</div>
       <div class="cm-info">
         <span class="cm-track-number">Track ${String(i + 1).padStart(2, '0')}</span>
         <span class="cm-title">${escapeHtml(t.title)}</span>
+        ${artistHtml}
         ${descHtml}
         <div class="cm-player">
           <button class="cm-play" aria-label="Play">
@@ -66,7 +71,7 @@ async function renderConceptMusicPage() {
     </div>`;
   }).join('');
 
-  container.innerHTML = `<div class="cm-list">${items}</div>`;
+  container.innerHTML = `<div class="cm-grid">${items}</div>`;
 
   const audios = tracks.map(t => {
     const src = t.audio ? encodeURI(t.audio) : '';
