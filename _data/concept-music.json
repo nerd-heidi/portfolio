@@ -2,14 +2,23 @@
   "tracks": [
     {
       "title": "Midnight Window",
+      "artist": "",
       "audio": "/audio/今日もまた針が落ちる.wav",
       "artwork": "/images/yukka03.png",
       "description": ""
     },
     {
       "title": "Crossing Lights",
+      "artist": "",
       "audio": "/audio/ネオン・レコード・ナイト.wav",
       "artwork": "/images/yukka5.png",
+      "description": ""
+    },
+    {
+      "title": "Morning Routine",
+      "artist": "",
+      "audio": "/audio/朝焼けの川沿い.wav",
+      "artwork": "/images/yukka morning.png",
       "description": ""
     }
   ]
