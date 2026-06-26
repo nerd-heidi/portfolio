@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    {
+      "title": "Sample Track",
+      "audio": "/audio/sample.wav",
+      "artwork": "/images/concept-music/sample.png",
+      "description": "ここに曲の説明やコンセプトを入力してください。"
+    }
+  ]
+}

@@ -102,6 +102,24 @@ collections:
               - {name: artwork,     label: アートワーク画像,      widget: image, required: false}
               - {name: url,         label: Apple Music URL,       widget: string, hint: "https://music.apple.com/jp/playlist/..."}
 
+  - name: concept_music
+    label: "🎼 Concept Music"
+    files:
+      - name: concept_music_data
+        label: コンテンツを編集
+        file: _data/concept-music.json
+        format: json
+        fields:
+          - name: tracks
+            label: トラック
+            widget: list
+            label_singular: トラック
+            fields:
+              - {name: title,       label: タイトル,                 widget: string}
+              - {name: audio,       label: 音源ファイル (MP3/WAV),   widget: file,  media_folder: /audio, public_folder: /audio}
+              - {name: artwork,     label: イラスト画像,              widget: image, required: false, hint: "曲に添付するイラスト・アートワーク"}
+              - {name: description, label: 説明・コンセプト,         widget: text,  required: false}
+
   - name: beat
     label: "🎛 Beat"
     files:
