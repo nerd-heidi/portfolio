@@ -311,8 +311,9 @@ h1 {
 
 /* wide・large カードは上寄りにして顔が切れるのを防ぐ */
 .topic-card.wide img,
-.topic-card.large img {
-  object-position: center 20%;
+.topic-card.large img,
+.topic-card.full img {
+  object-position: center top;
 }
 
 .topic-card::after {
